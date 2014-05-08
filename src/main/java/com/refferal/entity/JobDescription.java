@@ -36,7 +36,13 @@ public class JobDescription {
 	 * 工作性质
 	 */
 	private int jobNature;
+
+	private String postDescription;
 	
+	private String postRequire;
+	
+	private String specialDescription;
+
 	public int getId() {
 		return id;
 	}
@@ -156,11 +162,5 @@ public class JobDescription {
 	public void setSpecialDescription(String specialDescription) {
 		this.specialDescription = specialDescription;
 	}
-
-	private String postDescription;
-	
-	private String postRequire;
-	
-	private String specialDescription;
 	
 }
