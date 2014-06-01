@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class App {
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
     public ModelAndView main( String[] args ) {
         return new ModelAndView("baidu");
     }
