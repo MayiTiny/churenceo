@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- saved from url=(0085)http://job.alibaba.com/zhaopin/positionList.htm?keyWord=SkFWQQ==&_input_charset=UTF-8 -->
 <html xmlns:wb="http://open.weibo.com/wb"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -5,7 +7,7 @@
 		<title>  职位搜索 - 阿里巴巴集团招聘  </title>
 		<link rel="shortcut icon" type="image/x-icon" href="https://i.alipayobjects.com/i/localhost/ico/201404/2WPSMmbEyj.ico">
 		<link rel="stylesheet" type="text/css" href="./职位搜索 - 阿里巴巴集团招聘_files/pob-box.css">
-		<link rel="stylesheet" type="text/css" href="./职位搜索 - 阿里巴巴集团招聘_files/comment.css">
+		<link rel="stylesheet" type="text/css" href="css/comment.css">
 		<link rel="stylesheet" type="text/css" href="./职位搜索 - 阿里巴巴集团招聘_files/datepicker.css">
 		<script type="text/javascript" async="" charset="utf-8" src="./职位搜索 - 阿里巴巴集团招聘_files/core.php"></script><script type="text/javascript" src="./职位搜索 - 阿里巴巴集团招聘_files/wdatepicker.js"></script><link href="./职位搜索 - 阿里巴巴集团招聘_files/WdatePicker.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="./职位搜索 - 阿里巴巴集团招聘_files/sea.js"></script>
