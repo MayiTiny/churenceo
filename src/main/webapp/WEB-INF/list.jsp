@@ -9,11 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="./职位搜索 - 阿里巴巴集团招聘_files/pob-box.css">
 		<link rel="stylesheet" type="text/css" href="css/comment.css">
 		<link rel="stylesheet" type="text/css" href="./职位搜索 - 阿里巴巴集团招聘_files/datepicker.css">
-		<script type="text/javascript" async="" charset="utf-8" src="./职位搜索 - 阿里巴巴集团招聘_files/core.php"></script><script type="text/javascript" src="./职位搜索 - 阿里巴巴集团招聘_files/wdatepicker.js"></script><link href="./职位搜索 - 阿里巴巴集团招聘_files/WdatePicker.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="./职位搜索 - 阿里巴巴集团招聘_files/sea.js"></script>
-        <script type="text/javascript" src="./职位搜索 - 阿里巴巴集团招聘_files/config.js"></script>
-        <script src="./职位搜索 - 阿里巴巴集团招聘_files/wb.js" type="text/javascript" charset="utf-8"></script>
-<script charset="UTF-8" src="./职位搜索 - 阿里巴巴集团招聘_files/bundle.js"></script><script charset="UTF-8" src="./职位搜索 - 阿里巴巴集团招聘_files/iframeWidget.js"></script><link rel="Stylesheet" type="text/css" charset="utf-8" href="./职位搜索 - 阿里巴巴集团招聘_files/followWithCard.css"><div style="position: absolute; top: -9999px; left: -9999px;"></div><script>var old = null;function asplay_top(c){var audio = document.createElement("audio");if(audio != null && audio.canPlayType && audio.canPlayType("audio/mpeg")){if(old){old.pause();}audio.src = c;old = audio;audio.play();}}</script></head>
+		<script type="text/javascript" async="" charset="utf-8" src="./职位搜索 - 阿里巴巴集团招聘_files/core.php"></script><script type="text/javascript" src="js/wdatepicker.js"></script><link href="./职位搜索 - 阿里巴巴集团招聘_files/WdatePicker.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/sea.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+        <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script charset="UTF-8" src="js/bundle.js"></script><script charset="UTF-8" src="js/iframeWidget.js"></script><link rel="Stylesheet" type="text/css" charset="utf-8" href="./职位搜索 - 阿里巴巴集团招聘_files/followWithCard.css"><div style="position: absolute; top: -9999px; left: -9999px;"></div><script>var old = null;function asplay_top(c){var audio = document.createElement("audio");if(audio != null && audio.canPlayType && audio.canPlayType("audio/mpeg")){if(old){old.pause();}audio.src = c;old = audio;audio.play();}}</script></head>
 <body><iframe id="sina_anywhere_iframe" style="display: none;"></iframe>
 	<!-- head:S -->
 	<div class="head">
@@ -40,7 +40,7 @@
 			<a href="http://job.alibaba.com/zhaopin/index.htm" class="logo"></a>
 		</div>
 	</div>
-	<script src="./职位搜索 - 阿里巴巴集团招聘_files/mini-login-embedderV2-min.js"></script>
+	<script src="js/mini-login-embedderV2-min.js"></script>
 <div class="banner">
     <!-- TMS:S -->
     <div class="slidebox" id="J_Slidebox">
@@ -250,7 +250,7 @@
 		          资深审计专员
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -323,7 +323,7 @@
 		          交互运营专家
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -398,7 +398,7 @@
 		          情报运营资深专员
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -472,7 +472,7 @@
 		          资料管理员（微贷事业部-国内企业信贷服务车间）
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -542,7 +542,7 @@
 		          数据开发/数据仓库工程师-杭州
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -610,10 +610,10 @@
 		          个人云-Ruby 工程师
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/ji-icon.png">
+		            <img src="images/ji-icon.png">
 		       
 		    </span>
 		 </td>
@@ -679,10 +679,10 @@
 		          Oracle 高级财务顾问
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/ji-icon.png">
+		            <img src="images/ji-icon.png">
 		       
 		    </span>
 		 </td>
@@ -751,7 +751,7 @@
 		          高级搜索运营专员-天猫-杭州
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -820,7 +820,7 @@
 		          高级ETL开发工程师（杭州）
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
@@ -890,7 +890,7 @@
 		          YUNOS-运营专家/经理-杭州
 		       </a>
 		       
-		            <img src="./职位搜索 - 阿里巴巴集团招聘_files/new-icon.png">
+		            <img src="images/new-icon.png">
 		          
 		          
 		    </span>
