@@ -1,0 +1,117 @@
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+@media (min-width: 768px) {
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+   .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+.job-box{
+    position: relative;
+    top: 60px;  
+    border:1px solid #E4E4E4;
+}
+
+.job-info{
+    position: relative;
+    top: 60px;  
+}
+
+.search-tab { 
+    padding-top: 10px;
+}
+
+.search-tab .search-li-box{
+    overflow: hidden; 
+    padding-top: 6px;
+}
+	
+.search-tab .search-li-box b{ 
+    display: block; 
+    float: left;
+    width: 75px; 
+    text-align: right;
+    font-size: 14px; 
+    color: #666; 
+    font-weight: normal;
+}
+
+.search-tab .r-span{
+    display:inline; 
+    width: 505px;
+}
+
+.search-tab .r-span a{
+    font-size:14px;
+}
+
+.search-tab .r-span a:hover{
+    background: #08c; 
+    color: #fff; 
+}
+
+.search-tab .r-span a,.search-bar div a{
+    padding: 1px 3px; 
+    color: #08c; 
+    margin-right: 8px; 
+    white-space:nowrap
+}
+
+        
+.job-list{
+    position: relative;
+    top: 10px;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0px;
+}
+
+.detail-title{
+    color:#08c;
+}

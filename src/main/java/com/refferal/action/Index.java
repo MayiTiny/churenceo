@@ -13,6 +13,6 @@ public class Index {
 	
 	@RequestMapping("/index")
     public ModelAndView main( String[] args ) {
-        return new ModelAndView("baidu");
+        return new ModelAndView("index");
     }
 }

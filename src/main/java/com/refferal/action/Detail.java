@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class List {
+public class Detail {
 
-	@RequestMapping("/list")
+	@RequestMapping("/detail")
     public ModelAndView main( String[] args ) {
-        return new ModelAndView("jobs");
+        return new ModelAndView("job_detail");
     }
-	
+
 }
