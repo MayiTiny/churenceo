@@ -37,7 +37,7 @@
               <div class="form-group  col-sm-10">
                   <input type="text" class="form-control input-lg" id="job_search" placeholder="请输入职位关键词">
               </div>  
-              <a href="list" class="btn btn-lg btn-default">搜索</a>
+              <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
                   </div>
             <h1 class="illustration">介绍公司标题</h1>
@@ -58,5 +58,13 @@
     </div>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+    	$(".js-search").click(function() {
+            var keyword = $("#job_search").val();
+            window.location.href = "list?keyword=" + keyword;
+       	});
+    }); 
+    </script>
     </body>
 </html>
