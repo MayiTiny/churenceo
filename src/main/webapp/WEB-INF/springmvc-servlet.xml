@@ -14,6 +14,25 @@
     http://www.springframework.org/schema/mvc  
     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
   
+    <!-- 引入jdbc配置文件 -->  
+    <context:property-placeholder location="classpath:jdbc.properties" />  
+    <!--创建jdbc数据源 -->  
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
+        destroy-method="close">  
+        <property name="driverClassName" value="${driver}" />  
+        <property name="url" value="${url}" />  
+        <property name="username" value="${username}" />  
+        <property name="password" value="${password}" />  
+    </bean>  
+    <!-- 创建SqlSessionFactory，同时指定数据源 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	  <property name="mapperInterface" value="com.refferal.mapper.JobDescriptionMapper" />
+	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean> 
+  
     <mvc:annotation-driven/>
 
     <mvc:resources mapping="/images/**" location="/images/" />

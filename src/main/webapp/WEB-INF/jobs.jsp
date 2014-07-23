@@ -79,7 +79,7 @@
                         <tr>
                         <td>
                            <span>
-                               <a target="_blank" href="">
+                               <a target="_blank" href="detail/">
                                   资深IOS/andriod研发工程师（淘宝网-大导购平台）
                                </a>
                             </span>

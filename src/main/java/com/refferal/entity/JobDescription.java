@@ -2,30 +2,42 @@ package com.refferal.entity;
 
 import java.util.Date;
 
+/**
+ * @author tiny
+ *
+ */
+/**
+ * @author tiny
+ *
+ */
 public class JobDescription {
 
 	private int id;
 	
+	/**
+	 * 职位名称
+	 */
 	private String name;
 	
-	private int cityId;
-	
-	private int department;
-	
-	private Date beginDate;
-	
-	private Date endDate;
-	
-	private int amount;
-	
-	private int degree;
-	
-	private int yearsLimit;
+	/**
+	 * 招聘人数
+	 */
+	private int headCount;
 	
 	/**
-	 * 职能类别
+	 * 部门
 	 */
-	private int functionType;
+	private int department;
+	
+	/**
+	 * 工作地点
+	 */
+	private int cityId;
+	
+	/**
+	 * 发布日期
+	 */
+	private Date beginDate;
 	
 	/**
 	 * 招聘类型
@@ -33,15 +45,44 @@ public class JobDescription {
 	private int recruitType;
 	
 	/**
-	 * 工作性质
+	 * 职能类别
 	 */
-	private int jobNature;
-
-	private String postDescription;
+	private int functionType;
 	
+	/**
+	 * 失效日期
+	 */
+	private Date endDate;
+	
+	/**
+	 * 工作年限
+	 */
+	private int yearsLimit;
+	
+	/**
+	 * 学历要求
+	 */
+	private int degree;
+	
+	/**
+	 * 岗位要求
+	 */
 	private String postRequire;
 	
+	/**
+	 * 岗位描述
+	 */
+	private String postDescription;
+	
+	/**
+	 * 特殊说明
+	 */
 	private String specialDescription;
+	
+	/**
+	 * 公司
+	 */
+	private int company;
 
 	public int getId() {
 		return id;
@@ -92,11 +133,11 @@ public class JobDescription {
 	}
 
 	public int getAmount() {
-		return amount;
+		return headCount;
 	}
 
 	public void setAmount(int amount) {
-		this.amount = amount;
+		this.headCount = amount;
 	}
 
 	public int getDegree() {
@@ -131,12 +172,12 @@ public class JobDescription {
 		this.recruitType = recruitType;
 	}
 
-	public int getJobNature() {
-		return jobNature;
+	public int getCompany() {
+		return company;
 	}
 
-	public void setJobNature(int jobNature) {
-		this.jobNature = jobNature;
+	public void setCompany(int company) {
+		this.company = company;
 	}
 
 	public String getPostDescription() {

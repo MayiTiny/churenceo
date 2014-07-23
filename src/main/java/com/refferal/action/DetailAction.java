@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class Detail {
+public class DetailAction {
 
 	@RequestMapping("/detail")
-    public ModelAndView main( String[] args ) {
+    public ModelAndView detail( String[] args ) {
         return new ModelAndView("job_detail");
     }
 
