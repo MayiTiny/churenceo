@@ -27,7 +27,7 @@ public class JobDescription {
 	/**
 	 * 部门
 	 */
-	private int department;
+	private String department;
 	
 	/**
 	 * 工作地点
@@ -57,12 +57,12 @@ public class JobDescription {
 	/**
 	 * 工作年限
 	 */
-	private int yearsLimit;
+	private String yearsLimit;
 	
 	/**
 	 * 学历要求
 	 */
-	private int degree;
+	private String degree;
 	
 	/**
 	 * 岗位要求
@@ -108,13 +108,6 @@ public class JobDescription {
 		this.cityId = cityId;
 	}
 
-	public int getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(int department) {
-		this.department = department;
-	}
 
 	public Date getBeginDate() {
 		return beginDate;
@@ -132,29 +125,6 @@ public class JobDescription {
 		this.endDate = endDate;
 	}
 
-	public int getAmount() {
-		return headCount;
-	}
-
-	public void setAmount(int amount) {
-		this.headCount = amount;
-	}
-
-	public int getDegree() {
-		return degree;
-	}
-
-	public void setDegree(int degree) {
-		this.degree = degree;
-	}
-
-	public int getYearsLimit() {
-		return yearsLimit;
-	}
-
-	public void setYearsLimit(int yearsLimit) {
-		this.yearsLimit = yearsLimit;
-	}
 
 	public int getFunctionType() {
 		return functionType;
@@ -182,6 +152,38 @@ public class JobDescription {
 
 	public String getPostDescription() {
 		return postDescription;
+	}
+
+	public int getHeadCount() {
+		return headCount;
+	}
+
+	public void setHeadCount(int headCount) {
+		this.headCount = headCount;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getYearsLimit() {
+		return yearsLimit;
+	}
+
+	public void setYearsLimit(String yearsLimit) {
+		this.yearsLimit = yearsLimit;
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
 	}
 
 	public void setPostDescription(String postDescription) {
