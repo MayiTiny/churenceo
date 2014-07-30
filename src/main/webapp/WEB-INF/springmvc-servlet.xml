@@ -25,13 +25,14 @@
         <property name="password" value="${password}" />  
     </bean>  
     <!-- 创建SqlSessionFactory，同时指定数据源 -->  
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:configuration.xml"></property> 
         <property name="dataSource" ref="dataSource" />  
     </bean>
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-	  <property name="mapperInterface" value="com.refferal.mapper.JobDescriptionMapper" />
-	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean> 
+    <bean id="jobDescriptionDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
   
     <mvc:annotation-driven/>
 

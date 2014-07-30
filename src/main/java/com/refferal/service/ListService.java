@@ -5,17 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
-import com.refferal.mapper.JobDescriptionMapper;
 
 @Service
 public class ListService {
 
 	@Autowired
-	private JobDescriptionMapper jobDescriptionMapper;
+	private JobDescriptionDao jobDescriptionDao;
 	
 	public List<JobDescription> search(String keyword) {
-		return jobDescriptionMapper.getJobDescriptions(keyword);
+		keyword = '%' + keyword + '%';
+		return jobDescriptionDao.getJobDescriptions(keyword);
 	}
 
+	public void insert(JobDescription jd) {
+		jobDescriptionDao.insert(jd);
+	}
+	
 }
