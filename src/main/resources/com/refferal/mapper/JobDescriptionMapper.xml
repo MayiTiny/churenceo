@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.refferal.dao.JobDescriptionDao">
+	<resultMap type="JobDescription" id="jobDescriptionMap">
+		<id property="id" column="id" />
+		<result property="name" column="company" />
+		<result property="name" column="name" />
+		<result property="headCount" column="head_count" />
+		<result property="department" column="department" />
+		<result property="cityId" column="city_id" />
+		<result property="beginDate" column="begin_date" />
+		<result property="recruitType" column="recruit_type" />
+		<result property="functionType" column="function_type" />
+		<result property="endDate" column="end_date" />
+		<result property="yearsLimit" column="years_limit" />
+		<result property="degree" column="degree" />
+		<result property="postRequire" column="post_require" />
+		<result property="postDescription" column="post_description" />
+		<result property="specialDescription" column="special_description" />
+	</resultMap>
+    <select id="getJobDescriptions" resultMap="jobDescriptionMap">
+        SELECT * FROM job_description WHERE name like #{0};
+    </select>
+    <insert id="insert" parameterMap="jobDescriptionMap">
+        insert into job_description (
+            company, 
+            name, 
+            head_count, 
+            department, 
+            city_id, 
+            begin_date, 
+            recruit_type, 
+            function_type, 
+            end_date,
+            years_limit,
+            degree,
+            post_require,
+            post_description,
+            special_description
+        ) values (
+            #{company}, 
+            #{name}, 
+            #{head_count}, 
+            #{department}, 
+            #{city_id}, 
+            #{begin_date}, 
+            #{recruit_type}, 
+            #{function_type}, 
+            #{end_date},
+            #{years_limit},
+            #{degree},
+            #{post_require},
+            #{post_description},
+            #{special_description}
+        );
+    </insert>
+</mapper>
