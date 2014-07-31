@@ -1,4 +1,4 @@
-package com.refferal.crawler;
+package com.refferal.crawler.impl;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -9,13 +9,20 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.refferal.crawler.JDCrawler;
+import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
+import com.refferal.enums.BaiduCategoryEnum;
 import com.refferal.enums.CompanyEnum;
 
-public class AliCrawler {
+public class AliCrawler implements JDCrawler{
+
+	@Autowired
+	private JobDescriptionDao jobDescriptionDao;
 
 	private static final String ALI_URL = "http://job.alibaba.com/zhaopin/socialPositionList/doList.json?pageSize=10&pageIndex=";
 
@@ -23,8 +30,7 @@ public class AliCrawler {
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
+	public void startCrawl() throws Exception {
 		HttpClient httpclient = new DefaultHttpClient();
 		int index = 1;
 		while (true) {
@@ -53,7 +59,8 @@ public class AliCrawler {
 					jobDesc.setPostDescription(job.getString("description"));
 					jobDesc.setYearsLimit(job.getString("workExperience"));
 					// 解析预留
-					jobDesc.setFunctionType(0);
+					jobDesc.setFunctionType(BaiduCategoryEnum.getCodeByName(job.getString("firstCategory")));
+					jobDescriptionDao.insert(jobDesc);
 					// TODO 插入数据库
 				}
 			} catch (Exception e) {

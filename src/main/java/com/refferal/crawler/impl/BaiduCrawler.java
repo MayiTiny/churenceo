@@ -1,4 +1,6 @@
-package com.refferal.crawler;
+package com.refferal.crawler.impl;
+
+import com.refferal.crawler.JDCrawler;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
@@ -6,13 +8,13 @@ import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
-public class BaiduCrawler {
+public class BaiduCrawler implements JDCrawler {
 
 	/**
 	 * @param args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public void startCrawl() throws Exception {
 
 		String crawlStorageFolder = "data/crawl/root";
 

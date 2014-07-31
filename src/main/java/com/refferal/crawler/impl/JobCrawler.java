@@ -1,4 +1,4 @@
-package com.refferal.crawler;
+package com.refferal.crawler.impl;
 
 import java.util.List;
 
@@ -7,8 +7,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
+import com.refferal.enums.BaiduCategoryEnum;
 import com.refferal.enums.CompanyEnum;
 
 import edu.uci.ics.crawler4j.crawler.Page;
@@ -17,6 +20,9 @@ import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
 public class JobCrawler extends WebCrawler {
+
+	@Autowired
+	private JobDescriptionDao jobDescriptionDao;
 
 	/**
 	 * You should implement this function to specify whether the given url
@@ -61,9 +67,10 @@ public class JobCrawler extends WebCrawler {
 							.trim();
 					System.out.println(headCount);
 					jobDesc.setHeadCount(Integer.parseInt(headCount));
-					System.out.println(jobInfo.child(7).childNode(0)
-							.childNode(0));
-					// TODO jobDesc.setType 职能类型预留
+					String type = jobInfo.child(7).childNode(0).childNode(0)
+							.toString();
+					jobDesc.setFunctionType(BaiduCategoryEnum
+							.getCodeByName(type));
 				}
 				Elements hrs_jobDuties = doc.getElementsByClass("hrs_jobDuty");
 				System.out.println("---------------------------------------");
@@ -95,7 +102,7 @@ public class JobCrawler extends WebCrawler {
 					jobDesc.setPostRequire(sb.toString());
 				}
 
-				// TODO 插入数据库
+				jobDescriptionDao.insert(jobDesc);
 			}
 		}
 	}
