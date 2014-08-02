@@ -63,6 +63,10 @@ public class AliCrawler implements JDCrawler{
 					jobDescriptionDao.insert(jobDesc);
 					// TODO 插入数据库
 				}
+				int totalPage = Integer.valueOf(totalJson.get("totalPage").toString());
+				if(index > totalPage){
+					break;
+				}
 			} catch (Exception e) {
 				break;
 			}
