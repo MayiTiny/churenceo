@@ -21,7 +21,7 @@
     <select id="getJobDescriptions" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE name like #{0};
     </select>
-    <insert id="insert" parameterMap="jobDescriptionMap">
+    <insert id="insert" parameterType="JobDescription">
         insert into job_description (
             company, 
             name, 
@@ -40,18 +40,21 @@
         ) values (
             #{company}, 
             #{name}, 
-            #{head_count}, 
+            #{headCount}, 
             #{department}, 
-            #{city_id}, 
-            #{begin_date}, 
-            #{recruit_type}, 
-            #{function_type}, 
-            #{end_date},
-            #{years_limit},
+            #{cityId}, 
+            #{beginDate}, 
+            #{recruitType}, 
+            #{functionType}, 
+            #{endDate},
+            #{yearsLimit},
             #{degree},
-            #{post_require},
-            #{post_description},
-            #{special_description}
+            #{postRequire},
+            #{postDescription},
+            #{specialDescription}
         );
     </insert>
+    <select id="selectById" parameterType="Integer" resultMap="jobDescriptionMap">
+        SELECT * FROM job_description WHERE id = #{0};
+    </select>
 </mapper>

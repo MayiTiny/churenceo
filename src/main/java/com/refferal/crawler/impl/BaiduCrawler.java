@@ -1,5 +1,7 @@
 package com.refferal.crawler.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.refferal.crawler.JDCrawler;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
@@ -8,6 +10,7 @@ import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
+@Service
 public class BaiduCrawler implements JDCrawler {
 
 	/**

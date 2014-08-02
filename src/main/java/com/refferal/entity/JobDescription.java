@@ -6,10 +6,6 @@ import java.util.Date;
  * @author tiny
  *
  */
-/**
- * @author tiny
- *
- */
 public class JobDescription {
 
 	private int id;
