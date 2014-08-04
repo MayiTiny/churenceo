@@ -77,7 +77,7 @@
                         </tr>
                     </thead>
                     <tbody id="J-list-box">
-                    <c:forEach items="${jds }" var="item">
+                    <c:forEach items="${jds.list }" var="item">
                         <tr>
 	                        <td>
 	                           <span>
