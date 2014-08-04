@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
@@ -19,6 +20,7 @@ import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
+@Service
 public class JobCrawler extends WebCrawler {
 
 	@Autowired

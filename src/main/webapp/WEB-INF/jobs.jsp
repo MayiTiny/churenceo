@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zh-cn"><head>
+<html lang="zh-cn">
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,28 +10,28 @@
     <title>PROJECT@YUFEI</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/job_style.css" rel="stylesheet">
-  <style type="text/css"></style><style id="holderjs-style" type="text/css"></style></head>
+    <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+  </head>
   <body>
-
-<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="#">LOGO</a>
-</div>
-<div class="navbar-collapse collapse">
-<ul class="nav navbar-nav">
-    <li class="active"><a href="#">首页</a></li>
-    <li><a href="#social">社会招聘</a></li>
-    <li><a href="#school">校园招聘</a></li>
-    <li><a href="#about">关于我们</a></li>
-</ul>
-</div>
-</div>
-</nav>
-
-
-<div class="container job-box">
-<div>
+	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+	  <div class="container">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#">LOGO</a>
+		</div>
+		<div class="navbar-collapse collapse">
+		  <ul class="nav navbar-nav">
+		    <li class="active"><a href="#">首页</a></li>
+		    <li><a href="#social">社会招聘</a></li>
+		    <li><a href="#school">校园招聘</a></li>
+		    <li><a href="#about">关于我们</a></li>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+    <div class="container job-box">
+      <div>
         <h3>职位搜索</h3>
         <div>
           <form class="form-inline" role="form">
@@ -61,72 +62,34 @@
                         <a href="javascript:;" rel="金融类" class="position-child" data-child-id="9">金融类</a>
                         <a href="javascript:;" rel="销售类" class="position-child" data-child-id="10">销售类</a>
                     </span>
-                </div>					
+                </div>                  
             </div>
         </div>
             <div>
                 <table class="table table-hover job-list">
-                        <thead>
-                            <tr>
-                                <th class="col-sm-4"><span>职位名称</span></th>
-                                <th class="col-sm-2"><span>职位类别</span></th>
-                                <th class="col-sm-2"><span>工作地点</span></th>
-                                <th class="col-sm-2"><span>招聘人数</span></th>
-                                <th class="col-sm-2"><span>更新时间</span></th>
-                            </tr>
-                        </thead>
-                        <tbody id="J-list-box">
+                    <thead>
                         <tr>
-                        <td>
-                           <span>
-                               <a target="_blank" href="detail/">
-                                  资深IOS/andriod研发工程师（淘宝网-大导购平台）
-                               </a>
-                            </span>
-                         </td>
-                        <td><span>开发类</span></td>
-                        <td><span>杭州市</span></td>
-                        <td>
-                            <span>
-                                                       若干
-                            </span>
-                         </td>
-                        <td><span>2014-07-18</span></td>
-                </tr>
-                <tr>
-                        <td>
-                           <span>
-                               <a target="_blank" href="">
-                                  图像算法专家（淘宝网-大导购平台）
-                               </a>
-                            </span>
-                         </td>
-                        <td><span>开发类</span></td>
-                        <td><span>杭州市</span></td>
-                        <td>
-                            <span>
-                                                       若干
-                            </span>
-                         </td>
-                        <td><span>2014-07-18</span></td>
-                </tr>
-                <tr>
-                        <td>
-                           <span>
-                               <a target="_blank" href="">
-                                  营销平台无线技术专家
-                               </a>
-                            </span>
-                         </td>
-                        <td><span>其它</span></td>
-                        <td><span>杭州市</span></td>
-                        <td>
-                            <span>
-                             3
-                            </span>
-                         </td>
-                        <td><span>2014-07-18</span></td>
-                </tr>	
+                            <th class="col-sm-4"><span>职位名称</span></th>
+                            <th class="col-sm-2"><span>职位类别</span></th>
+                            <th class="col-sm-2"><span>工作地点</span></th>
+                            <th class="col-sm-2"><span>招聘人数</span></th>
+                            <th class="col-sm-2"><span>更新时间</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="J-list-box">
+                    <c:forEach items="${jds }" var="item">
+                        <tr>
+	                        <td>
+	                           <span>
+	                               <a target="_blank" href="detail/${item.id }">${item.name }</a>
+	                            </span>
+	                         </td>
+	                        <td><span>${item.functionType }</span></td>
+	                        <td><span>${item.cityId }</span></td>
+	                        <td><span>${item.headCount }</span></td>
+	                        <td><span><fmt:formatDate value="${item.beginDate }" pattern="yyyy-MM-dd" /></span></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
                 </table>
                 <div class="col-sm-offset-5">
@@ -142,12 +105,11 @@
                 </div>
             </div>
         </div>
-</div>
-
-      <div class="footer">
-        <p>© DEMO</p>
-      </div>
+    </div>
+    <div class="footer">
+      <p>© DEMO</p>
+    </div>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>

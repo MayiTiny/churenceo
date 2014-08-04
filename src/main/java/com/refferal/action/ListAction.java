@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.refferal.entity.JobDescription;
-import com.refferal.service.ListService;
+import com.refferal.service.JobDescriptionService;
 
 @Controller
 public class ListAction {
 
 	@Autowired
-	private ListService listService;
+	private JobDescriptionService listService;
 	
 	@RequestMapping("/list")
     public ModelAndView list(HttpServletRequest request) {
@@ -25,8 +25,7 @@ public class ListAction {
 		
 		String keyword = request.getParameter("keyword");
 		List<JobDescription> jds = listService.search(keyword);
-		System.out.println(keyword);
-		System.out.println(jds.size());
+		System.out.println(keyword + " " + jds.size());
 		mv.addObject("jds", jds);
 		
         return mv;

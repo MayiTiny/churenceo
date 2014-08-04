@@ -8,7 +8,8 @@
     <meta name="author" content="">
     <title>PROJECT@YUFEI</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/job_style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
   <style type="text/css"></style><style id="holderjs-style" type="text/css"></style></head>
   <body>
 
@@ -32,38 +33,38 @@
 <div class="container job-info">
 <div class="panel  panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">资深IOS/andriod研发工程师（淘宝网-大导购平台）</h3>
+    <h3 class="panel-title">${jd.name }</h3>
   </div>
   <div class="panel-body">
       <table class="table table-bordered">
             <tr class="warning">
                   <td class="col-sm-1">发布时间：</td>
-                  <td class="col-sm-2">2014-05-29</td>
+                  <td class="col-sm-2"><fmt:formatDate value="${jd.beginDate }" pattern="yyyy-MM-dd" /></td>
                   <td class="col-sm-1">工作地点：</td>
-                  <td class="col-sm-2">杭州市</td>
+                  <td class="col-sm-2">${jd.cityId }</td>
                   <td class="col-sm-1">工作性质：</td>
-                  <td class="col-sm-2">全职</td>
+                  <td class="col-sm-2">${jd.recruitType }</td>
               </tr>
               <tr class="warning">
                   <td>所属部门：</td>
-                  <td>淘宝技术部-互动平台</td>
+                  <td>${jd.department }</td>
                   <td>学   历：</td>
-                  <td>其它</td>
+                  <td>${jd.degree }</td>
                   <td>招聘人数：</td>
-                  <td>若干</td>
+                  <td>${jd.headCount }</td>
               </tr>
       </table>
   </div>
     <ul class="list-group">
         <li class="list-group-item">
             <h4 class="detail-title">岗位描述</h4>
-            <p class="detail-content">岗位描述</p>
+            <p class="detail-content">${jd.postDescription }</p>
         </li>    
   </ul>
     <ul class="list-group">
         <li class="list-group-item">
             <h4 class="detail-title">岗位要求</h4>
-            <p class="detail-content">岗位描述</p>
+            <p class="detail-content">${jd.postRequire }</p>
         </li>    
   </ul>
     <div class="panel-footer">

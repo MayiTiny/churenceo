@@ -9,7 +9,7 @@ import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
 
 @Service
-public class ListService {
+public class JobDescriptionService {
 
 	@Autowired
 	private JobDescriptionDao jobDescriptionDao;
@@ -21,6 +21,10 @@ public class ListService {
 
 	public void insert(JobDescription jd) {
 		jobDescriptionDao.insert(jd);
+	}
+
+	public JobDescription selectById(Integer id) {
+		return jobDescriptionDao.selectById(id);
 	}
 	
 }

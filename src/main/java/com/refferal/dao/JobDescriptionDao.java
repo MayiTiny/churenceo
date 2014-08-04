@@ -9,5 +9,9 @@ public interface JobDescriptionDao {
 	List<JobDescription> getJobDescriptions(String keyword);
 
 	void insert(JobDescription jd);
+
+	JobDescription selectById(Integer id);
 	
+	int getJobDescriptionsCount(Integer keyword);
+
 }

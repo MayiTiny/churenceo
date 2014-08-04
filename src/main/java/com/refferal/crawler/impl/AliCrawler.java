@@ -10,6 +10,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -19,6 +20,7 @@ import com.refferal.entity.JobDescription;
 import com.refferal.enums.BaiduCategoryEnum;
 import com.refferal.enums.CompanyEnum;
 
+@Service
 public class AliCrawler implements JDCrawler{
 
 	@Autowired
