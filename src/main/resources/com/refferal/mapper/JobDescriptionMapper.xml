@@ -21,7 +21,7 @@
     <select id="getJobDescriptionsCount" resultType="Integer">
         SELECT count(*) FROM job_description WHERE name like #{0};
     </select>
-    <select id="getJobDescriptions" paramterType="hashmap" resultMap="jobDescriptionMap">
+    <select id="getJobDescriptions" parameterType="hashmap" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE name like #{0} limit #{start}, #{pageSize};
     </select>
     <insert id="insert" parameterType="JobDescription">
