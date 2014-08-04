@@ -12,7 +12,8 @@
     <link href="css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager" %>
   </head>
   <body>
 	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
@@ -94,13 +95,23 @@
                 </table>
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&raquo;</a></li>
+				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber">
+				    <pg:param name="keyword" value="${keyword }" />
+					<pg:first><li><a href="${pageUrl}" mce_href="${pageUrl}">第一页</a></li></pg:first>  
+					<pg:prev><li><a href="${pageUrl}" mce_href="${pageUrl}">&laquo;</a></li></pg:prev>  
+					<pg:pages>  
+						<c:choose>  
+							<c:when test="${pageNumber eq currentPageNumber }">  
+				                <li><a><font color="red">${pageNumber }</font></a></li> 
+							</c:when>  
+							<c:otherwise>  
+							    <li><a href="${pageUrl }" mce_href="${pageUrl }">${pageNumber}</a></li>
+							</c:otherwise>  
+						</c:choose>  
+					</pg:pages>  
+					<pg:next><li><a href="${pageUrl}" mce_href="${pageUrl}">&raquo;</a></li></pg:next>  
+					<pg:last><li><a href="${pageUrl}" mce_href="${pageUrl}">尾页</a></li></pg:last>  
+				</pg:pager>  
                 </ul>
                 </div>
             </div>
