@@ -21,7 +21,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">LOGO放置位</h3>
+              <h3 class="masthead-brand">搬砖网</h3>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="#">首页</a></li>
                 <li><a href="#">社会招聘</a></li>
@@ -40,14 +40,14 @@
               <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
                   </div>
-            <h1 class="illustration">介绍公司标题</h1>
-            <p class="illustration-lead">介绍公司内容</p>
+            <h1 class="illustration">都是大厂！</h1>
+            <p class="illustration-lead">厂厂厂！！</p>
 
           </div>
 
           <div class="mastfoot">
             <div class="inner">
-              <p>此处写版权声明</p>
+              <p>@2014 Copyright</p>
             </div>
           </div>
 

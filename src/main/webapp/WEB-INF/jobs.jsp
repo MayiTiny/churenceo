@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>搬砖网 ${jd.name }职位列表</title>
+    <title>搬砖网 ${keyword } 职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
@@ -19,7 +19,7 @@
 	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
 	  <div class="container">
 		<div class="navbar-header">
-		  <a class="navbar-brand" href="<%=request.getContextPath()%>">LOGO</a>
+		  <a class="navbar-brand" href="<%=request.getContextPath()%>">搬砖网</a>
 		</div>
 		<div class="navbar-collapse collapse">
 		  <ul class="nav navbar-nav">

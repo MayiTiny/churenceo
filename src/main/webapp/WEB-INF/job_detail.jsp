@@ -16,7 +16,7 @@
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
 <div class="container">
 <div class="navbar-header">
-<a class="navbar-brand" href="<%=request.getContextPath()%>">LOGO</a>
+<a class="navbar-brand" href="<%=request.getContextPath()%>">搬砖网</a>
 </div>
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
