@@ -64,6 +64,16 @@
             var keyword = $("#job_search").val();
             window.location.href = "list?keyword=" + keyword;
        	});
+    	$('#job_search').keydown(function(event) {  
+            if(event.keyCode == "13") {
+            	$(".js-search").click();
+            	if(window.event) {
+                   window.event.returnValue = false;  
+            	} else {
+                   event.preventDefault();//for firefox
+            	}
+            }
+        });
     }); 
     </script>
     </body>

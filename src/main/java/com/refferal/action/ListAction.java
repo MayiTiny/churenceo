@@ -1,5 +1,8 @@
 package com.refferal.action;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +27,13 @@ public class ListAction {
     public ModelAndView list(HttpServletRequest request) {
 		
 		ModelAndView mv = new ModelAndView("jobs");
-		
-		String keyword = request.getParameter("keyword");
+		String keyword = null;
+		try {
+			keyword = URLDecoder.decode(request.getParameter("keyword"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		int offset = ServletRequestUtils.getIntParameter(request, "pager.offset", 0);
 		PageList<JobDescription> jds = listService.search(keyword, offset ,PAGE_SIZE);

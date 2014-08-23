@@ -3,7 +3,7 @@
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -19,7 +19,7 @@
 	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
 	  <div class="container">
 		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">LOGO</a>
+		  <a class="navbar-brand" href="<%=request.getContextPath()%>">LOGO</a>
 		</div>
 		<div class="navbar-collapse collapse">
 		  <ul class="nav navbar-nav">
@@ -37,9 +37,9 @@
         <div>
           <form class="form-inline" role="form">
               <div class="form-group  col-sm-10">
-                  <input type="text" class="form-control input-lg" id="job_search" placeholder="请输入职位关键词">
+                  <input type="text" class="form-control input-lg" id="job_search" value="${keyword }" placeholder="请输入职位关键词">
               </div>  
-              <a href="#" class="btn btn-lg btn-default">搜索</a>
+              <a href="#" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
             <div class="search-tab ">
                 <div class="search-li-box layout">
@@ -95,7 +95,7 @@
                 </table>
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
-				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber">
+				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
 				    <pg:param name="keyword" value="${keyword }" />
 					<pg:first><li><a href="${pageUrl}" mce_href="${pageUrl}">第一页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}" mce_href="${pageUrl}">&laquo;</a></li></pg:prev>  
@@ -122,5 +122,23 @@
     </div>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".js-search").click(function() {
+            var keyword = $("#job_search").val();
+            window.location.href = "list?keyword=" + keyword;
+        });
+        $('#job_search').keydown(function(event) {  
+            if(event.keyCode == "13") {
+                $(".js-search").click();
+                if(window.event) {
+                   window.event.returnValue = false;  
+                } else {
+                   event.preventDefault();//for firefox
+                }
+            }
+        });
+    }); 
+    </script>
   </body>
 </html>
