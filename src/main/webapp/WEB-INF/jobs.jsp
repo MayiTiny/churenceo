@@ -96,21 +96,20 @@
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
-				    <pg:param name="keyword" value="${keyword }" />
-					<pg:first><li><a href="${pageUrl}" mce_href="${pageUrl}">第一页</a></li></pg:first>  
-					<pg:prev><li><a href="${pageUrl}" mce_href="${pageUrl}">&laquo;</a></li></pg:prev>  
+					<pg:first><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">第一页</a></li></pg:first>  
+					<pg:prev><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
 							<c:when test="${pageNumber eq currentPageNumber }">  
 				                <li><a><font color="red">${pageNumber }</font></a></li> 
 							</c:when>  
 							<c:otherwise>  
-							    <li><a href="${pageUrl }" mce_href="${pageUrl }">${pageNumber}</a></li>
+							    <li><a href="${pageUrl }&keyword=${keyword}" mce_href="${pageUrl }&keyword=${keyword}">${pageNumber}</a></li>
 							</c:otherwise>  
 						</c:choose>  
 					</pg:pages>  
-					<pg:next><li><a href="${pageUrl}" mce_href="${pageUrl}">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}" mce_href="${pageUrl}">尾页</a></li></pg:last>  
+					<pg:next><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&raquo;</a></li></pg:next>  
+					<pg:last><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">尾页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
