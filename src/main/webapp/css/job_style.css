@@ -115,3 +115,7 @@ body {
 .detail-title{
     color:#08c;
 }
+
+.col-sm-offset-5 {
+    margin-left: 20%;
+}
