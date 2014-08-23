@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>PROJECT@YUFEI</title>
+    <title>搬砖网 ${jd.name } 职位详情</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
@@ -16,7 +16,7 @@
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
 <div class="container">
 <div class="navbar-header">
-<a class="navbar-brand" href="#">LOGO</a>
+<a class="navbar-brand" href="<%=request.getContextPath()%>">LOGO</a>
 </div>
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
@@ -73,9 +73,9 @@
 </div>
 </div>
 
-      <div class="footer">
-        <p>© DEMO</p>
-      </div>
+<!--       <div class="footer"> -->
+<!--         <p>© DEMO</p> -->
+<!--       </div> -->
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </body>

@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="阿里内推,内推,内部推荐,阿里巴巴内部推荐">
     <meta name="author" content="">
-    <title>Project@YuFei</title>
+    <title>搬砖网 大型互联网公司内部推荐</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index_style.css" rel="stylesheet">
     <style id="holderjs-style" type="text/css"></style></head>
