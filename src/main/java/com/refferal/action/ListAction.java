@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.refferal.common.PageList;
 import com.refferal.entity.JobDescription;
+import com.refferal.entity.JobDescriptionDTO;
 import com.refferal.service.JobDescriptionService;
 
 @Controller
@@ -36,7 +37,7 @@ public class ListAction {
 		}
 
 		int offset = ServletRequestUtils.getIntParameter(request, "pager.offset", 0);
-		PageList<JobDescription> jds = listService.search(keyword, offset ,PAGE_SIZE);
+		PageList<JobDescriptionDTO> jds = listService.search(keyword, offset ,PAGE_SIZE);
 		mv.addObject("jds", jds);
 		mv.addObject("keyword", keyword);
 		

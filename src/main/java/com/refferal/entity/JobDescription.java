@@ -28,7 +28,7 @@ public class JobDescription {
 	/**
 	 * 工作地点
 	 */
-	private int cityId;
+	private String cityId;
 	
 	/**
 	 * 发布日期
@@ -96,11 +96,11 @@ public class JobDescription {
 		this.name = name;
 	}
 
-	public int getCityId() {
+	public String getCityId() {
 		return cityId;
 	}
 
-	public void setCityId(int cityId) {
+	public void setCityId(String cityId) {
 		this.cityId = cityId;
 	}
 

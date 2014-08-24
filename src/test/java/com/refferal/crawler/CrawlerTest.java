@@ -10,9 +10,10 @@ public class CrawlerTest {
 
 	@Test
 	public void crawlerTest() throws Exception {
-		ApplicationContext applicationContext = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/springmvc-servlet.xml"); 
+		ApplicationContext applicationContext = new FileSystemXmlApplicationContext(
+				"src/main/webapp/WEB-INF/springmvc-servlet.xml");
 		JDCrawler aliCrawler = applicationContext.getBean(AliCrawler.class);
 		aliCrawler.startCrawl();
 	}
-	
+
 }

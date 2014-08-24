@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.refferal.crawler.JDCrawler;
 import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
-import com.refferal.enums.BaiduCategoryEnum;
+import com.refferal.enums.AliCategoryEnum;
 import com.refferal.enums.CompanyEnum;
 
 @Service
@@ -56,12 +56,16 @@ public class AliCrawler implements JDCrawler{
 					// 默认全部是社招
 					jobDesc.setRecruitType(1);
 					jobDesc.setHeadCount(job.getIntValue("recruitNumber"));
+					if(jobDesc.getHeadCount() == 0){
+						jobDesc.setHeadCount(1);
+					}
 					jobDesc.setDepartment(job.getString("departmentName"));
 					jobDesc.setPostRequire(job.getString("requirement"));
 					jobDesc.setPostDescription(job.getString("description"));
 					jobDesc.setYearsLimit(job.getString("workExperience"));
 					// 解析预留
-					jobDesc.setFunctionType(BaiduCategoryEnum.getCodeByName(job.getString("firstCategory")));
+					jobDesc.setFunctionType(AliCategoryEnum.getCodeByName(job.getString("firstCategory")));
+					jobDesc.setCityId(job.getString("workLocation"));
 					jobDescriptionDao.insert(jobDesc);
 					// TODO 插入数据库
 				}

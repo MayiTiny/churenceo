@@ -58,5 +58,14 @@ public enum AliCategoryEnum {
 		}
 		return OTHER.getCode();
 	}
+	
+	public static String getNameByCode(int code){
+		for(AliCategoryEnum category :AliCategoryEnum.values()){
+			if(category.getCode() == code){
+				return category.getName();
+			}
+		}
+		return OTHER.getName();
+	}
 
 }
