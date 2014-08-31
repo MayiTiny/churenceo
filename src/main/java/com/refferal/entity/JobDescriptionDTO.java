@@ -130,6 +130,7 @@ public class JobDescriptionDTO {
 		this.functionType = functionType;
 	}
 
+	
 	public int getRecruitType() {
 		return recruitType;
 	}
