@@ -23,9 +23,7 @@
             <div class="inner">
               <h3 class="masthead-brand">搬砖网</h3>
               <ul class="nav masthead-nav">
-                <li class="active"><a href="#">首页</a></li>
-                <li><a href="#">社会招聘</a></li>
-                <li><a href="#">校园招聘</a></li>
+<!--                 <li class="active"><a href="#">首页</a></li> -->
                 <li><a href="#">关于我们</a></li>
               </ul>
             </div>

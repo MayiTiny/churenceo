@@ -20,9 +20,7 @@
 </div>
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
-    <li><a href="#">首页</a></li>
-    <li class="active"><a href="#social">社会招聘</a></li>
-    <li><a href="#school">校园招聘</a></li>
+<!--     <li><a href="#">首页</a></li> -->
     <li><a href="#about">关于我们</a></li>
 </ul>
 </div>

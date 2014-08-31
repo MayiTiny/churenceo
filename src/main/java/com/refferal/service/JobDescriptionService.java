@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +24,20 @@ public class JobDescriptionService {
 	private JobDescriptionDao jobDescriptionDao;
 	
 	@SuppressWarnings("unchecked")
-	public PageList<JobDescriptionDTO> search(String keyword, int start, int pageSize) {
+	public PageList<JobDescriptionDTO> search(String keyword, int category, String city, int start, int pageSize) {
 		PageList<JobDescriptionDTO> pageList = new PageList<JobDescriptionDTO>();
 		keyword = '%' + keyword + '%';
-		int count = jobDescriptionDao.getJobDescriptionsCount(keyword);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("keyword", keyword);
+		if (category > 0) {
+			params.put("category", category);
+		}
+		if (StringUtils.isNotBlank(city) && !"全部".equals(city)) {
+			params.put("city", "%" + city + "%");
+		}
+		int count = jobDescriptionDao.getJobDescriptionsCount(params);
 		if (count > 0) {
 			pageList.setCount(count);
-			Map<String, Object> params = new HashMap<String, Object>();
-			params.put("keyword", keyword);
 			params.put("start", start);
 			params.put("pageSize", pageSize);
 			List<JobDescription> jds = jobDescriptionDao.getJobDescriptions(params);

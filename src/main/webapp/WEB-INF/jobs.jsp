@@ -23,9 +23,7 @@
 		</div>
 		<div class="navbar-collapse collapse">
 		  <ul class="nav navbar-nav">
-		    <li class="active"><a href="#">首页</a></li>
-		    <li><a href="#social">社会招聘</a></li>
-		    <li><a href="#school">校园招聘</a></li>
+<!-- 		    <li class="active"><a href="#">首页</a></li> -->
 		    <li><a href="#about">关于我们</a></li>
 		  </ul>
 		</div>
@@ -37,31 +35,31 @@
         <div>
           <form class="form-inline" role="form">
               <div class="form-group  col-sm-10">
-                  <input type="text" class="form-control input-lg" id="job_search" value="${keyword }" placeholder="请输入职位关键词">
+                  <input type="text" class="form-control input-lg" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
               </div>  
               <a href="#" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
             <div class="search-tab ">
                 <div class="search-li-box layout">
                     <b>工作地点：</b> 
-                    <span class="r-span"> <a href="javascript:;" data-check-type="dress" rel="all" style="display:none">全部</a><span id="search-dress"><a data-check-type="dress" rel="杭州" href="javascript:;">杭州</a><a href="javascript:;" rel="北京" data-check-type="dress">北京</a><a href="javascript:;" rel="上海" data-check-type="dress">上海</a><a href="javascript:;" rel="深圳" data-check-type="dress">深圳</a></span> <a class="check-more-dress" href="javascript:;" data-current="4">更多&gt;&gt;</a>
+                    <span class="r-span">
+                        <a href="javascript:;" data-check-type="dress" rel="all" class="city <c:if test="${empty params.city||params.city=='全部' }">current</c:if>">全部</a>
+                        <span id="search-dress">
+	                        <a href="javascript:;" rel="杭州" data-check-type="dress" class="city <c:if test="${params.city=='杭州' }">current</c:if>">杭州</a>
+	                        <a href="javascript:;" rel="北京" data-check-type="dress" class="city <c:if test="${params.city=='北京' }">current</c:if>">北京</a>
+	                        <a href="javascript:;" rel="上海" data-check-type="dress" class="city <c:if test="${params.city=='上海' }">current</c:if>">上海</a>
+	                        <a href="javascript:;" rel="深圳" data-check-type="dress" class="city <c:if test="${params.city=='深圳' }">current</c:if>">深圳</a>
+                        </span> 
                     </span>
                 </div>
 
                 <div class="search-li-box">
                     <b>职位类别：</b>
                     <span class="r-span">
-                        <a class="current" href="javascript:;" style="display:none">全部</a>
-                        <a href="javascript:;" rel="综合类" class="position-child" data-child-id="1">综合类</a>
-                        <a href="javascript:;" rel="技术类" class="position-child" data-child-id="2">技术类</a>
-                        <a href="javascript:;" rel="产品类" class="position-child" data-child-id="3">产品类</a>
-                        <a href="javascript:;" rel="运营类" class="position-child" data-child-id="4">运营类</a>
-                        <a href="javascript:;" rel="设计类" class="position-child" data-child-id="5">设计类</a>
-                        <a href="javascript:;" rel="客服类" class="position-child" data-child-id="6">客服类</a>
-                        <a href="javascript:;" rel="市场拓展" class="position-child" data-child-id="7">市场拓展</a>
-                        <a href="javascript:;" rel="数据类" class="position-child" data-child-id="8">数据类</a>
-                        <a href="javascript:;" rel="金融类" class="position-child" data-child-id="9">金融类</a>
-                        <a href="javascript:;" rel="销售类" class="position-child" data-child-id="10">销售类</a>
+                        <a class="<c:if test="${params.category==0 }">current</c:if> position-child" href="javascript:;" data-child-id="0">全部</a>
+                        <c:forEach items="${categorys }" var="category">
+	                        <a href="javascript:;" rel="${category.name }" class="position-child <c:if test="${params.category==category.code }">current</c:if>" data-child-id="${category.code }">${category.name }</a>
+                        </c:forEach>
                     </span>
                 </div>                  
             </div>
@@ -127,7 +125,7 @@
             var keyword = $("#job_search").val();
             window.location.href = "list?keyword=" + keyword;
         });
-        $('#job_search').keydown(function(event) {  
+        $('#job_search').keydown(function(event) {
             if(event.keyCode == "13") {
                 $(".js-search").click();
                 if(window.event) {
@@ -137,6 +135,26 @@
                 }
             }
         });
+
+        $(".position-child").click(function() {
+        	$(".position-child").removeClass("current");
+        	$(this).addClass("current");
+        	search();
+        });
+
+        $(".city").click(function() {
+            $(".city").removeClass("current");
+            $(this).addClass("current");
+            search();
+        });
+
+        function search() {
+            var city = $(".city.current").text();
+            var category = $(".position-child.current").attr("data-child-id");
+            var keyword = $("#job_search").val();
+            window.location.href = "list?keyword=" + keyword + "&category=" + category + "&city=" + city;
+        }
+        
     }); 
     </script>
   </body>

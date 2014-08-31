@@ -18,11 +18,24 @@
 		<result property="postDescription" column="post_description" />
 		<result property="specialDescription" column="special_description" />
 	</resultMap>
-    <select id="getJobDescriptionsCount" resultType="Integer">
-        SELECT count(*) FROM job_description WHERE name like #{0};
+    <select id="getJobDescriptionsCount" parameterType="hashmap" resultType="Integer">
+        SELECT count(*) FROM job_description WHERE name like #{keyword}
+        <if test="category != null">
+            and function_type = #{category}
+        </if>
+        <if test="city != null">
+            and city_id like #{city}
+        </if>
     </select>
     <select id="getJobDescriptions" parameterType="hashmap" resultMap="jobDescriptionMap">
-        SELECT * FROM job_description WHERE name like #{keyword} limit #{start}, #{pageSize};
+        SELECT * FROM job_description WHERE name like #{keyword} 
+        <if test="category != null">
+            and function_type = #{category}
+        </if>
+        <if test="city != null">
+            and city_id like #{city}
+        </if>
+        limit #{start}, #{pageSize};
     </select>
     <insert id="insert" parameterType="JobDescription">
         insert into job_description (

@@ -89,7 +89,7 @@ body {
     font-size:14px;
 }
 
-.search-tab .r-span a:hover{
+.search-tab .r-span a:hover, .search-tab .r-span .current{
     background: #08c; 
     color: #fff; 
 }

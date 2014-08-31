@@ -13,6 +13,6 @@ public interface JobDescriptionDao {
 
 	JobDescription selectById(Integer id);
 	
-	int getJobDescriptionsCount(String keyword);
+	int getJobDescriptionsCount(Map<String, Object> params);
 
 }
