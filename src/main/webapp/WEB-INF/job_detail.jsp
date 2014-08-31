@@ -66,7 +66,7 @@
         </li>    
   </ul>
     <div class="panel-footer">
-        <button type="button" class="btn btn-danger">申请岗位</button>
+        <button type="button" class="btn btn-disabled"  onclick="window.location.href='mailto:apply2ali88@gmail.com?subject=搬砖网-姓名-工作年限-${jd.name }'">申请岗位</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请发送 “搬砖网-姓名-工作年限-职位类别” 到 apply2ali88@gmail.com 并附上职位链接与简历。在线投递紧张开发中，敬请期待！ 
     </div>
 </div>
 </div>

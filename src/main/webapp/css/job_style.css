@@ -119,3 +119,9 @@ body {
 .col-sm-offset-5 {
     margin-left: 20%;
 }
+
+.btn-disabled{
+	color: #fff;
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+}
