@@ -33,6 +33,33 @@
         <property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
+    
+   <!-- quartz-2.x的配置 -->  
+    <bean id="myJobTrigger"  
+        class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
+        <property name="jobDetail">  
+            <ref bean="myJobDetail" />  
+        </property>  
+        <property name="cronExpression">  
+            <value>0/1 * * * * ?</value>  
+        </property>  
+    </bean>  
+    <!-- 调度的配置结束 -->  
+  
+    <!-- job的配置开始 -->  
+    <bean id="myJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="myJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>deploy</value>  
+        </property>  
+    </bean>  
+    <!-- job的配置结束 -->  
+  
+    <!-- 工作的bean -->  
+    <bean id="myJob" class="com.refferal.quartz.job.DayCircleJob" />  
   
     <mvc:annotation-driven/>
 
