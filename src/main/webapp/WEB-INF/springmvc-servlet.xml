@@ -55,6 +55,7 @@
 	</bean>
 	<!-- 调度的配置结束 -->
 
+
 	<!-- job的配置开始 -->
 	<bean id="myJobDetail"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
