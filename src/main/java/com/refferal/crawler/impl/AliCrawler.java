@@ -21,7 +21,7 @@ import com.refferal.enums.AliCategoryEnum;
 import com.refferal.enums.CompanyEnum;
 
 @Service
-public class AliCrawler implements JDCrawler{
+public class AliCrawler implements JDCrawler {
 
 	@Autowired
 	private JobDescriptionDao jobDescriptionDao;
@@ -36,12 +36,13 @@ public class AliCrawler implements JDCrawler{
 		HttpClient httpclient = new DefaultHttpClient();
 		int index = 1;
 		while (true) {
-			HttpGet httpget = new HttpGet(ALI_URL + index++);
+			HttpGet httpget = new HttpGet(ALI_URL + index);
+			index++;
+			System.out.println(index);
 			httpget.addHeader("Content-Type", "text/html;charset=UTF-8");
 			HttpResponse response = httpclient.execute(httpget);
 			InputStream is = response.getEntity().getContent();
 			String result = inStream2String(is);
-			System.out.println(result);
 			try {
 				JSONObject totalJson = (JSONObject) JSONObject.parse(result);
 				JSONObject returnValue = (JSONObject) totalJson
@@ -56,7 +57,7 @@ public class AliCrawler implements JDCrawler{
 					// 默认全部是社招
 					jobDesc.setRecruitType(1);
 					jobDesc.setHeadCount(job.getIntValue("recruitNumber"));
-					if(jobDesc.getHeadCount() == 0){
+					if (jobDesc.getHeadCount() == 0) {
 						jobDesc.setHeadCount(1);
 					}
 					jobDesc.setDepartment(job.getString("departmentName"));
@@ -64,20 +65,23 @@ public class AliCrawler implements JDCrawler{
 					jobDesc.setPostDescription(job.getString("description"));
 					jobDesc.setYearsLimit(job.getString("workExperience"));
 					// 解析预留
-					jobDesc.setFunctionType(AliCategoryEnum.getCodeByName(job.getString("firstCategory")));
+					jobDesc.setFunctionType(AliCategoryEnum.getCodeByName(job
+							.getString("firstCategory")));
 					jobDesc.setCityId(job.getString("workLocation"));
 					jobDescriptionDao.insert(jobDesc);
 					// TODO 插入数据库
 				}
-				int totalPage = Integer.valueOf(returnValue.get("totalPage").toString());
-				if(index > totalPage){
+				int totalPage = Integer.valueOf(returnValue.get("totalPage")
+						.toString());
+				if (index > totalPage) {
 					break;
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 				break;
 			}
 			EntityUtils.consume(response.getEntity());
-			Thread.sleep(5000L);
+			Thread.sleep(1000L);
 		}
 	}
 

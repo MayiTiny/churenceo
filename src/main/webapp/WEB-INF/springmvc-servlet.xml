@@ -31,7 +31,9 @@
 		<property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
-
+	
+	<bean id="ali" class="com.refferal.crawler.impl.AliCrawler"/>
+	<bean id="baidu" class="com.refferal.crawler.impl.BaiduCrawler"/>
 	<bean id="scheduler"
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
@@ -50,7 +52,7 @@
 			<ref bean="myJobDetail" />
 		</property>
 		<property name="cronExpression">
-			<value>0 30 1 * * ?</value>
+			<value>0 * * * * ?</value>
 		</property>
 	</bean>
 	<!-- 调度的配置结束 -->

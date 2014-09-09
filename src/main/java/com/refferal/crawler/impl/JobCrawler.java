@@ -68,7 +68,11 @@ public class JobCrawler extends WebCrawler {
 					String headCount = jobInfo.child(5).childNode(0).toString()
 							.trim();
 					System.out.println(headCount);
-					jobDesc.setHeadCount(Integer.parseInt(headCount));
+					try{
+						jobDesc.setHeadCount(Integer.parseInt(headCount));
+					}catch(Exception e){
+						jobDesc.setHeadCount(5);
+					}
 					String type = jobInfo.child(7).childNode(0).childNode(0)
 							.toString();
 					jobDesc.setFunctionType(BaiduCategoryEnum
