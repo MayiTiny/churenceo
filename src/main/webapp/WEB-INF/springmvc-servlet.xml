@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<beans  
-    xmlns="http://www.springframework.org/schema/beans"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-    xmlns:tx="http://www.springframework.org/schema/tx"  
-    xmlns:context="http://www.springframework.org/schema/context"    
-    xmlns:mvc="http://www.springframework.org/schema/mvc"    
-    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
     http://www.springframework.org/schema/tx   
     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
@@ -13,81 +11,94 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd  
     http://www.springframework.org/schema/mvc  
     http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-  
-    <!-- 引入jdbc配置文件 -->  
-    <context:property-placeholder location="classpath:jdbc.properties" />  
-    <!--创建jdbc数据源 -->  
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
-        destroy-method="close">  
-        <property name="driverClassName" value="${driver}" />  
-        <property name="url" value="${url}" />  
-        <property name="username" value="${username}" />  
-        <property name="password" value="${password}" />  
-    </bean>  
-    <!-- 创建SqlSessionFactory，同时指定数据源 -->  
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:configuration.xml"></property> 
-        <property name="dataSource" ref="dataSource" />  
-    </bean>
-    <bean id="jobDescriptionDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-    </bean>
-    
-   <!-- quartz-2.x的配置 -->  
-    <bean id="myJobTrigger"  
-        class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">  
-        <property name="jobDetail">  
-            <ref bean="myJobDetail" />  
-        </property>  
-        <property name="cronExpression">  
-            <value>0/1 * * * * ?</value>  
-        </property>  
-    </bean>  
-    <!-- 调度的配置结束 -->  
-  
-    <!-- job的配置开始 -->  
-    <bean id="myJobDetail"  
-        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
-        <property name="targetObject">  
-            <ref bean="myJob" />  
-        </property>  
-        <property name="targetMethod">  
-            <value>deploy</value>  
-        </property>  
-    </bean>  
-    <!-- job的配置结束 -->  
-  
-    <!-- 工作的bean -->  
-    <bean id="myJob" class="com.refferal.quartz.job.DayCircleJob" />  
-  
-    <mvc:annotation-driven/>
 
-    <mvc:resources mapping="/images/**" location="/images/" />
-    <mvc:resources mapping="/css/**" location="/css/" />
-    <mvc:resources mapping="/js/**" location="/js/" />
-    
-    <!-- 自动扫描的包名 -->  
-    <context:component-scan base-package="com.refferal"></context:component-scan>
-    
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-       <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-       <property name="prefix" value="/WEB-INF/" />
-       <property name="suffix" value=".jsp" />
-	</bean> 
-    <bean
-        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <bean
-                    class="org.springframework.http.converter.StringHttpMessageConverter">
-                    <property name="supportedMediaTypes">
-                        <list>
-                            <value>text/plain;charset=UTF-8</value>
-                        </list>
-                    </property>
-                </bean>
-            </list>
-        </property>
-    </bean>
+	<!-- 引入jdbc配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!--创建jdbc数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+	<!-- 创建SqlSessionFactory，同时指定数据源 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:configuration.xml"></property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="jobDescriptionDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+	<bean id="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="myTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- quartz-2.x的配置 -->
+	<bean id="myTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="name" value="work_default_name" />
+		<property name="group" value="work_default" />
+		<property name="jobDetail">
+			<ref bean="myJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 30 1 * * ?</value>
+		</property>
+	</bean>
+	<!-- 调度的配置结束 -->
+
+	<!-- job的配置开始 -->
+	<bean id="myJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="myJob" />
+		</property>
+		<property name="targetMethod">
+			<value>deploy</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!-- 工作的bean -->
+	<bean id="myJob" class="com.refferal.quartz.job.DayCircleJob" />
+
+	<mvc:annotation-driven />
+
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+
+	<!-- 自动扫描的包名 -->
+	<context:component-scan base-package="com.refferal"></context:component-scan>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
 </beans> 
