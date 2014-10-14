@@ -73,4 +73,8 @@
     <select id="selectById" parameterType="Integer" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE id = #{0};
     </select>
+    
+    <delete id="deleteAll">
+       DELETE FROM job_description ;
+    </delete>
 </mapper>

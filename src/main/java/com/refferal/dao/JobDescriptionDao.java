@@ -14,5 +14,7 @@ public interface JobDescriptionDao {
 	JobDescription selectById(Integer id);
 	
 	int getJobDescriptionsCount(Map<String, Object> params);
+	
+	void deleteAll();
 
 }
