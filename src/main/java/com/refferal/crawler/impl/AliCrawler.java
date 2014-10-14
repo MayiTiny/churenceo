@@ -33,7 +33,6 @@ public class AliCrawler implements JDCrawler {
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		
 		jobDescriptionDao.deleteAll();
 		HttpClient httpclient = new DefaultHttpClient();
 		int index = 1;
