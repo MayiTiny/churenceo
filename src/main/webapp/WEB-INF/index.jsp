@@ -45,7 +45,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>@2014 Copyright</p>
+              <p>京ICP备14047376</p>
             </div>
           </div>
 

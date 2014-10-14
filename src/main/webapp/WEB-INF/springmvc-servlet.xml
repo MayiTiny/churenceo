@@ -21,6 +21,16 @@
 		<property name="url" value="${url}" />
 		<property name="username" value="${username}" />
 		<property name="password" value="${password}" />
+		
+		<property name="timeBetweenEvictionRunsMillis">
+                    <value>3600000</value><!--1 hours-->
+                </property>
+  		<property name="testWhileIdle">
+   		    <value>true</value>
+                </property>
+                <property name="validationQuery">
+                    <value>select 1</value>
+                </property>
 	</bean>
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
