@@ -70,6 +70,7 @@
             #{specialDescription}
         );
     </insert>
+    
     <select id="selectById" parameterType="Integer" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE id = #{0};
     </select>

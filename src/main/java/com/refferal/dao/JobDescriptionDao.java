@@ -17,4 +17,6 @@ public interface JobDescriptionDao {
 	
 	void deleteAll();
 
+	
+	
 }
