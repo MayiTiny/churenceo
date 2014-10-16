@@ -1,4 +1,4 @@
-﻿package com.refferal.lucene;
+package com.refferal.lucene;
 
 public class JobDescription {
 	
