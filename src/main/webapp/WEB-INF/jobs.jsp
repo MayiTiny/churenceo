@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>搬砖网 ${keyword } 职位列表</title>
+    <title>搬砖网 ${params.keyword } 职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
@@ -94,20 +94,20 @@
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
-					<pg:first><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">第一页</a></li></pg:first>  
-					<pg:prev><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&laquo;</a></li></pg:prev>  
+					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">第一页</a></li></pg:first>  
+					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
 							<c:when test="${pageNumber eq currentPageNumber }">  
 				                <li><a><font color="red">${pageNumber }</font></a></li> 
 							</c:when>  
 							<c:otherwise>  
-							    <li><a href="${pageUrl }&keyword=${keyword}" mce_href="${pageUrl }&keyword=${keyword}">${pageNumber}</a></li>
+							    <li><a href="${pageUrl }&keyword=${params.keyword}" mce_href="${pageUrl }&keyword=${params.keyword}">${pageNumber}</a></li>
 							</c:otherwise>  
 						</c:choose>  
 					</pg:pages>  
-					<pg:next><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">尾页</a></li></pg:last>  
+					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">&raquo;</a></li></pg:next>  
+					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">尾页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
