@@ -31,7 +31,7 @@
 	</nav>
     <div class="container job-box">
       <div>
-        <h3>职位搜索</h3>
+        <h4>职位搜索</h4>
         <div>
           <form class="form-inline" role="form">
               <div class="form-group  col-sm-10">

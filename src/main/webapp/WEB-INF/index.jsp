@@ -38,7 +38,7 @@
               <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
                   </div>
-            <h2 class="illustration">知名互联网公司内部推荐</h1>
+            <h2 class="illustration">知名互联网公司内部推荐</h2>
             <p class="illustration-lead">都是大厂！厂！厂！厂！！</p>
 
           </div>

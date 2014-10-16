@@ -4,6 +4,14 @@ body {
   font-family: Microsoft YaHei;
 }
 
+h4 {
+    font-family: Microsoft YaHei;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #FFF;
+}
+
 .navbar-wrapper {
   position: absolute;
   top: 0;
