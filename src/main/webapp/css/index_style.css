@@ -121,7 +121,7 @@ h1,h2 {
   .masthead-brand {
     float: left;
     font-family: Microsoft YaHei;
-    font-size: 40px;
+    font-size: 38px;
   }
   .masthead-nav {
     float: right;
@@ -138,7 +138,7 @@ h1,h2 {
 }
 .cover .btn-lg {
   padding: 10px 20px;
-  font-weight: bold;
+  //font-weight: bold;
 }
 
 
