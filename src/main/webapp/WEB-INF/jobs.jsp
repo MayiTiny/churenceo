@@ -94,20 +94,21 @@
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
-					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">第一页</a></li></pg:first>  
-					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">&laquo;</a></li></pg:prev>  
+					<pg:param name="category" value="${params.category }" />
+					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第一页</a></li></pg:first>  
+					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
 							<c:when test="${pageNumber eq currentPageNumber }">  
 				                <li><a><font color="red">${pageNumber }</font></a></li> 
 							</c:when>  
 							<c:otherwise>  
-							    <li><a href="${pageUrl }&keyword=${params.keyword}" mce_href="${pageUrl }&keyword=${params.keyword}">${pageNumber}</a></li>
+							    <li><a href="${pageUrl }&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl }&keyword=${params.keyword}&city=${params.city }">${pageNumber}</a></li>
 							</c:otherwise>  
 						</c:choose>  
 					</pg:pages>  
-					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}" mce_href="${pageUrl}&keyword=${params.keyword}">尾页</a></li></pg:last>  
+					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
+					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">尾页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
