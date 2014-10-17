@@ -16,7 +16,6 @@ public class DayCircleJob {
 		try{
 			ali.startCrawl();
 		}catch(Exception e){
-			
 		}
 		baidu.startCrawl();
 	}
