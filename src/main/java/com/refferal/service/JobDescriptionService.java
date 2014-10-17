@@ -24,7 +24,7 @@ public class JobDescriptionService {
 	private JobDescriptionDao jobDescriptionDao;
 	
 	@SuppressWarnings("unchecked")
-	public PageList<JobDescriptionDTO> search(String keyword, int category, String city, int start, int pageSize) {
+	public PageList<JobDescriptionDTO> search(String keyword, int category, String city, int company, int start, int pageSize) {
 		PageList<JobDescriptionDTO> pageList = new PageList<JobDescriptionDTO>();
 		keyword = '%' + keyword + '%';
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -35,6 +35,10 @@ public class JobDescriptionService {
 		if (StringUtils.isNotBlank(city) && !"全部".equals(city)) {
 			params.put("city", "%" + city + "%");
 		}
+		if (company > 0) {
+			params.put("company", company);
+		}
+		
 		int count = jobDescriptionDao.getJobDescriptionsCount(params);
 		if (count > 0) {
 			pageList.setCount(count);

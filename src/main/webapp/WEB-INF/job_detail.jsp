@@ -10,6 +10,7 @@
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   <style type="text/css"></style><style id="holderjs-style" type="text/css"></style></head>
   <body>
 
@@ -40,16 +41,16 @@
                   <td class="col-sm-2"><fmt:formatDate value="${jd.beginDate }" pattern="yyyy-MM-dd" /></td>
                   <td class="col-sm-1">工作地点：</td>
                   <td class="col-sm-2">${jd.cityId }</td>
-                  <td class="col-sm-1">工作性质：</td>
-                  <td class="col-sm-2">${jd.recruitType }</td>
+                  <td class="col-sm-1">公&emsp;&emsp;司：</td>
+                  <td class="col-sm-2">${jd.companyName }</td>
               </tr>
               <tr class="warning">
                   <td>所属部门：</td>
                   <td>${jd.department }</td>
-                  <td>学   历：</td>
+                  <td>学&emsp;&emsp;历：</td>
                   <td>${jd.degree }</td>
                   <td>招聘人数：</td>
-                  <td>${jd.headCount }</td>
+                  <td><c:if test="${jd.headCount==-1 }">若干</c:if><c:if test="${jd.headCount!=-1 }">${jd.headCount }</c:if></td>
               </tr>
       </table>
   </div>

@@ -2,6 +2,8 @@ package com.refferal.entity;
 
 import java.util.Date;
 
+import com.refferal.enums.CompanyEnum;
+
 /**
  * @author tiny
  *
@@ -201,6 +203,10 @@ public class JobDescriptionDTO {
 
 	public void setSpecialDescription(String specialDescription) {
 		this.specialDescription = specialDescription;
+	}
+	
+	public String getCompanyName() {
+		return CompanyEnum.getNameById(company);
 	}
 	
 }

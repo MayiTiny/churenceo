@@ -1,14 +1,16 @@
 package com.refferal.enums;
 
+import org.apache.commons.lang3.StringUtils;
+
 public enum CompanyEnum {
 	
 	ALIBABA("阿里巴巴",1),
 	
 	BAIDU("百度",2),
 	
-	MEITUAN("美团网",3),
+	MEITUAN("美团",3),
 	
-	QUNAR("去哪网",4);
+	QUNAR("去哪儿",4);
 	
 	private String companyName;
 
@@ -19,6 +21,15 @@ public enum CompanyEnum {
 		this.companyId = companyId;
 	}
 
+	public static String getNameById(int id) {
+		for (CompanyEnum company : CompanyEnum.values()) {
+			if (company.getCompanyId() == id) {
+				return company.getCompanyName();
+			}
+		}
+		return StringUtils.EMPTY;
+	}
+	
 	public String getCompanyName() {
 		return companyName;
 	}

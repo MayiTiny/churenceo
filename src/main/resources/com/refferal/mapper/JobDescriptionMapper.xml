@@ -3,7 +3,7 @@
 <mapper namespace="com.refferal.dao.JobDescriptionDao">
 	<resultMap type="JobDescription" id="jobDescriptionMap">
 		<id property="id" column="id" />
-		<result property="name" column="company" />
+		<result property="company" column="company" />
 		<result property="name" column="name" />
 		<result property="headCount" column="head_count" />
 		<result property="department" column="department" />
@@ -26,6 +26,9 @@
         <if test="city != null">
             and city_id like #{city}
         </if>
+        <if test="company != null">
+            and company = #{company}
+        </if>
     </select>
     <select id="getJobDescriptions" parameterType="hashmap" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE name like #{keyword} 
@@ -34,6 +37,9 @@
         </if>
         <if test="city != null">
             and city_id like #{city}
+        </if>
+        <if test="company != null">
+            and company = #{company}
         </if>
         limit #{start}, #{pageSize};
     </select>

@@ -41,6 +41,17 @@
           </form>
             <div class="search-tab ">
                 <div class="search-li-box layout">
+                    <b>公&emsp;&emsp;司：</b> 
+                    <span class="r-span">
+                        <a href="javascript:;" data-check-type="dress" rel="all" class="company <c:if test="${empty companys||params.company==0 }">current</c:if>">全部</a>
+                        <span id="search-dress">
+                            <c:forEach items="${companys }" var="comopany">
+		                        <a href="javascript:;" rel="${comopany.companyName }" company-id="${comopany.companyId }" data-check-type="dress" class="company <c:if test="${params.company==comopany.companyId }">current</c:if>">${comopany.companyName }</a>
+                            </c:forEach>
+                        </span> 
+                    </span>
+                </div>
+                <div class="search-li-box layout">
                     <b>工作地点：</b> 
                     <span class="r-span">
                         <a href="javascript:;" data-check-type="dress" rel="all" class="city <c:if test="${empty params.city||params.city=='全部' }">current</c:if>">全部</a>
@@ -52,7 +63,6 @@
                         </span> 
                     </span>
                 </div>
-
                 <div class="search-li-box">
                     <b>职位类别：</b>
                     <span class="r-span">
@@ -85,7 +95,7 @@
 	                         </td>
 	                        <td><span>${item.functionType }</span></td>
 	                        <td><span>${item.cityId }</span></td>
-	                        <td><span>${item.headCount }</span></td>
+	                        <td><span><c:if test="${item.headCount==-1 }">若干</c:if><c:if test="${item.headCount!=-1 }">${item.headCount }</c:if></span></td>
 	                        <td><span><fmt:formatDate value="${item.beginDate }" pattern="yyyy-MM-dd" /></span></td>
                         </tr>
                     </c:forEach>
@@ -95,6 +105,7 @@
                 <ul class="pagination">
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
 					<pg:param name="category" value="${params.category }" />
+					<pg:param name="company" value="${params.company }" />
 					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第一页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
@@ -149,11 +160,18 @@
             search();
         });
 
+        $(".company").click(function() {
+            $(".company").removeClass("current");
+            $(this).addClass("current");
+            search();
+        });
+
         function search() {
             var city = $(".city.current").text();
             var category = $(".position-child.current").attr("data-child-id");
             var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + keyword + "&category=" + category + "&city=" + city;
+            var company = $(".company.current").attr("company-id");
+            window.location.href = "list?keyword=" + keyword + "&category=" + category + "&company=" + company + "&city=" + city;
         }
         
     }); 
