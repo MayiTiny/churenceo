@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="阿里内推,内推,内部推荐,阿里巴巴内部推荐">
+    <meta name="description" content="阿里内推,内推,内部推荐,阿里,阿里巴巴内部推荐">
     <meta name="author" content="">
-    <title>搬砖网 大型互联网公司内部推荐</title>
+    <title>搬砖网 知名互联网公司内部推荐 阿里内推 百度内推</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index_style.css" rel="stylesheet">
     <style id="holderjs-style" type="text/css"></style></head>
@@ -38,8 +38,8 @@
               <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
                   </div>
-            <h1 class="illustration">都是大厂！</h1>
-            <p class="illustration-lead">厂厂厂！！</p>
+            <h2 class="illustration">知名互联网公司内部推荐</h2>
+            <p class="illustration-lead">都是大厂！厂！厂！厂！！</p>
 
           </div>
 

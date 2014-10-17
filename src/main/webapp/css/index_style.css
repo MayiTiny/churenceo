@@ -40,6 +40,11 @@ body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  font-family: Microsoft YaHei;
+}
+
+h1,h2 {
+	font-family: Microsoft YaHei;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -116,7 +121,7 @@ body {
   .masthead-brand {
     float: left;
     font-family: Microsoft YaHei;
-    font-size: 40px;
+    font-size: 38px;
   }
   .masthead-nav {
     float: right;
@@ -133,7 +138,7 @@ body {
 }
 .cover .btn-lg {
   padding: 10px 20px;
-  font-weight: bold;
+  //font-weight: bold;
 }
 
 

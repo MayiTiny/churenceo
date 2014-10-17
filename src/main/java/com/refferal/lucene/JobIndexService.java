@@ -1,4 +1,4 @@
-﻿package com.refferal.lucene;
+package com.refferal.lucene;
 
 import java.io.File;
 import java.util.Date;

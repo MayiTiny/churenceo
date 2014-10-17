@@ -1,6 +1,15 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  font-family: Microsoft YaHei;
+}
+
+h3,h4 {
+    font-family: Microsoft YaHei;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #FFF;
 }
 
 .navbar-wrapper {
@@ -117,7 +126,8 @@ body {
 }
 
 .col-sm-offset-5 {
-    margin-left: 20%;
+    margin-left: 0%;
+    text-align: center;
 }
 
 .btn-disabled{

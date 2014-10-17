@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="搬砖网,${params.keyword }内推,${params.keyword }内部推荐">
     <meta name="author" content="">
-    <title>搬砖网 ${keyword } 职位列表</title>
+    <title>搬砖网 ${params.keyword }内推 ${params.keyword }职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
@@ -19,7 +19,7 @@
 	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
 	  <div class="container">
 		<div class="navbar-header">
-		  <a class="navbar-brand" href="<%=request.getContextPath()%>">搬砖网</a>
+		  <a class="navbar-brand" href="<%=request.getContextPath()%>/">搬砖网</a>
 		</div>
 		<div class="navbar-collapse collapse">
 		  <ul class="nav navbar-nav">
@@ -31,7 +31,7 @@
 	</nav>
     <div class="container job-box">
       <div>
-        <h3>职位搜索</h3>
+        <h4>职位搜索</h4>
         <div>
           <form class="form-inline" role="form">
               <div class="form-group  col-sm-10">
@@ -94,20 +94,21 @@
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
-					<pg:first><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">第一页</a></li></pg:first>  
-					<pg:prev><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&laquo;</a></li></pg:prev>  
+					<pg:param name="category" value="${params.category }" />
+					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第一页</a></li></pg:first>  
+					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
 							<c:when test="${pageNumber eq currentPageNumber }">  
 				                <li><a><font color="red">${pageNumber }</font></a></li> 
 							</c:when>  
 							<c:otherwise>  
-							    <li><a href="${pageUrl }&keyword=${keyword}" mce_href="${pageUrl }&keyword=${keyword}">${pageNumber}</a></li>
+							    <li><a href="${pageUrl }&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl }&keyword=${params.keyword}&city=${params.city }">${pageNumber}</a></li>
 							</c:otherwise>  
 						</c:choose>  
 					</pg:pages>  
-					<pg:next><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${keyword}" mce_href="${pageUrl}&keyword=${keyword}">尾页</a></li></pg:last>  
+					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
+					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">尾页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
