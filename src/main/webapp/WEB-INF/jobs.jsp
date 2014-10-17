@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="搬砖网,${params.keyword }内推,${params.keyword }内部推荐">
     <meta name="author" content="">
     <title>搬砖网 ${params.keyword }内推 ${params.keyword }职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
