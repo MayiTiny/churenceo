@@ -13,7 +13,11 @@ public class DayCircleJob {
 	private JDCrawler baidu;
 	
 	public void deploy() throws Exception{
-		ali.startCrawl();
+		try{
+			ali.startCrawl();
+		}catch(Exception e){
+			
+		}
 		baidu.startCrawl();
 	}
 }
