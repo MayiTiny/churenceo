@@ -126,7 +126,8 @@ h3,h4 {
 }
 
 .col-sm-offset-5 {
-    margin-left: 20%;
+    margin-left: 0%;
+    text-align: center;
 }
 
 .btn-disabled{
