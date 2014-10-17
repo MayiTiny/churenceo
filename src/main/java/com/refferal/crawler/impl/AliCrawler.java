@@ -59,7 +59,7 @@ public class AliCrawler implements JDCrawler {
 					jobDesc.setRecruitType(1);
 					jobDesc.setHeadCount(job.getIntValue("recruitNumber"));
 					if (jobDesc.getHeadCount() == 0) {
-						jobDesc.setHeadCount(1);
+						jobDesc.setHeadCount(-1);
 					}
 					jobDesc.setDepartment(job.getString("departmentName"));
 					jobDesc.setPostRequire(job.getString("requirement"));

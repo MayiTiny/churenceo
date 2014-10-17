@@ -71,7 +71,7 @@ public class JobCrawler extends WebCrawler {
 					try{
 						jobDesc.setHeadCount(Integer.parseInt(headCount));
 					}catch(Exception e){
-						jobDesc.setHeadCount(5);
+						jobDesc.setHeadCount(-1);
 					}
 					String type = jobInfo.child(7).childNode(0).childNode(0)
 							.toString();
