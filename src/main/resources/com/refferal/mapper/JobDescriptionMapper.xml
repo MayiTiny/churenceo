@@ -19,7 +19,11 @@
 		<result property="specialDescription" column="special_description" />
 	</resultMap>
     <select id="getJobDescriptionsCount" parameterType="hashmap" resultType="Integer">
-        SELECT count(*) FROM job_description WHERE name like #{keyword}
+        SELECT count(*) FROM job_description 
+        <trim prefix="where" prefixOverrides="and |or">
+        <if test="keyword != null">
+            and name like #{keyword}
+        </if>
         <if test="category != null">
             and function_type = #{category}
         </if>
@@ -29,9 +33,14 @@
         <if test="company != null">
             and company = #{company}
         </if>
+        </trim>
     </select>
     <select id="getJobDescriptions" parameterType="hashmap" resultMap="jobDescriptionMap">
-        SELECT * FROM job_description WHERE name like #{keyword} 
+        SELECT * FROM job_description
+        <trim prefix="where" prefixOverrides="and |or">
+        <if test="keyword != null">
+            and name like #{keyword}
+        </if>
         <if test="category != null">
             and function_type = #{category}
         </if>
@@ -41,6 +50,7 @@
         <if test="company != null">
             and company = #{company}
         </if>
+        </trim>
         limit #{start}, #{pageSize};
     </select>
     <insert id="insert" parameterType="JobDescription">

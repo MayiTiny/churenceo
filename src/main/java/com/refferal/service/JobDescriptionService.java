@@ -26,9 +26,11 @@ public class JobDescriptionService {
 	@SuppressWarnings("unchecked")
 	public PageList<JobDescriptionDTO> search(String keyword, int category, String city, int company, int start, int pageSize) {
 		PageList<JobDescriptionDTO> pageList = new PageList<JobDescriptionDTO>();
-		keyword = '%' + keyword + '%';
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("keyword", keyword);
+		if (StringUtils.isNotBlank(keyword)) {
+			keyword = '%' + keyword + '%';
+			params.put("keyword", keyword);
+		}
 		if (category > 0) {
 			params.put("category", category);
 		}

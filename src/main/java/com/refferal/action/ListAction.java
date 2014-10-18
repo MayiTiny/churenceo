@@ -29,12 +29,13 @@ public class ListAction {
     public ModelAndView list(HttpServletRequest request) {
 		
 		ModelAndView mv = new ModelAndView("jobs");
+		
 		String keyword = request.getParameter("keyword");
 		int category = ServletRequestUtils.getIntParameter(request, "category", 0);
 		String city = request.getParameter("city");
 		int company = ServletRequestUtils.getIntParameter(request, "company", 0);
-		
 		int offset = ServletRequestUtils.getIntParameter(request, "pager.offset", 0);
+
 		PageList<JobDescriptionDTO> jds = listService.search(keyword, category, city, company, offset ,PAGE_SIZE);
 		mv.addObject("jds", jds);
 		
