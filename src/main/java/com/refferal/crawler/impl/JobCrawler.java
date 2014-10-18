@@ -8,6 +8,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.refferal.dao.JobDescriptionDao;
@@ -42,6 +44,12 @@ public class JobCrawler extends WebCrawler {
 	 * by your program.
 	 */
 	public void visit(Page page) {
+		if (null == jobDescriptionDao) {
+			ApplicationContext applicationContext = new FileSystemXmlApplicationContext(
+					"src/main/webapp/WEB-INF/springmvc-servlet.xml");
+			jobDescriptionDao = (JobDescriptionDao) applicationContext
+					.getBean("jobDescriptionDao");
+		}
 		String url = page.getWebURL().getURL();
 		if (page.getParseData() instanceof HtmlParseData) {
 			if (url.contains("getOnePosition")) {
@@ -56,7 +64,9 @@ public class JobCrawler extends WebCrawler {
 				if (null != titles && null != titles.get(0)) {
 					String title = titles.get(0).childNode(0).toString();
 					System.out.println(title);
-					jobDesc.setName(title);
+					String[] deptAndTitle = title.split("_");
+					jobDesc.setName(deptAndTitle[1]);
+					jobDesc.setDepartment(deptAndTitle[0]);
 				}
 				Elements jobInfos = doc.getElementsByClass("hrs_jobInfo");
 				if (null != jobInfos && null != jobInfos.get(0)) {
@@ -64,13 +74,14 @@ public class JobCrawler extends WebCrawler {
 					jobDesc.setCompany(CompanyEnum.BAIDU.getCompanyId());
 					System.out.println(jobInfo.child(3).childNode(0)
 							.childNode(0));
-					// jobDesc.setCityId(cityId); 城市解析预留
+					jobDesc.setCityId(jobInfo.child(3).childNode(0)
+							.childNode(0).toString());
 					String headCount = jobInfo.child(5).childNode(0).toString()
 							.trim();
 					System.out.println(headCount);
-					try{
+					try {
 						jobDesc.setHeadCount(Integer.parseInt(headCount));
-					}catch(Exception e){
+					} catch (Exception e) {
 						jobDesc.setHeadCount(-1);
 					}
 					String type = jobInfo.child(7).childNode(0).childNode(0)
@@ -106,6 +117,8 @@ public class JobCrawler extends WebCrawler {
 						}
 					}
 					jobDesc.setPostRequire(sb.toString());
+					jobDesc.setYearsLimit("0");
+					jobDesc.setDegree("本科");
 				}
 
 				jobDescriptionDao.insert(jobDesc);
