@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="搬砖网,${params.keyword }内推,${params.keyword }内部推荐">
+    <meta name="description" content="搬砖网,${params.keyword }内推,${comopany.companyName }内推,">
     <meta name="author" content="">
-    <title>搬砖网 ${params.keyword }内推 ${params.keyword }职位列表</title>
+    <title>搬砖网 ${comopany.companyName }${params.keyword }内推 ${comopany.companyName }${params.keyword }职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
@@ -82,11 +82,12 @@
                 <table class="table table-hover job-list">
                     <thead>
                         <tr>
-                            <th class="col-sm-4"><span>职位名称</span></th>
-                            <th class="col-sm-2"><span>职位类别</span></th>
-                            <th class="col-sm-2"><span>工作地点</span></th>
-                            <th class="col-sm-2"><span>招聘人数</span></th>
-                            <th class="col-sm-2"><span>更新时间</span></th>
+                            <th class="col-sm-3"><span>职位名称</span></th>
+                            <th class="col-sm-1"><span>公司</span></th>
+                            <th class="col-sm-1"><span>职位类别</span></th>
+                            <th class="col-sm-1"><span>工作地点</span></th>
+                            <th class="col-sm-1"><span>招聘人数</span></th>
+                            <th class="col-sm-1"><span>更新时间</span></th>
                         </tr>
                     </thead>
                     <tbody id="J-list-box">
@@ -97,6 +98,7 @@
 	                               <a target="_blank" href="detail/${item.id }">${item.name }</a>
 	                            </span>
 	                         </td>
+	                        <td><span>${item.companyName }</span></td>
 	                        <td><span>${item.functionType }</span></td>
 	                        <td><span>${item.cityId }</span></td>
 	                        <td><span><c:if test="${item.headCount==-1 }">若干</c:if><c:if test="${item.headCount!=-1 }">${item.headCount }</c:if></span></td>
