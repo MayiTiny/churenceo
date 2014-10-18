@@ -43,7 +43,7 @@ body {
   font-family: Microsoft YaHei;
 }
 
-h1,h2 {
+h1,h2,h3,h4 {
 	font-family: Microsoft YaHei;
 }
 
@@ -70,10 +70,22 @@ h1,h2 {
   padding: 30px;
 }
 
+.inner.footer {
+  padding: 0px;
+}
+
 .illustration
 {
     position: relative;
     margin-top: 110px;
+}
+
+.illustration.margin-top-3 {
+	margin-top: 80px;
+}
+
+.illustration.margin-top-2 {
+    margin-top: 60px;
 }
 
 .job{

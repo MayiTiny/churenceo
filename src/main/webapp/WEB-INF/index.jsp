@@ -38,13 +38,14 @@
               <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
                   </div>
-            <h2 class="illustration">知名互联网公司内部推荐</h2>
+            <h2 class="illustration margin-top-3">知名互联网公司内部推荐</h2>
             <p class="illustration-lead">都是大厂！厂！厂！厂！！</p>
+            <h3 class="illustration margin-top-2">已开通阿里巴巴、百度内推直通车，美团、去哪儿等即将上线...</h3>
 
           </div>
 
           <div class="mastfoot">
-            <div class="inner">
+            <div class="inner footer">
               <p>京ICP备14047376</p>
             </div>
           </div>
