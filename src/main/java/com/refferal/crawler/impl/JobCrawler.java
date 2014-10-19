@@ -7,11 +7,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.stereotype.Service;
 
+import com.refferal.common.AppContext;
 import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
 import com.refferal.enums.BaiduCategoryEnum;
@@ -22,10 +19,8 @@ import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.url.WebURL;
 
-@Service
 public class JobCrawler extends WebCrawler {
 
-	@Autowired
 	private JobDescriptionDao jobDescriptionDao;
 
 	/**
@@ -44,12 +39,7 @@ public class JobCrawler extends WebCrawler {
 	 * by your program.
 	 */
 	public void visit(Page page) {
-		if (null == jobDescriptionDao) {
-			ApplicationContext applicationContext = new FileSystemXmlApplicationContext(
-					"src/main/webapp/WEB-INF/springmvc-servlet.xml");
-			jobDescriptionDao = (JobDescriptionDao) applicationContext
-					.getBean("jobDescriptionDao");
-		}
+		jobDescriptionDao = AppContext.getInstance().getBean(JobDescriptionDao.class);
 		String url = page.getWebURL().getURL();
 		if (page.getParseData() instanceof HtmlParseData) {
 			if (url.contains("getOnePosition")) {
