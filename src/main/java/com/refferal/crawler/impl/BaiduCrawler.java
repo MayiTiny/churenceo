@@ -40,7 +40,7 @@ public class BaiduCrawler implements JDCrawler {
 		 * which are found in these pages
 		 */
 		int pageIndex = 1;
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 200; i++) {
 			controller
 					.addSeed("http://talent.baidu.com/baidu/web/templet1000/index/corpwebPosition1000baidu!getPostListByConditionBaidu?pc.currentPage="
 							+ pageIndex++
