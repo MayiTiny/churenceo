@@ -12,11 +12,14 @@ public class DayCircleJob {
 	@Autowired
 	private JDCrawler baidu;
 	
+	@Autowired
+	private JDCrawler qunar;
 	public void deploy() throws Exception{
 		try{
 			ali.startCrawl();
 		}catch(Exception e){
 		}
 		baidu.startCrawl();
+		qunar.startCrawl();
 	}
 }
