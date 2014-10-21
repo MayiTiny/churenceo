@@ -21,7 +21,6 @@ public class QunarCrawler implements JDCrawler {
 		String crawlStorageFolder = "data/crawl/root";
 		CrawlConfig config = new CrawlConfig();
 		config.setCrawlStorageFolder(crawlStorageFolder);
-
 		/*
 		 * Instantiate the controller for this crawl.
 		 */

@@ -38,7 +38,6 @@ public class QunarImpl extends WebCrawler {
 		try {
 			department = URLDecoder.decode(url.split("=")[1], "utf-8");
 		} catch (Exception e) {
-
 		}
 		if (page.getParseData() instanceof HtmlParseData) {
 			HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
