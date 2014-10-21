@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.refferal.crawler.impl.AliCrawler;
+import com.refferal.crawler.impl.BaiduCrawler;
+import com.refferal.crawler.impl.QunarCrawler;
 
 public class CrawlerTest {
 
@@ -12,7 +14,7 @@ public class CrawlerTest {
 	public void crawlerTest() throws Exception {
 		ApplicationContext applicationContext = new FileSystemXmlApplicationContext(
 				"src/main/webapp/WEB-INF/springmvc-servlet.xml");
-		JDCrawler aliCrawler = applicationContext.getBean(AliCrawler.class);
+		QunarCrawler aliCrawler = (QunarCrawler)applicationContext.getBean("qunar");
 		aliCrawler.startCrawl();
 	}
 
