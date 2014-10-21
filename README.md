@@ -6,7 +6,7 @@ create table job_description (
 	name varchar(255) not null default '' comment '职位名称',
 	head_count smallint not null default 0 comment '招聘人数',
 	department varchar(255) not null default '' comment '部门',
-	city_id varchar(31) not null default 0 comment '工作地点',
+	city_id varchar(63) not null default 0 comment '工作地点',
 	begin_date timestamp comment '发布日期',
 	recruit_type tinyint not null default 0 comment '招聘类型',
 	function_type int not null default 0 comment '职能类别',
