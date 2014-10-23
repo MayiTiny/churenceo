@@ -55,7 +55,11 @@ public class JobCrawler extends WebCrawler {
 					String title = titles.get(0).childNode(0).toString();
 					System.out.println(title);
 					String[] deptAndTitle = title.split("_");
-					jobDesc.setName(deptAndTitle[1]);
+					if(deptAndTitle.length > 1){
+						jobDesc.setName(deptAndTitle[1]);
+					}else{
+						jobDesc.setName(title);
+					}
 					jobDesc.setDepartment(deptAndTitle[0]);
 				}
 				Elements jobInfos = doc.getElementsByClass("hrs_jobInfo");
