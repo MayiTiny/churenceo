@@ -8,18 +8,26 @@ public class DayCircleJob {
 
 	@Autowired
 	private JDCrawler ali;
-	
+
 	@Autowired
 	private JDCrawler baidu;
-	
+
 	@Autowired
 	private JDCrawler qunar;
-	public void deploy() throws Exception{
-		try{
+
+	public void deploy() throws Exception {
+		try {
 			ali.startCrawl();
-		}catch(Exception e){
+		} catch (Exception e) {
 		}
-		baidu.startCrawl();
-		qunar.startCrawl();
+		try {
+			baidu.startCrawl();
+		} catch (Exception e) {
+		}
+		try {
+			qunar.startCrawl();
+		} catch (Exception e) {
+
+		}
 	}
 }
