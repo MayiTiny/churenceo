@@ -73,7 +73,7 @@ public class AliCrawler implements JDCrawler {
 				}
 				int totalPage = Integer.valueOf(returnValue.get("totalPage")
 						.toString());
-				if (index > totalPage) {
+				if (index > totalPage || index >350) {
 					break;
 				}
 			} catch (Exception e) {
