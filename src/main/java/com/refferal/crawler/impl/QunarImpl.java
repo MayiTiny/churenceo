@@ -1,6 +1,10 @@
 package com.refferal.crawler.impl;
 
 import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,14 +27,14 @@ public class QunarImpl extends WebCrawler {
 
 	public boolean shouldVisit(WebURL url) {
 		if (url.getURL().contains(
-				"http://www.qunar.com/site/zh/zhaopin/prd/jobs.html?type=")) {
+				"http://www.qunar.com/site/zh/zhaopin/prd/jobs.html?type=%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5%E5%B2%97")) {
 			return true;
 		}
 		return false;
 	}
 
 	public void visit(Page page) {
-		
+		Map<String,String> types = new HashMap<String,String>();
 		jobDescriptionDao = AppContext.getInstance().getBean(
 				JobDescriptionDao.class);
 		String url = page.getWebURL().getURL();
@@ -42,6 +46,12 @@ public class QunarImpl extends WebCrawler {
 		if (page.getParseData() instanceof HtmlParseData) {
 			HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
 			String html = htmlParseData.getHtml();
+			Pattern p = Pattern.compile("jobTypes\\[\"(.*?)\"\\] = \"(.*?)\"");
+			Matcher m = p.matcher(html);
+			System.out.println(html);
+			while(m.find()){
+				types.put(m.group(1), m.group(2));
+			}
 			Document doc = Jsoup.parse(html);
 			Elements jds = doc.getElementsByClass("b_jobitem");
 			for (Element jd : jds) {
@@ -70,6 +80,9 @@ public class QunarImpl extends WebCrawler {
 				jobDesc.setHeadCount(-1);
 				jobDesc.setDegree("本科");
 				jobDesc.setYearsLimit("3年");
+				if(null != types.get(jobDesc.getName())){
+					department = types.get(jobDesc.getName());
+				}
 				if (department.equals("产品运营岗")) {
 					jobDesc.setFunctionType(3);
 					jobDesc.setDepartment("产品运营部");
@@ -85,6 +98,9 @@ public class QunarImpl extends WebCrawler {
 				} else if (department.equals("财务风控岗")) {
 					jobDesc.setFunctionType(99);
 					jobDesc.setDepartment("财务风控岗");
+				}else{
+					jobDesc.setFunctionType(99);
+					jobDesc.setDepartment("其他");
 				}
 				jobDescriptionDao.insert(jobDesc);
 			}
