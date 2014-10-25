@@ -49,11 +49,9 @@ public class JobCrawler extends WebCrawler {
 
 				Document doc = Jsoup.parse(html);
 				JobDescription jobDesc = new JobDescription();
-				System.out.println("---------------------------------------");
 				Elements titles = doc.getElementsByClass("hrs_grayBorderTitle");
 				if (null != titles && null != titles.get(0)) {
 					String title = titles.get(0).childNode(0).toString();
-					System.out.println(title);
 					String[] deptAndTitle = title.split("_");
 					if(deptAndTitle.length > 1){
 						jobDesc.setName(deptAndTitle[1]);
@@ -66,13 +64,10 @@ public class JobCrawler extends WebCrawler {
 				if (null != jobInfos && null != jobInfos.get(0)) {
 					Element jobInfo = jobInfos.get(0);
 					jobDesc.setCompany(CompanyEnum.BAIDU.getCompanyId());
-					System.out.println(jobInfo.child(3).childNode(0)
-							.childNode(0));
 					jobDesc.setCityId(jobInfo.child(3).childNode(0)
 							.childNode(0).toString());
 					String headCount = jobInfo.child(5).childNode(0).toString()
 							.trim();
-					System.out.println(headCount);
 					try {
 						jobDesc.setHeadCount(Integer.parseInt(headCount));
 					} catch (Exception e) {
@@ -84,31 +79,23 @@ public class JobCrawler extends WebCrawler {
 							.getCodeByName(type));
 				}
 				Elements hrs_jobDuties = doc.getElementsByClass("hrs_jobDuty");
-				System.out.println("---------------------------------------");
 				if (null != hrs_jobDuties && null != hrs_jobDuties.get(0)) {
 					Element hrs_jobDuty = hrs_jobDuties.get(0);
 					List<Node> nodes = hrs_jobDuty.childNode(3).childNodes();
 					StringBuffer sb = new StringBuffer("");
 					for (Node node : nodes) {
 						sb.append(node.toString().trim());
-						if (!node.toString().equals("<br />")) {
-							System.out.println(node.toString().trim());
-						}
 					}
 					jobDesc.setPostDescription(sb.toString());
 				}
 				Elements hrs_jobRequires = doc
 						.getElementsByClass("hrs_jobRequire");
-				System.out.println("---------------------------------------");
 				if (null != hrs_jobRequires && null != hrs_jobRequires.get(0)) {
 					Element hrs_jobRequire = hrs_jobRequires.get(0);
 					List<Node> nodes = hrs_jobRequire.childNode(3).childNodes();
 					StringBuffer sb = new StringBuffer("");
 					for (Node node : nodes) {
 						sb.append(node.toString().trim());
-						if (!node.toString().equals("<br />")) {
-							System.out.println(node.toString().trim());
-						}
 					}
 					jobDesc.setPostRequire(sb.toString());
 					jobDesc.setYearsLimit("0");
