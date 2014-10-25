@@ -47,12 +47,11 @@
                         <span id="search-dress">
                             <c:forEach items="${companys }" var="comopany">
 		                        <a href="javascript:;" rel="${comopany.companyName }" company-id="${comopany.companyId }" data-check-type="dress" 
-		                        <c:if test="${comopany.companyId != 1 && comopany.companyId != 2 && comopany.companyId != 4}">style="color: #888;"</c:if>
 		                        class="company <c:if test="${params.company==comopany.companyId }">current</c:if>">${comopany.companyName }
 		                        </a>
                             </c:forEach>
                         </span> 
-                        <a href="javascript:;" data-check-type="dress" rel="all" company-id="-1" style="color: #888;" class="company">（更多知名大厂敬请期待...）</a>
+                        <a href="javascript:;" data-check-type="dress" rel="all" company-id="-1" style="color: #888;">（更多知名大厂敬请期待...）</a>
                     </span>
                 </div>
                 <div class="search-li-box layout">
@@ -168,9 +167,6 @@
 
         $(".company").click(function() {
             var companyId = $(this).attr("company-id");
-            if (companyId != 0 && companyId != 1 && companyId != 2 && companyId != 4) {
-            	return;
-            }
             $(".company").removeClass("current");
             $(this).addClass("current");
             search();
