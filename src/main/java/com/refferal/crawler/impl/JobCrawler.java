@@ -101,7 +101,6 @@ public class JobCrawler extends WebCrawler {
 					jobDesc.setYearsLimit("0");
 					jobDesc.setDegree("本科");
 				}
-
 				jobDescriptionDao.insert(jobDesc);
 			}
 		}

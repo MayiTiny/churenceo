@@ -202,4 +202,15 @@ public class JobDescription {
 		this.specialDescription = specialDescription;
 	}
 	
+	public void print(){
+		System.out.println(name);
+		System.out.println(cityId);
+		System.out.println(degree);
+		System.out.println(department);
+		System.out.println(headCount);
+		System.out.println(postDescription);
+		System.out.println(postRequire);
+		
+	}
+	
 }

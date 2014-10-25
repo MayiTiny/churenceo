@@ -39,7 +39,6 @@ public class AliCrawler implements JDCrawler {
 		while (true) {
 			HttpGet httpget = new HttpGet(ALI_URL + index);
 			index++;
-			System.out.println(index);
 			httpget.addHeader("Content-Type", "text/html;charset=UTF-8");
 			HttpResponse response = httpclient.execute(httpget);
 			InputStream is = response.getEntity().getContent();

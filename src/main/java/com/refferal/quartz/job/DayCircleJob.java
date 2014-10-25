@@ -16,6 +16,9 @@ public class DayCircleJob {
 
 	@Autowired
 	private JDCrawler qunar;
+	
+	@Autowired
+	private JDCrawler meituan;
 
 	public void deploy() throws Exception {
 		try {
@@ -34,6 +37,11 @@ public class DayCircleJob {
 			log.error("oh my god! something was wrong with qunar", e);
 
 		}
-		log.info("oh my god! the crawler of meituan is missing!");
+		try {
+			meituan.startCrawl();
+		} catch (Exception e) {
+			log.error("oh my god! something was wrong with meituan", e);
+
+		}
 	}
 }

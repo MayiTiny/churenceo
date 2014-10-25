@@ -45,6 +45,7 @@
 	<bean id="ali" class="com.refferal.crawler.impl.AliCrawler"/>
 	<bean id="baidu" class="com.refferal.crawler.impl.BaiduCrawler"/>
 	<bean id="qunar" class="com.refferal.crawler.impl.QunarCrawler"/>
+	<bean id="meituan" class="com.refferal.crawler.impl.MeituanCrawler"/>
 	<bean id="scheduler"
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
