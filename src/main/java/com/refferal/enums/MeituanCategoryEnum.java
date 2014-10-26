@@ -48,7 +48,7 @@ public enum MeituanCategoryEnum {
 	}
 	
 	public static int getCodeByName(String name){
-		for(AliCategoryEnum category :AliCategoryEnum.values()){
+		for(MeituanCategoryEnum category :MeituanCategoryEnum.values()){
 			if(category.getName().equals(name)){
 				return category.getCode();
 			}
@@ -57,7 +57,7 @@ public enum MeituanCategoryEnum {
 	}
 	
 	public static String getNameByCode(int code){
-		for(AliCategoryEnum category :AliCategoryEnum.values()){
+		for(MeituanCategoryEnum category :MeituanCategoryEnum.values()){
 			if(category.getCode() == code){
 				return category.getName();
 			}
