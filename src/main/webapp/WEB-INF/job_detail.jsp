@@ -37,20 +37,20 @@
   <div class="panel-body">
       <table class="table table-bordered">
             <tr class="warning">
-                  <td class="col-sm-1">发布时间：</td>
-                  <td class="col-sm-2"><fmt:formatDate value="${jd.beginDate }" pattern="yyyy-MM-dd" /></td>
-                  <td class="col-sm-1">工作地点：</td>
-                  <td class="col-sm-2">${jd.cityId }</td>
                   <td class="col-sm-1">公&emsp;&emsp;司：</td>
                   <td class="col-sm-2">${jd.companyName }</td>
-              </tr>
-              <tr class="warning">
+                  <td class="col-sm-1">工作地点：</td>
+                  <td class="col-sm-2">${jd.cityId }</td>
                   <td>所属部门：</td>
                   <td>${jd.department }</td>
+              </tr>
+              <tr class="warning">
                   <td>学&emsp;&emsp;历：</td>
                   <td>${jd.degree }</td>
                   <td>招聘人数：</td>
                   <td><c:if test="${jd.headCount==-1 }">若干</c:if><c:if test="${jd.headCount!=-1 }">${jd.headCount }</c:if></td>
+                  <td class="col-sm-1">发布时间：</td>
+                  <td class="col-sm-2"><fmt:formatDate value="${jd.beginDate }" pattern="yyyy-MM-dd" /></td>
               </tr>
       </table>
   </div>
@@ -77,5 +77,6 @@
 <!--       </div> -->
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/statistic.js"></script>
 </body>
 </html>

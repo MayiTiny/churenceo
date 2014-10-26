@@ -63,7 +63,7 @@
     $(function() {
     	$(".js-search").click(function() {
             var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + keyword;
+            window.location.href = "list?keyword=" + encodeURIComponent(keyword);
        	});
     	$('#job_search').keydown(function(event) {  
             if(event.keyCode == "13") {
@@ -77,5 +77,6 @@
         });
     }); 
     </script>
+    <script type="text/javascript" src="js/statistic.js"></script>
     </body>
 </html>

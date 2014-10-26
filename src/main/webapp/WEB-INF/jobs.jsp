@@ -111,7 +111,7 @@
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
 					<pg:param name="category" value="${params.category }" />
 					<pg:param name="company" value="${params.company }" />
-					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第一页</a></li></pg:first>  
+					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
@@ -124,7 +124,7 @@
 						</c:choose>  
 					</pg:pages>  
 					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">尾页</a></li></pg:last>  
+					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第${pageNumber}页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
@@ -140,7 +140,7 @@
     $(function() {
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + keyword;
+            window.location.href = "list?keyword=" + encodeURIComponent(keyword);
         });
         $('#job_search').keydown(function(event) {
             if(event.keyCode == "13") {
@@ -182,5 +182,6 @@
         
     }); 
     </script>
+    <script type="text/javascript" src="js/statistic.js"></script>
   </body>
 </html>
