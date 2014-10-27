@@ -61,7 +61,7 @@ public class QunarImpl extends WebCrawler {
 				Elements lines = jd.getElementsByClass("inline");
 				int index = 0;
 				for (Element line : lines) {
-					String text = line.text();
+					String text = line.html();
 					if (index == 0) {
 						String location = text.split("：")[1];
 						if (location.length() > 16)
@@ -69,10 +69,10 @@ public class QunarImpl extends WebCrawler {
 						jobDesc.setCityId(location);
 					} else if (index == 3) {
 						String desciption = text;
-						jobDesc.setPostDescription(desciption);
+						jobDesc.setPostDescription(line.html());
 					} else if (index == 5) {
 						String require = text;
-						jobDesc.setPostRequire(require);
+						jobDesc.setPostRequire(line.html());
 					}
 					index++;
 				}

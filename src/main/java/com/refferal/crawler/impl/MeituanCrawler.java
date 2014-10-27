@@ -88,8 +88,8 @@ public class MeituanCrawler implements JDCrawler{
 			jobDesc.setHeadCount(-1);
 		}
 		jobDesc.setYearsLimit(rights.get(7).text());
-		jobDesc.setPostDescription(doc.getElementsByClass("jobshow_jobmain_02").get(0).text());
-		jobDesc.setPostRequire(doc.getElementsByClass("jobshow_jobmain_02").get(1).text());
+		jobDesc.setPostDescription(doc.getElementsByClass("jobshow_jobmain_02").get(0).html());
+		jobDesc.setPostRequire(doc.getElementsByClass("jobshow_jobmain_02").get(1).html());
 		jobDesc.setCompany(CompanyEnum.MEITUAN.getCompanyId());
 		jobDescriptionDao.insert(jobDesc);
 	}
