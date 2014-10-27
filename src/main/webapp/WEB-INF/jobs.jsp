@@ -47,12 +47,11 @@
                         <span id="search-dress">
                             <c:forEach items="${companys }" var="comopany">
 		                        <a href="javascript:;" rel="${comopany.companyName }" company-id="${comopany.companyId }" data-check-type="dress" 
-		                        <c:if test="${comopany.companyId != 1 && comopany.companyId != 2 && comopany.companyId != 4}">style="color: #888;"</c:if>
 		                        class="company <c:if test="${params.company==comopany.companyId }">current</c:if>">${comopany.companyName }
 		                        </a>
                             </c:forEach>
                         </span> 
-                        <a href="javascript:;" data-check-type="dress" rel="all" company-id="-1" style="color: #888;" class="company">（更多知名大厂敬请期待...）</a>
+                        <a href="javascript:;" data-check-type="dress" rel="all" company-id="-1" style="color: #888;">（更多知名大厂敬请期待...）</a>
                     </span>
                 </div>
                 <div class="search-li-box layout">
@@ -112,7 +111,7 @@
 				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
 					<pg:param name="category" value="${params.category }" />
 					<pg:param name="company" value="${params.company }" />
-					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第一页</a></li></pg:first>  
+					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
 						<c:choose>  
@@ -125,7 +124,7 @@
 						</c:choose>  
 					</pg:pages>  
 					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">尾页</a></li></pg:last>  
+					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第${pageNumber}页</a></li></pg:last>  
 				</pg:pager>  
                 </ul>
                 </div>
@@ -141,7 +140,7 @@
     $(function() {
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + keyword;
+            window.location.href = "list?keyword=" + encodeURIComponent(keyword);
         });
         $('#job_search').keydown(function(event) {
             if(event.keyCode == "13") {
@@ -168,9 +167,6 @@
 
         $(".company").click(function() {
             var companyId = $(this).attr("company-id");
-            if (companyId != 0 && companyId != 1 && companyId != 2 && companyId != 4) {
-            	return;
-            }
             $(".company").removeClass("current");
             $(this).addClass("current");
             search();
@@ -186,5 +182,6 @@
         
     }); 
     </script>
+    <script type="text/javascript" src="js/statistic.js"></script>
   </body>
 </html>
