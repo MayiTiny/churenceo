@@ -41,7 +41,7 @@
             <h2 class="illustration margin-top-3">知名互联网公司内部推荐</h2>
             <p class="illustration-lead">都是大厂！厂！厂！厂！！</p>
             <h3 class="illustration margin-top-2">已开通
-                <a class="underline bold" href="<%=request.getContextPath()%>/list?company=1">阿里巴巴</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=2">百度</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=3">美团</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=4">去哪儿</a> 内推直通车，等即将上线...
+                <a class="underline bold" href="<%=request.getContextPath()%>/list?company=1">阿里巴巴</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=2">百度</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=3">美团</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=4">去哪儿</a> 内推直通车，腾讯等即将上线...
             </h3>
 
           </div>
