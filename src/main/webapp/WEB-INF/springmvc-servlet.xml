@@ -63,6 +63,7 @@
 		<property name="jobDetail">
 			<ref bean="myJobDetail" />
 		</property>
+		
 		<property name="cronExpression">
 			<value>0 0 1 * * ?</value>
 		</property>
