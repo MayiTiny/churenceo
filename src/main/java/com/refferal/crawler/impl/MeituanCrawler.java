@@ -37,7 +37,6 @@ public class MeituanCrawler implements JDCrawler{
 		HttpResponse response = httpclient.execute(httpget);
 		InputStream is = response.getEntity().getContent();
 		String result = inStream2String(is);
-		System.out.println(result);
 		Pattern p = Pattern.compile("现在最大页码数为(\\d+)");
 		Matcher mat = p.matcher(result);
 		int totalPages = 1;
