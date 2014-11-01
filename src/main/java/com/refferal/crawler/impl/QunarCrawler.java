@@ -1,5 +1,8 @@
 package com.refferal.crawler.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.stereotype.Service;
 
 import com.refferal.crawler.JDCrawler;
@@ -18,7 +21,7 @@ public class QunarCrawler implements JDCrawler {
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		String crawlStorageFolder = "data/crawl/root";
+		String crawlStorageFolder = "data/crawl/root" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		CrawlConfig config = new CrawlConfig();
 		config.setCrawlStorageFolder(crawlStorageFolder);
 		/*
