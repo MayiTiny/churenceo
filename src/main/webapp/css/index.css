@@ -37,6 +37,9 @@ html, body {
 	margin: 0 35px 0 0;
 	color: #534E4E;
 }
+.m-hd ul li a {
+	color: #534E4E;
+}
 .m-hd ul li.active {
 	height: 37px;
 	color: #FB5E00;
