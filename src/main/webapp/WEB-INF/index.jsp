@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>搬砖网 - 知名互联网公司内部推荐</title>
+    <meta name="description" content="阿里内推,百度内推,内部推荐,阿里巴巴内部推荐">
     <link rel="stylesheet" href="css/global.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

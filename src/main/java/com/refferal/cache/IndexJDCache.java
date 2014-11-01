@@ -39,10 +39,10 @@ public class IndexJDCache {
 		
 		RECOMMENDS.clear();
 		params.put("company", 1);
-		params.put("keyword", "java");
+		params.put("keyword", "%java%");
 		RECOMMENDS.add(dao.getLatest(params));
 		params.put("company", 2);
-		params.put("keyword", "产品");
+		params.put("keyword", "%产品%");
 		RECOMMENDS.add(dao.getLatest(params));
 		
 	}
