@@ -1,82 +1,126 @@
 <%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="zh-cn"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="阿里内推,内推,内部推荐,阿里,阿里巴巴内部推荐">
-    <meta name="author" content="">
-    <title>搬砖网 知名互联网公司内部推荐 阿里内推 百度内推</title>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/index_style.css" rel="stylesheet">
-    <style id="holderjs-style" type="text/css"></style></head>
-
-    <body>
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">搬砖网</h3>
-              <ul class="nav masthead-nav">
-<!--                 <li class="active"><a href="#">首页</a></li> -->
-                <li><a href="#">关于我们</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="inner cover">
-              <div class="job">
-          <form class="form-inline" role="form">
-              <div class="form-group  col-sm-10">
-                  <input type="text" class="form-control input-lg" id="job_search" placeholder="请输入职位关键词">
-              </div>  
-              <a href="javascript:void(0)" class="btn btn-lg btn-default js-search">搜索</a>
-          </form>
-                  </div>
-            <h2 class="illustration margin-top-3">知名互联网公司内部推荐</h2>
-            <p class="illustration-lead">都是大厂！厂！厂！厂！！</p>
-            <h3 class="illustration margin-top-2">已开通
-                <a class="underline bold" href="<%=request.getContextPath()%>/list?company=1">阿里巴巴</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=2">百度</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=3">美团</a>、<a class="underline bold" href="<%=request.getContextPath()%>/list?company=4">去哪儿</a> 内推直通车，腾讯等即将上线...
-            </h3>
-
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner footer">
-              <p>京ICP备14047376</p>
-            </div>
-          </div>
-
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>搬砖网 - 知名互联网公司内部推荐</title>
+    <link rel="stylesheet" href="css/global.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+</head>
+<body>
+<header class="m-hd">
+    <div class="container">
+        <img src="img/logo.png" alt="搬砖网"/>
+        <nav>
+            <ul class="clearfix">
+                <li class="banner-hover active"><a href="<%=request.getContextPath()%>/">首 页</a></li>
+                <li class="banner-hover-off"><a href="<%=request.getContextPath()%>/list/c0">职位中心</a></li>
+            </ul>
+        </nav>
+        <div class="hd-r">
+<!--             <a href="###">登录</a> | <a href="###">注册</a> -->
         </div>
-
-      </div>
-
     </div>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-    	$(".js-search").click(function() {
-            var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + encodeURIComponent(keyword);
-       	});
-    	$('#job_search').keydown(function(event) {  
-            if(event.keyCode == "13") {
-            	$(".js-search").click();
-            	if(window.event) {
-                   window.event.returnValue = false;  
-            	} else {
-                   event.preventDefault();//for firefox
-            	}
+</header>
+<section class="m-main">
+    <div class="container">
+        <div class="hint">
+<!--         已开通阿里巴巴、百度内推直通车，美团、去哪儿等即将上线... -->
+        </div>
+        <div class="so">
+            <input id="keyword" type="text" placeholder="请输入职位关键词" autocomplete="off"/>
+            <button id="btn-search">搜 索</button>
+        </div>
+        <div class="hot">
+            <span>热门搜索：</span>
+            <ul>
+                <li><a class="recommend" href="#">JAVA</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">iOS</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">数据</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">安全</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">搜索</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">算法</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">产品</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">运营</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">视觉</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">交互</a>&nbsp;&nbsp;</li>
+                <li><a class="recommend" href="#">前端</a></li>
+            </ul>
+        </div>
+        <div class="fri">
+            <h6>已开通以下大厂内推直通车！点击进入！</h6>
+            <ul>
+                <li class="ali"><a href="<%=request.getContextPath()%>/list/c1">阿里巴巴</a></li>
+                <li class="baidu"><a href="<%=request.getContextPath()%>/list/c2">百度</a></li>
+                <li class="mt"><a href="<%=request.getContextPath()%>/list/c3">美团</a></li>
+                <li class="qn"><a href="<%=request.getContextPath()%>/list/c4">去哪儿</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<footer class="m-ft">
+    <div class="m-contact">
+        <div class="container">
+            <ul>
+                <li>
+                    <h6>最新职位</h6>
+                    <ul>
+                        <c:forEach items="${latests }" var="latest">
+                            <li><a href="<%=request.getContextPath()%>/detail/${latest.id}">${latest.name }</a></li>
+                        </c:forEach>
+                    </ul>
+                </li>
+                <li>
+                    <h6>热门职位</h6>
+                    <ul>
+                        <c:forEach items="${recommends }" var="recommend">
+                            <li><a href="<%=request.getContextPath()%>/detail/${recommend.id}">${recommend.name }</a></li>
+                        </c:forEach>
+                    </ul>
+                </li>
+                <li>
+                    <h6>联系方式</h6>
+                    <div>QQ : 273205819</div>
+                    <div>apply2ali88@gmail.com</div>
+                </li>
+            </ul>
+<!--             <div class="code2d"></div> -->
+        </div>
+    </div>
+    <div class="bei">搬砖网 Copyright © 2014 版权所有 | 京ICP备14047376</div>
+</footer>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  $(function() {
+	$("#keyword").focus();
+    $("#btn-search").click(function() {
+        var keyword = $("#keyword").val();
+        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
+    });
+    $('#keyword').keydown(function(event) {  
+        if(event.keyCode == "13") {
+            $("#btn-search").click();
+            if(window.event) {
+               window.event.returnValue = false;  
+            } else {
+               event.preventDefault();//for firefox
             }
-        });
-    }); 
-    </script>
-    <script type="text/javascript" src="js/statistic.js"></script>
-    </body>
+        }
+    });
+    $('.recommend').click(function() {
+        var keyword = $(this).text();
+        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
+    });
+    $('.banner-hover-off').hover(
+      function () {
+        $(this).addClass("active");
+      },
+      function () {
+        $(this).removeClass("active");
+    });
+  });
+</script>
+<script type="text/javascript" src="js/statistic.js"></script>
+</body>
 </html>

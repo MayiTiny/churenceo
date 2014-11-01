@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,15 +26,15 @@ public class ListAction {
 	@Autowired
 	private JobDescriptionService listService;
 	
-	@RequestMapping("/list")
-    public ModelAndView list(HttpServletRequest request) {
+	@RequestMapping("/list/c{company:\\d+}")
+    public ModelAndView list(HttpServletRequest request, @PathVariable int company) {
 		
 		ModelAndView mv = new ModelAndView("jobs");
 		
 		String keyword = request.getParameter("keyword");
 		int category = ServletRequestUtils.getIntParameter(request, "category", 0);
 		String city = request.getParameter("city");
-		int company = ServletRequestUtils.getIntParameter(request, "company", 0);
+//		int company = ServletRequestUtils.getIntParameter(request, "company", 0);
 		int offset = ServletRequestUtils.getIntParameter(request, "pager.offset", 0);
 
 		PageList<JobDescriptionDTO> jds = listService.search(keyword, category, city, company, offset ,PAGE_SIZE);

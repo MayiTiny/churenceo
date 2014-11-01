@@ -17,5 +17,6 @@ public interface JobDescriptionDao {
 	
 	void deleteAll();
 
+	JobDescription getLatest(Map<String, Object> params);
 	
 }

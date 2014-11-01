@@ -1,0 +1,196 @@
+/**
+ * Created by Maopy on 2014/10/29.
+ */
+
+html, body {
+	width: 100%;
+	min-width: 940px;
+	height: 100%;
+	background: url("../img/bg.jpg") no-repeat;
+	background-size: cover;
+	overflow-x: hidden;
+}
+
+.m-hd {
+	height: 40px;
+	background: white;
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	font-size: 14px;
+}
+.m-hd img {
+	margin: 1px 0 0 0;
+	float: left;
+}
+.m-hd nav {
+	float: left;
+}
+.m-hd nav ul {
+	margin: 0 0 0 70px;
+}
+.m-hd ul li {
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	padding: 0 15px;
+	margin: 0 35px 0 0;
+	color: #534E4E;
+}
+.m-hd ul li.active {
+	height: 37px;
+	color: #FB5E00;
+	border-bottom: 3px solid #FB5E00;
+}
+.m-hd ul li.active a {
+	height: 37px;
+	color: #FB5E00;
+}
+.m-hd .hd-r {
+	float: right;
+	line-height: 40px;
+}
+.hd-r a {
+	color: #534E4E;
+}
+
+.m-ft {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+.m-ft .m-contact {
+	height: 80px;
+	background: rgba(255, 255, 255, .3);
+}
+.m-contact h6 {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 12px 0 8px;
+}
+.m-contact div {
+    margin-bottom: 7px;
+}
+.m-contact .code2d {
+	width: 80px;
+	height: 80px;
+	float: right;
+	background: url("../img/code2d.jpg") no-repeat center;
+}
+.m-contact ul li {
+	float: left;
+	color: #333;
+	font-size: 12px;
+}
+.m-contact ul li a {
+	color: #333;
+}
+.m-contact .container>ul>li {
+	width: 220px;
+	margin: 0 70px 0 0;
+}
+.m-contact .container>ul>li:last-child {
+	margin: 0;
+}
+.m-contact .container>ul>li>ul>li {
+	margin: 0 15px 7px 0;
+}
+.m-ft .bei {
+	font-size: 10px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #666;
+	background: rgba(255, 255, 255, .8);
+}
+
+.m-main .hint {
+	margin: 200px 0 6px 0;
+	font-size: 12px;
+	padding: 0 0 0 190px;
+	color: #ADA6A0;
+}
+.m-main .so {
+	text-align: center;
+}
+.so input {
+	width: 460px;
+	height: 40px;
+	border: 2px solid #FA8037;
+	background: white;
+	text-indent: 10px;
+	font-size: 14px;
+}
+.so button {
+	width: 95px;
+	height: 44px;
+	background: #FA8037;
+	border: 0;
+	color: white;
+	font-size: 18px;
+	font-family: '微软雅黑';
+	cursor: pointer;
+	position: relative;
+	top: 2px;
+}
+.so input:focus,
+.so button:focus {
+	outline: 0;
+}
+.m-main .hot {
+	width: 100%;
+	font-size: 14px;
+	margin: 8px 0 0 0;
+	padding: 0 0 0 190px;
+}
+.hot ul {
+	display: inline-block;
+}
+.hot ul li {
+	display: inline-block;
+}
+.hot ul li a {
+    color: #666;
+    font-size: 12px;
+}
+.hot span {
+	font-size: 12px;
+    color: #666;
+}
+.fri {
+	width: 100%;
+	font-size: 14px;
+	margin: 10px 0 0 0;
+	padding: 0 0 0 190px;
+}
+.fri li {
+	width: 120px;
+	height: 100px;
+	text-indent: -9999px;
+	float: left;
+}
+.fri li a {
+	width: 120px;
+	height: 100px;
+	text-indent: -9999px;
+	float: left;
+}
+.fri li.ali {
+	background: url("../img/ali.png") no-repeat center;
+}
+.fri li.baidu {
+	background: url("../img/baidu.png") no-repeat center;
+}
+.fri li.qn {
+	background: url("../img/qn.png") no-repeat center;
+}
+.fri li.mt {
+	background: url("../img/mt.png") no-repeat center;
+}
+.fri li.qh {
+	background: url("../img/360.png") no-repeat center;
+}
+.fri h6 {
+	color: #666;
+	margin: 30px 0px 0px 0px;
+}

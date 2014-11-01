@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <title>搬砖网 ${comopany.companyName }${params.keyword }内推 ${comopany.companyName }${params.keyword }职位列表</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/job_style.css" rel="stylesheet">
+    <link href="<%=request.getContextPath()%>/css/job_style.css" rel="stylesheet">
     <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -94,7 +94,7 @@
                         <tr>
 	                        <td>
 	                           <span>
-	                               <a target="_blank" href="detail/${item.id }">${item.name }</a>
+	                               <a target="_blank" href="<%=request.getContextPath()%>/detail/${item.id }">${item.name }</a>
 	                            </span>
 	                         </td>
 	                        <td><span>${item.companyName }</span></td>
@@ -108,9 +108,8 @@
                 </table>
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
-				<pg:pager items="${jds.count }" url="list" export="currentPageNumber=pageNumber" scope="request">
+				<pg:pager items="${jds.count }" url="${pageContext.request.contextPath }/list/c${params.company }" export="currentPageNumber=pageNumber" scope="request">
 					<pg:param name="category" value="${params.category }" />
-					<pg:param name="company" value="${params.company }" />
 					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
 					<pg:pages>  
@@ -140,7 +139,7 @@
     $(function() {
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
-            window.location.href = "list?keyword=" + encodeURIComponent(keyword);
+            window.location.href = "${pageContext.request.contextPath }/list/c0?keyword=" + encodeURIComponent(keyword);
         });
         $('#job_search').keydown(function(event) {
             if(event.keyCode == "13") {
@@ -177,11 +176,11 @@
             var category = $(".position-child.current").attr("data-child-id");
             var keyword = $("#job_search").val();
             var company = $(".company.current").attr("company-id");
-            window.location.href = "list?keyword=" + keyword + "&category=" + category + "&company=" + company + "&city=" + city;
+            window.location.href = "${pageContext.request.contextPath }/list/c"+ company + "?keyword=" + keyword + "&category=" + category + "&city=" + city;
         }
         
     }); 
     </script>
-    <script type="text/javascript" src="js/statistic.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/statistic.js"></script>
   </body>
 </html>

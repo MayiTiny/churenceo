@@ -89,8 +89,25 @@
     <select id="selectById" parameterType="Integer" resultMap="jobDescriptionMap">
         SELECT * FROM job_description WHERE id = #{0};
     </select>
-    
     <delete id="deleteAll">
        DELETE FROM job_description ;
     </delete>
+    <select id="getLatest" parameterType="hashmap" resultMap="jobDescriptionMap">
+        SELECT * FROM job_description
+        <trim prefix="where" prefixOverrides="and |or">
+        <if test="keyword != null">
+            and name like #{keyword}
+        </if>
+        <if test="category != null">
+            and function_type = #{category}
+        </if>
+        <if test="city != null">
+            and city_id like #{city}
+        </if>
+        <if test="company != null">
+            and company = #{company}
+        </if>
+        </trim>
+        order by id desc limit 1 
+    </select>
 </mapper>
