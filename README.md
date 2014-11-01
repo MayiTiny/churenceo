@@ -1,5 +1,6 @@
 apply2ali
 =========
+-- ddl
 create table job_description (
 	id int not null AUTO_INCREMENT comment '自增ID',
 	company smallint not null default 0 comment '公司',

@@ -48,7 +48,6 @@ public class QunarImpl extends WebCrawler {
 			String html = htmlParseData.getHtml();
 			Pattern p = Pattern.compile("jobTypes\\[\"(.*?)\"\\] = \"(.*?)\"");
 			Matcher m = p.matcher(html);
-			System.out.println(html);
 			while(m.find()){
 				types.put(m.group(1), m.group(2));
 			}
