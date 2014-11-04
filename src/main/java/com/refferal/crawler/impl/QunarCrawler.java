@@ -3,9 +3,12 @@ package com.refferal.crawler.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.refferal.crawler.JDCrawler;
+import com.refferal.dao.JobDescriptionDao;
+import com.refferal.enums.CompanyEnum;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
@@ -16,11 +19,15 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 @Service
 public class QunarCrawler implements JDCrawler {
 
+	
+	@Autowired
+	private JobDescriptionDao jobDescriptionDao;
 	/**
 	 * @param args
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
+		jobDescriptionDao.deleteByCompany(CompanyEnum.QUNAR.getCompanyId());
 		String crawlStorageFolder = "data/crawl/root" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		CrawlConfig config = new CrawlConfig();
 		config.setCrawlStorageFolder(crawlStorageFolder);

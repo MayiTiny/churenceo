@@ -110,4 +110,8 @@
         </trim>
         limit 1 
     </select>
+    
+      <delete id="deleteByCompany" parameterType="Integer">
+       DELETE FROM job_description where company = #{0};
+    </delete>
 </mapper>

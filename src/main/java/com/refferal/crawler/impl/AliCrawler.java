@@ -3,6 +3,7 @@ package com.refferal.crawler.impl;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Date;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,6 +20,7 @@ import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
 import com.refferal.enums.AliCategoryEnum;
 import com.refferal.enums.CompanyEnum;
+import com.refferal.utils.BanzhuanDateUtil;
 
 @Service
 public class AliCrawler implements JDCrawler {
@@ -33,7 +35,7 @@ public class AliCrawler implements JDCrawler {
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		jobDescriptionDao.deleteAll();
+		jobDescriptionDao.deleteByCompany(CompanyEnum.ALIBABA.getCompanyId());
 		HttpClient httpclient = new DefaultHttpClient();
 		int index = 1;
 		while (true) {
@@ -64,6 +66,7 @@ public class AliCrawler implements JDCrawler {
 					jobDesc.setPostRequire(job.getString("requirement"));
 					jobDesc.setPostDescription(job.getString("description"));
 					jobDesc.setYearsLimit(job.getString("workExperience"));
+					jobDesc.setBeginDate(new Date(job.getLongValue("gmtModified")));
 					// 解析预留
 					jobDesc.setFunctionType(AliCategoryEnum.getCodeByName(job
 							.getString("firstCategory")));
@@ -74,7 +77,7 @@ public class AliCrawler implements JDCrawler {
 				int totalPage = Integer.valueOf(returnValue.get("totalPage")
 						.toString());
 				if (index > totalPage || index >350) {
-					break;
+					return;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
