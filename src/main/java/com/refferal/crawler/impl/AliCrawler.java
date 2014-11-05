@@ -20,7 +20,6 @@ import com.refferal.dao.JobDescriptionDao;
 import com.refferal.entity.JobDescription;
 import com.refferal.enums.AliCategoryEnum;
 import com.refferal.enums.CompanyEnum;
-import com.refferal.utils.BanzhuanDateUtil;
 
 @Service
 public class AliCrawler implements JDCrawler {
