@@ -16,19 +16,7 @@
     <%@ taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager" %>
   </head>
   <body>
-	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="<%=request.getContextPath()%>/">搬砖网</a>
-		</div>
-		<div class="navbar-collapse collapse">
-		  <ul class="nav navbar-nav">
-<!-- 		    <li class="active"><a href="#">首页</a></li> -->
-		    <li><a href="#about">关于我们</a></li>
-		  </ul>
-		</div>
-	  </div>
-	</nav>
+    <%@include file="header.jsp" %>
     <div class="container job-box">
       <div>
         <h4>职位搜索</h4>
@@ -133,10 +121,12 @@
 <!--     <div class="footer"> -->
 <!--       <p>© DEMO</p> -->
 <!--     </div> -->
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(function() {
+    	$(".banner-hover").removeClass("active");
+    	$(".banner-hover-off").addClass("active");
+    	
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
             window.location.href = "${pageContext.request.contextPath }/list/c0?keyword=" + encodeURIComponent(keyword);

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="zh-cn"><head>
+<html lang="zh-cn">
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,23 +12,13 @@
     <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <style type="text/css"></style><style id="holderjs-style" type="text/css"></style></head>
+    <style type="text/css">
+    </style>
+    <style id="holderjs-style" type="text/css"></style>
+  </head>
   <body>
 
-<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
-<div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="<%=request.getContextPath()%>/">搬砖网</a>
-</div>
-<div class="navbar-collapse collapse">
-<ul class="nav navbar-nav">
-<!--     <li><a href="#">首页</a></li> -->
-    <li><a href="#about">关于我们</a></li>
-</ul>
-</div>
-</div>
-</nav>
-
+<%@include file="header.jsp" %>
 
 <div class="container job-info">
 <div class="panel  panel-info">
@@ -75,8 +66,13 @@
 <!--       <div class="footer"> -->
 <!--         <p>© DEMO</p> -->
 <!--       </div> -->
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/statistic.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".banner-hover").removeClass("active");
+        $(".banner-hover-off").addClass("active");
+    });
+    </script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/statistic.js"></script>
 </body>
 </html>
