@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.refferal.crawler.JDCrawler;
 import com.refferal.dao.JobDescriptionDao;
-import com.refferal.enums.CompanyEnum;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
@@ -28,7 +27,6 @@ public class BaiduCrawler implements JDCrawler {
 	 */
 	public void startCrawl() throws Exception {
 
-		jobDescriptionDao.deleteByCompany(CompanyEnum.BAIDU.getCompanyId());
 		String crawlStorageFolder = "data/crawl/root" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 
 		CrawlConfig config = new CrawlConfig();

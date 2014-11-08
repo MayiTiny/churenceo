@@ -31,7 +31,6 @@ public class MeituanCrawler implements JDCrawler{
 	private static final String HOME_PAGE = "http://www.hotjob.cn/wt/meituan/web/index/webPosition100!getPostList?pc.rowSize=100&recruitType=2&blockType=1&pc.currentPage=1";
 
 	public void startCrawl() throws Exception {
-		jobDescriptionDao.deleteByCompany(CompanyEnum.MEITUAN.getCompanyId());
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(HOME_PAGE);
 		httpget.addHeader("Content-Type", "text/html;charset=UTF-8");
@@ -91,7 +90,10 @@ public class MeituanCrawler implements JDCrawler{
 		jobDesc.setPostDescription(doc.getElementsByClass("jobshow_jobmain_02").get(0).html());
 		jobDesc.setPostRequire(doc.getElementsByClass("jobshow_jobmain_02").get(1).html());
 		jobDesc.setCompany(CompanyEnum.MEITUAN.getCompanyId());
-		jobDescriptionDao.insert(jobDesc);
+		int isExsit = jobDescriptionDao.selectExsit(jobDesc);
+		if(isExsit == 0){
+			jobDescriptionDao.insert(jobDesc);
+		}
 	}
 
 	private static String inStream2String(InputStream in) throws Exception {

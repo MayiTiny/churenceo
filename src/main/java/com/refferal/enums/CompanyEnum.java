@@ -10,7 +10,13 @@ public enum CompanyEnum {
 	
 	MEITUAN("美团",3),
 	
-	QUNAR("去哪儿",4);
+	QUNAR("去哪儿",4),
+	
+	SOGOU("搜狗",5),
+	
+	SOHU_TV("搜狐视频",6),
+	
+	QIHU_360("360",7);
 	
 	private String companyName;
 

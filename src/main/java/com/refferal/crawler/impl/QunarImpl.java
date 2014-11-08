@@ -101,7 +101,10 @@ public class QunarImpl extends WebCrawler {
 					jobDesc.setFunctionType(99);
 					jobDesc.setDepartment("其他");
 				}
-				jobDescriptionDao.insert(jobDesc);
+				int isExsit = jobDescriptionDao.selectExsit(jobDesc);
+				if(isExsit == 0){
+					jobDescriptionDao.insert(jobDesc);
+				}
 			}
 		}
 	}

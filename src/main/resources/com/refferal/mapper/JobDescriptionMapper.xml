@@ -114,4 +114,10 @@
       <delete id="deleteByCompany" parameterType="Integer">
        DELETE FROM job_description where company = #{0};
     </delete>
+    
+     <select id="selectExsit" parameterType="JobDescription" resultType="Integer">
+         select count(*) from job_description where 
+         company=#{company} and department=#{department} and name=#{name}
+         and city_id=#{cityId}
+     </select>
 </mapper>

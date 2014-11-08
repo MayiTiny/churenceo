@@ -27,7 +27,6 @@ public class QunarCrawler implements JDCrawler {
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		jobDescriptionDao.deleteByCompany(CompanyEnum.QUNAR.getCompanyId());
 		String crawlStorageFolder = "data/crawl/root" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		CrawlConfig config = new CrawlConfig();
 		config.setCrawlStorageFolder(crawlStorageFolder);

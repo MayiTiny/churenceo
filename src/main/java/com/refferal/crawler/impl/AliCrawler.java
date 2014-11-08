@@ -34,7 +34,6 @@ public class AliCrawler implements JDCrawler {
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		jobDescriptionDao.deleteByCompany(CompanyEnum.ALIBABA.getCompanyId());
 		HttpClient httpclient = new DefaultHttpClient();
 		int index = 1;
 		while (true) {
@@ -70,7 +69,10 @@ public class AliCrawler implements JDCrawler {
 					jobDesc.setFunctionType(AliCategoryEnum.getCodeByName(job
 							.getString("firstCategory")));
 					jobDesc.setCityId(job.getString("workLocation"));
-					jobDescriptionDao.insert(jobDesc);
+					int isExsit = jobDescriptionDao.selectExsit(jobDesc);
+					if(isExsit == 0){
+						jobDescriptionDao.insert(jobDesc);
+					}
 					// TODO 插入数据库
 				}
 				int totalPage = Integer.valueOf(returnValue.get("totalPage")
