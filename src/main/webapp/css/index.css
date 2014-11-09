@@ -190,20 +190,20 @@ html, body {
     color: #666;
 }
 .fri {
-	width: 100%;
+	width: 500px;
 	font-size: 14px;
 	margin: 10px 0 0 0;
 	padding: 0 0 0 190px;
 }
 .fri li {
 	width: 120px;
-	height: 100px;
+	height: 80px;
 	text-indent: -9999px;
 	float: left;
 }
 .fri li a {
 	width: 120px;
-	height: 100px;
+	height: 80px;
 	text-indent: -9999px;
 	float: left;
 }
@@ -221,6 +221,9 @@ html, body {
 }
 .fri li.qh {
 	background: url("../img/360.png") no-repeat center;
+}
+.fri li.sogou {
+	background: url("../img/sogou.png") no-repeat center;
 }
 .fri h6 {
 	color: #666;

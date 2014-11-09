@@ -42,6 +42,7 @@
                 <li class="baidu"><a href="<%=request.getContextPath()%>/list/c2">百度</a></li>
                 <li class="mt"><a href="<%=request.getContextPath()%>/list/c3">美团</a></li>
                 <li class="qn"><a href="<%=request.getContextPath()%>/list/c4">去哪儿</a></li>
+                <li class="sogou"><a href="<%=request.getContextPath()%>/list/c5">搜狗</a></li>
             </ul>
         </div>
     </div>
