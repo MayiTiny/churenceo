@@ -96,7 +96,8 @@
                 </table>
                 <div class="col-sm-offset-5">
                 <ul class="pagination">
-				<pg:pager items="${jds.count }" url="${pageContext.request.contextPath }/list/c${params.company }" export="currentPageNumber=pageNumber" scope="request">
+                <c:if test="${jds.count > 0 }">
+				  <pg:pager items="${jds.count }" url="${pageContext.request.contextPath }/list/c${params.company }" export="currentPageNumber=pageNumber" scope="request">
 					<pg:param name="category" value="${params.category }" />
 					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>  
 					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
@@ -112,7 +113,8 @@
 					</pg:pages>  
 					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
 					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第${pageNumber}页</a></li></pg:last>  
-				</pg:pager>  
+				  </pg:pager>
+				</c:if>
                 </ul>
                 </div>
             </div>
