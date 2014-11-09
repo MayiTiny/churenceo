@@ -16,7 +16,7 @@ public class DayCircleJob {
 	private JDCrawler baidu;
 
 	@Autowired
-	private JDCrawler qunar;
+	private JDCrawler sogou;
 	
 	@Autowired
 	private JDCrawler meituan;
@@ -37,9 +37,9 @@ public class DayCircleJob {
 			log.error("oh my god! something was wrong with baidu", e);
 		}
 		try {
-			log.info("去哪爬虫开始");
-			qunar.startCrawl();
-			log.info("去哪爬虫结束");
+			log.info("搜狗爬虫开始");
+			sogou.startCrawl();
+			log.info("搜狗爬虫结束");
 		} catch (Exception e) {
 			log.error("oh my god! something was wrong with qunar", e);
 
