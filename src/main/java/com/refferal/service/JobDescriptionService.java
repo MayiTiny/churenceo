@@ -59,8 +59,8 @@ public class JobDescriptionService {
 		return pageList;
 	}
 
-	public void insert(JobDescription jd) {
-		jobDescriptionDao.insert(jd);
+	public int insert(JobDescription jd) {
+		return jobDescriptionDao.insert(jd);
 	}
 
 	public JobDescriptionDTO selectById(Integer id) {

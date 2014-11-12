@@ -53,7 +53,7 @@
         </trim>
         limit #{start}, #{pageSize};
     </select>
-    <insert id="insert" parameterType="JobDescription">
+    <insert id="insert" parameterType="JobDescription" useGeneratedKeys="true" keyProperty="id" >
         insert into job_description (
             company, 
             name, 

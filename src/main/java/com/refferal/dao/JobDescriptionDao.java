@@ -9,7 +9,7 @@ public interface JobDescriptionDao {
 
 	List<JobDescription> getJobDescriptions(Map<String, Object> params);
 
-	void insert(JobDescription jd);
+	int insert(JobDescription jd);
 
 	JobDescription selectById(Integer id);
 	
