@@ -43,6 +43,7 @@
                 <li class="mt"><a href="<%=request.getContextPath()%>/list/c3">美团</a></li>
                 <li class="qn"><a href="<%=request.getContextPath()%>/list/c4">去哪儿</a></li>
                 <li class="sogou"><a href="<%=request.getContextPath()%>/list/c5">搜狗</a></li>
+                <li class="qh"><a href="<%=request.getContextPath()%>/list/c7">360</a></li>
             </ul>
         </div>
     </div>
