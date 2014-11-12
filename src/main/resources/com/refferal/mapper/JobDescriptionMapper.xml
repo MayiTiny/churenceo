@@ -51,6 +51,7 @@
             and company = #{company}
         </if>
         </trim>
+        order by id desc
         limit #{start}, #{pageSize};
     </select>
     <insert id="insert" parameterType="JobDescription" useGeneratedKeys="true" keyProperty="id" >
@@ -108,7 +109,7 @@
             and company = #{company}
         </if>
         </trim>
-        limit 1 
+        order by id desc limit 1 
     </select>
     
       <delete id="deleteByCompany" parameterType="Integer">

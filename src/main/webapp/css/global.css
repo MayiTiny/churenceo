@@ -66,3 +66,39 @@ ol,ul {
 .hd-r a {
     color: #534E4E;
 }
+.so button, .btn-search {
+    width: 95px;
+    height: 40px;
+    background: #FA8037;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    font-family: '微软雅黑';
+    cursor: pointer;
+    position: relative;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.so button {
+    top: 2px;
+    height: 44px;
+}
+.so input, .input-search {
+    width: 600px;
+    height: 40px;
+    border: 2px solid #FA8037;
+    background: white;
+    text-indent: 10px;
+    font-size: 14px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.so input {
+    width: 460px;
+}
+.so input, .input-search:focus,
+.so button, .btn-search:focus {
+    outline: 0;
+}

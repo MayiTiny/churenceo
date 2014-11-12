@@ -137,5 +137,16 @@ h3,h4 {
 }
 
 .header-container {
-    margin-left: 90px;
+	text-align: center;
+	width: 940px;
+	margin: 0 auto;
+}
+
+.text-search {
+	margin: 0px 3px 0px 4px;
+	font-size: 16px;
+	font-weight: normal;
+}
+.div-search {
+	margin-top: 15px;
 }

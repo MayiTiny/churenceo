@@ -36,7 +36,7 @@
             </ul>
         </div>
         <div class="fri">
-            <h6>已开通以下大厂内推直通车！点击进入！</h6>
+            <h6>已开通大厂内推直通车！点击以下图标进入！</h6>
             <ul>
                 <li class="ali"><a href="<%=request.getContextPath()%>/list/c1">阿里巴巴</a></li>
                 <li class="baidu"><a href="<%=request.getContextPath()%>/list/c2">百度</a></li>

@@ -145,30 +145,7 @@ html, body {
 .m-main .so {
 	text-align: center;
 }
-.so input {
-	width: 460px;
-	height: 40px;
-	border: 2px solid #FA8037;
-	background: white;
-	text-indent: 10px;
-	font-size: 14px;
-}
-.so button {
-	width: 95px;
-	height: 44px;
-	background: #FA8037;
-	border: 0;
-	color: white;
-	font-size: 18px;
-	font-family: '微软雅黑';
-	cursor: pointer;
-	position: relative;
-	top: 2px;
-}
-.so input:focus,
-.so button:focus {
-	outline: 0;
-}
+
 .m-main .hot {
 	width: 100%;
 	font-size: 14px;

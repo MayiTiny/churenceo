@@ -19,13 +19,12 @@
     <%@include file="header.jsp" %>
     <div class="container job-box">
       <div>
-        <h4>职位搜索</h4>
         <div>
           <form class="form-inline" role="form">
-              <div class="form-group  col-sm-10">
-                  <input type="text" class="form-control input-lg" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
+              <div class="form-group div-search"><b class="text-search">职位搜索</b>
+                <input type="text" class="form-control input-search" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
+                <button class="btn btn-search js-search">搜索</button>
               </div>  
-              <a href="#" class="btn btn-lg btn-default js-search">搜索</a>
           </form>
             <div class="search-tab ">
                 <div class="search-li-box layout">
