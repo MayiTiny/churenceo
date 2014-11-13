@@ -63,6 +63,7 @@ public class SogouImpl extends WebCrawler {
 			if(isExsit == 0){
 				jobDescriptionDao.insert(jobDescroption);
 			}
+			
 		}
 	}
 
