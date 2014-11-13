@@ -98,7 +98,9 @@ ol,ul {
 .so input {
     width: 460px;
 }
-.so input, .input-search:focus,
-.so button, .btn-search:focus {
+.so input, 
+.so button, 
+.input-search:focus,
+.btn-search:focus {
     outline: 0;
 }

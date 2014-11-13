@@ -44,6 +44,7 @@
                 <li class="qn"><a href="<%=request.getContextPath()%>/list/c4">去哪儿</a></li>
                 <li class="sogou"><a href="<%=request.getContextPath()%>/list/c5">搜狗</a></li>
                 <li class="qh"><a href="<%=request.getContextPath()%>/list/c7">360</a></li>
+                <li class="tencent"><a href="<%=request.getContextPath()%>/list/c8">腾讯</a></li>
             </ul>
         </div>
     </div>

@@ -202,6 +202,9 @@ html, body {
 .fri li.sogou {
 	background: url("../img/sogou.png") no-repeat center;
 }
+.fri li.tencent {
+	background: url("../img/tencent.png") no-repeat center;
+}
 .fri h6 {
 	color: #666;
 	margin: 30px 0px 0px 0px;

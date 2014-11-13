@@ -20,12 +20,10 @@
     <div class="container job-box">
       <div>
         <div>
-          <form class="form-inline" role="form">
-              <div class="form-group div-search"><b class="text-search">职位搜索</b>
-                <input type="text" class="form-control input-search" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
-                <button class="btn btn-search js-search">搜索</button>
-              </div>  
-          </form>
+            <div class="div-search"><b class="text-search">职位搜索</b>
+              <input type="text" class="input-search" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
+              <button class="btn-search js-search">搜索</button>
+            </div>  
             <div class="search-tab ">
                 <div class="search-li-box layout">
                     <b>公&emsp;&emsp;司：</b> 
@@ -130,8 +128,11 @@
     	
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
-            window.location.href = "${pageContext.request.contextPath }/list/c0?keyword=" + encodeURIComponent(keyword);
+            search();
+            //window.location.href = "${pageContext.request.contextPath }/list/c0?keyword=" + encodeURIComponent(keyword) + "&category=&city=";
+            return false;
         });
+        $('#job_search').focus();
         $('#job_search').keydown(function(event) {
             if(event.keyCode == "13") {
                 $(".js-search").click();
