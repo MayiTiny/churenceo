@@ -20,6 +20,9 @@ public class DayCircleJob {
 	
 	@Autowired
 	private JDCrawler meituan;
+	
+	@Autowired
+	private JDCrawler tencent;
 
 	public void deploy() throws Exception {
 		try {
@@ -42,6 +45,14 @@ public class DayCircleJob {
 			log.info("搜狗爬虫结束");
 		} catch (Exception e) {
 			log.error("oh my god! something was wrong with qunar", e);
+
+		}
+		try {
+			log.info("腾讯爬虫开始");
+			tencent.startCrawl();
+			log.info("腾讯爬虫结束");
+		} catch (Exception e) {
+			log.error("oh my god! something was wrong with meituan", e);
 
 		}
 		try {
