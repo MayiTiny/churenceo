@@ -72,7 +72,7 @@
                 <li>
                     <h6>联系方式</h6>
                     <div>QQ : 273205819</div>
-                    <div>apply2ali88@gmail.com</div>
+                    <div>churenceo@foxmail.com</div>
                 </li>
             </ul>
 <!--             <div class="code2d"></div> -->
