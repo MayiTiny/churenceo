@@ -6,6 +6,8 @@ public enum CompanyEnum {
 	
 	ALIBABA("阿里巴巴",1),
 	
+	TENCENT("腾讯",8),
+	
 	BAIDU("百度",2),
 	
 	MEITUAN("美团",3),
