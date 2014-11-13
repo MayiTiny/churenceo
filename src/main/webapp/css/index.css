@@ -113,6 +113,7 @@ html, body {
 	float: left;
 	color: #333;
 	font-size: 12px;
+	width: 100%;
 }
 .m-contact ul li a {
 	color: #333;
