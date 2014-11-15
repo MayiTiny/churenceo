@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,16 @@ public class AddAction {
 	public void add1(HttpServletRequest request, HttpServletResponse response, JobDescription jd) {
 		try {
 			if ("ceonb".equals(request.getParameter("password"))) {
+				String desc = jd.getPostDescription();
+				if (StringUtils.isNotBlank(desc)) {
+					desc = desc.replaceAll("\\r\\n", "<br/>");
+					jd.setPostDescription(desc);
+				}
+				String require = jd.getPostRequire();
+				if (StringUtils.isNotBlank(require)) {
+					require = require.replaceAll("\\r\\n", "<br/>");
+					jd.setPostRequire(require);
+				}
 				jobDescriptionService.insert(jd);
 				response.sendRedirect("detail/" + jd.getId());
 			} else {
