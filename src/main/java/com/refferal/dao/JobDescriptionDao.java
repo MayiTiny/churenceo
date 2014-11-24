@@ -19,7 +19,9 @@ public interface JobDescriptionDao {
 
 	JobDescription getLatest(Map<String, Object> params);
 	
-	void deleteByCompany(Integer company);
+	void updateByCompany(Integer company);
+	
+	void updateById(Integer id);
 	
 	int selectExsit(JobDescription jd);
 }

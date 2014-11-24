@@ -62,6 +62,8 @@ public class SogouImpl extends WebCrawler {
 			int isExsit = jobDescriptionDao.selectExsit(jobDescroption);
 			if(isExsit == 0){
 				jobDescriptionDao.insert(jobDescroption);
+			}else{
+				jobDescriptionDao.updateById(isExsit);
 			}
 			
 		}

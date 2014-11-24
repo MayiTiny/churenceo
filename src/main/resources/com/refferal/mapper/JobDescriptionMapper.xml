@@ -69,7 +69,8 @@
             degree,
             post_require,
             post_description,
-            special_description
+            special_description,
+            status
         ) values (
             #{company}, 
             #{name}, 
@@ -84,7 +85,8 @@
             #{degree},
             #{postRequire},
             #{postDescription},
-            #{specialDescription}
+            #{specialDescription},
+            2
         );
     </insert>
     <select id="selectById" parameterType="Integer" resultMap="jobDescriptionMap">
@@ -112,12 +114,15 @@
         order by id desc limit 1 
     </select>
     
-      <delete id="deleteByCompany" parameterType="Integer">
-       DELETE FROM job_description where company = #{0};
-    </delete>
+      <update id="updateByCompany" parameterType="Integer">
+       update  job_description set status = case when status > 0 then status -1 else 0 end where company = #{0}
+      </update>
     
+    <update id="updateById" parameterType="Integer">
+     update  job_description set status = status + 1 where id = #{0}
+    </update>
      <select id="selectExsit" parameterType="JobDescription" resultType="Integer">
-         select count(*) from job_description where 
+         select ifnull(max(id),0) from job_description where 
          company=#{company} and department=#{department} and name=#{name}
          and city_id=#{cityId}
      </select>

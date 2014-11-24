@@ -104,6 +104,8 @@ public class JobCrawler extends WebCrawler {
 				int isExsit = jobDescriptionDao.selectExsit(jobDesc);
 				if(isExsit == 0){
 					jobDescriptionDao.insert(jobDesc);
+				}else{
+					jobDescriptionDao.updateById(isExsit);
 				}
 			}
 		}

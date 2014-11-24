@@ -70,8 +70,10 @@ public class AliCrawler implements JDCrawler {
 							.getString("firstCategory")));
 					jobDesc.setCityId(job.getString("workLocation"));
 					int isExsit = jobDescriptionDao.selectExsit(jobDesc);
-					if(isExsit == 0){
+					if(0 == isExsit){
 						jobDescriptionDao.insert(jobDesc);
+					}else{
+						jobDescriptionDao.updateById(isExsit);
 					}
 					// TODO 插入数据库
 				}
