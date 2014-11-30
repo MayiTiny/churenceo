@@ -30,6 +30,7 @@ public class IndexJDCache {
 	public static void reload() {
 		JobDescriptionDao dao = AppContext.getInstance().getBean(JobDescriptionDao.class);
 		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("statusGt", 0);
 		
 		LATESTS.clear();
 		params.put("company", 3);
