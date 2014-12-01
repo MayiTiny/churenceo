@@ -87,7 +87,7 @@
             #{beginDate}, 
             #{recruitType}, 
             #{functionType}, 
-            #{endDate},
+            now(),
             #{yearsLimit},
             #{degree},
             #{postRequire},

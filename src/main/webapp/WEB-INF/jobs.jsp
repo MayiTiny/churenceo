@@ -71,7 +71,7 @@
                             <th class="col-sm-1"><span>职位类别</span></th>
                             <th class="col-sm-1"><span>工作地点</span></th>
                             <th class="col-sm-1"><span>招聘人数</span></th>
-                            <th class="col-sm-1"><span>更新时间</span></th>
+                            <th class="col-sm-1"><span>发布时间</span></th>
                         </tr>
                     </thead>
                     <tbody id="J-list-box">
@@ -86,7 +86,7 @@
 	                        <td><span>${item.functionType }</span></td>
 	                        <td><span>${item.cityId }</span></td>
 	                        <td><span><c:if test="${item.headCount==-1 }">若干</c:if><c:if test="${item.headCount!=-1 }">${item.headCount }</c:if></span></td>
-	                        <td><span><fmt:formatDate value="${item.beginDate }" pattern="yyyy-MM-dd" /></span></td>
+	                        <td><span><fmt:formatDate value="${item.endDate }" pattern="yyyy-MM-dd" /></span></td>
                         </tr>
                     </c:forEach>
                 </tbody>

@@ -41,7 +41,7 @@
                   <td>招聘人数：</td>
                   <td><c:if test="${jd.headCount==-1 }">若干</c:if><c:if test="${jd.headCount!=-1 }">${jd.headCount }</c:if></td>
                   <td class="col-sm-1">发布时间：</td>
-                  <td class="col-sm-2"><fmt:formatDate value="${jd.beginDate }" pattern="yyyy-MM-dd" /></td>
+                  <td class="col-sm-2"><fmt:formatDate value="${jd.endDate }" pattern="yyyy-MM-dd" /></td>
               </tr>
       </table>
   </div>
