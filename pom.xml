@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>refferal</groupId>
-	<artifactId>refferal</artifactId>
+	<groupId>churenceo</groupId>
+	<artifactId>churenceo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>refferal</name>
+	<name>churenceo</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -134,7 +134,7 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>6.1.26</version>
 				<configuration>
-					<webApp>${basedir}/target/refferal.war</webApp>
+					<webApp>${basedir}/target/churenceo.war</webApp>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 							<port>8080</port>
