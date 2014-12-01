@@ -40,11 +40,11 @@
             <ul>
                 <li class="ali"><a href="<%=request.getContextPath()%>/list/c1" target="_blank">阿里巴巴</a></li>
                 <li class="baidu"><a href="<%=request.getContextPath()%>/list/c2" target="_blank">百度</a></li>
+                <li class="tencent"><a href="<%=request.getContextPath()%>/list/c8" target="_blank">腾讯</a></li>
                 <li class="mt"><a href="<%=request.getContextPath()%>/list/c3" target="_blank">美团</a></li>
                 <li class="qn"><a href="<%=request.getContextPath()%>/list/c4" target="_blank">去哪儿</a></li>
                 <li class="sogou"><a href="<%=request.getContextPath()%>/list/c5" target="_blank">搜狗</a></li>
                 <li class="qh"><a href="<%=request.getContextPath()%>/list/c7" target="_blank">360</a></li>
-                <li class="tencent"><a href="<%=request.getContextPath()%>/list/c8" target="_blank">腾讯</a></li>
             </ul>
         </div>
     </div>
