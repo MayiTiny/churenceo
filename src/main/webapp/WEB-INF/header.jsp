@@ -14,7 +14,7 @@
 <!--             <a href="###">登录</a> | <a href="###">注册</a> -->
         </div>
     </div>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 	  $(function() {
 	    $('.banner-hover-off').hover(
