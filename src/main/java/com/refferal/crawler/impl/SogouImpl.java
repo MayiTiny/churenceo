@@ -52,9 +52,9 @@ public class SogouImpl extends WebCrawler {
 			String headCount = fonts.get(1).text().split("人")[0];
 			jobDescroption.setHeadCount(Integer.valueOf(headCount));
 			Elements jobDesc = doc.getElementsByClass("zhiwei_ms");
-			String desc = jobDesc.get(0).getElementsByTag("pre").get(0).html();
+			String desc = jobDesc.get(0).getElementsByTag("pre").get(0).text();
 			jobDescroption.setPostDescription(desc);
-			String require = jobDesc.get(1).getElementsByTag("pre").get(0).html();
+			String require = jobDesc.get(1).getElementsByTag("pre").get(0).text();
 			jobDescroption.setPostRequire(require);
 			jobDescroption.setDegree("本科");
 			jobDescroption.setFunctionType(SogouCategoryEnum.getCodeByName(title));
