@@ -93,6 +93,11 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.7.3</version>
 		</dependency>
+		<dependency>
+        <groupId>javax.mail</groupId>
+        <artifactId>mail</artifactId>
+        <version>1.4.1</version>
+    </dependency>   
 		<!-- quartz -->
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
