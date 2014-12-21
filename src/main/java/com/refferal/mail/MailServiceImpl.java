@@ -21,8 +21,10 @@ import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.codec.binary.Base64;
 import org.jsoup.helper.StringUtil;
+import org.springframework.stereotype.Service;
 
-public class MailServiceImpl implements MailService{
+@Service("mailService")
+public class MailServiceImpl implements MailService {
 	/**
 	 * 以文本格式发送邮件
 	 * 
