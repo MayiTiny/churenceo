@@ -83,7 +83,7 @@ public class DetailAction {
 		JSONObject json = new JSONObject();
 		
 		MailSendInfo mailInfo = new MailSendInfo();
-		mailInfo.setMailServerHost("smtp.qq.com");
+		mailInfo.setMailServerHost("163.177.65.211");
 		mailInfo.setMailServerPort("25");
 		mailInfo.setValidate(true);
 		mailInfo.setUserName("gotoali@foxmail.com");
