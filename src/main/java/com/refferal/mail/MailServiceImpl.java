@@ -72,7 +72,6 @@ public class MailServiceImpl implements MailService {
 					mailMessage.setText(mailContent);
 				} catch (Exception e) {
 					mailMessage.setFileName(mailInfo.getAttachFileName());
-					}
 				}
 			}
 			// 发送邮件
