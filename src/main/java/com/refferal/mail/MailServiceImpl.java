@@ -59,25 +59,27 @@ public class MailServiceImpl implements MailService {
 			mailMessage.setSentDate(new Date());
 			// 设置邮件消息的主要内容
 			String mailContent = mailInfo.getContent();
-			mailMessage.setText(mailContent);
+			BodyPart messageBodyPart = new MimeBodyPart();
+			messageBodyPart.setText(mailContent);
+			Multipart multipart = new MimeMultipart();
+			multipart.addBodyPart(messageBodyPart, 0);
 			if (!StringUtil.isBlank(mailInfo.getAttachFilePath())) {
-				DataSource source = new FileDataSource(
-						mailInfo.getAttachFilePath());
-				mailMessage.setDataHandler(new DataHandler(source));
-				try {
-					mailMessage.setFileName("=?GBK?B?"
-							+ Base64.encodeBase64String(mailInfo
-									.getAttachFileName().getBytes("gbk"))
-							+ "?=");
-					mailMessage.setText(mailContent);
-				} catch (Exception e) {
-					mailMessage.setFileName(mailInfo.getAttachFileName());
-				}
+				// DataSource source = new FileDataSource(
+				// mailInfo.getAttachFilePath());
+				// mailMessage.setDataHandler(new DataHandler(source));
+				MimeBodyPart bodyPart = new MimeBodyPart();
+				bodyPart.attachFile(mailInfo
+						.getAttachFilePath());
+				bodyPart.setFileName("=?GBK?B?"
+						+ Base64.encodeBase64String(mailInfo
+								.getAttachFileName().getBytes("gbk")) + "?=");
+				multipart.addBodyPart(bodyPart, 1);
 			}
+			mailMessage.setContent(multipart);
 			// 发送邮件
 			Transport.send(mailMessage);
 			return true;
-		} catch (MessagingException ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return false;
