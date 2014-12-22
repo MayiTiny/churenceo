@@ -64,10 +64,16 @@ public class MailServiceImpl implements MailService {
 				DataSource source = new FileDataSource(
 						mailInfo.getAttachFilePath());
 				mailMessage.setDataHandler(new DataHandler(source));
-				mailMessage.setFileName("=?GBK?B?"
-						+ Base64.encodeBase64String(mailInfo
-								.getAttachFileName().getBytes()) + "?=");
-				mailMessage.setFileName(mailInfo.getAttachFileName());
+				try {
+					mailMessage.setFileName("=?GBK?B?"
+							+ Base64.encodeBase64String(mailInfo
+									.getAttachFileName().getBytes("gbk"))
+							+ "?=");
+					mailMessage.setText(mailContent);
+				} catch (Exception e) {
+					mailMessage.setFileName(mailInfo.getAttachFileName());
+					}
+				}
 			}
 			// 发送邮件
 			Transport.send(mailMessage);
