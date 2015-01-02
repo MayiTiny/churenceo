@@ -41,7 +41,7 @@ public class SogouImpl extends WebCrawler {
 			String html = htmlParseData.getHtml();
 			Document doc = Jsoup.parse(htmlParseData.getHtml());
 			String title =  doc.getElementsByClass("biaoti").get(0).getElementsByTag("h3").get(0).text();
-			String name =title.split("-")[1];
+			String name = title.split("-")[1];
 			String dept = title.split("-")[0];
 			jobDescroption.setName(name);
 			jobDescroption.setDepartment(dept);
@@ -52,10 +52,18 @@ public class SogouImpl extends WebCrawler {
 			String headCount = fonts.get(1).text().split("人")[0];
 			jobDescroption.setHeadCount(Integer.valueOf(headCount));
 			Elements jobDesc = doc.getElementsByClass("zhiwei_ms");
-			String desc = jobDesc.get(0).getElementsByTag("pre").get(0).text();
-			jobDescroption.setPostDescription(desc);
-			String require = jobDesc.get(1).getElementsByTag("pre").get(0).text();
-			jobDescroption.setPostRequire(require);
+			if(jobDesc.size() == 3){
+				String desc = jobDesc.get(0).getElementsByTag("pre").get(0).html();
+				desc += "</br>" + jobDesc.get(1).getElementsByTag("pre").get(0).html();
+				jobDescroption.setPostDescription(desc.replace("\n", "</br>"));
+				String require = jobDesc.get(2).getElementsByTag("pre").get(0).text();
+				jobDescroption.setPostRequire(require.replace("\n", "</br>"));
+			}else{
+				String desc = jobDesc.get(0).getElementsByTag("pre").get(0).html();
+				jobDescroption.setPostDescription(desc.replace("\n", "</br>"));
+				String require = jobDesc.get(1).getElementsByTag("pre").get(0).text();
+				jobDescroption.setPostRequire(require.replace("\n", "</br>"));
+			}
 			jobDescroption.setDegree("本科");
 			jobDescroption.setFunctionType(SogouCategoryEnum.getCodeByName(title));
 			jobDescroption.setYearsLimit("3年");
