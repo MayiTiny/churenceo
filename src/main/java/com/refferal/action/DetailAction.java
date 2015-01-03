@@ -114,8 +114,7 @@ public class DetailAction {
 					+ "，你好!</br>你选择的" + title
 					+ "职位投递成功，搬砖君评估之后会转给对应公司的内推人，</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://img1.ph.126.net/FAk9pReymxEU37HzS0Gqxw==/2445173122702928854.jpg\">");
 			// 这个类主要来发送邮件
-			MailServiceImpl sms = new MailServiceImpl();
-			sms.sendHtmlMail(info);// 发送文体格式
+			mailService.sendHtmlMail(info);// 发送文体格式
 		} catch (Exception e) {
 			LOGGER.error("发送回复右键失败！", e);
 		}
