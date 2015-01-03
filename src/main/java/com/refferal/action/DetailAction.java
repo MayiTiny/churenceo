@@ -90,9 +90,9 @@ public class DetailAction {
 		mailInfo.setMailServerHost("smtp.qq.com");
 		mailInfo.setMailServerPort("25");
 		mailInfo.setValidate(true);
-		mailInfo.setUserName("gotoali@foxmail.com");
-		mailInfo.setPassword("zty0703");// 您的邮箱密码
-		mailInfo.setFromAddress("gotoali@foxmail.com");
+		mailInfo.setUserName("churenceo@foxmail.com");
+		mailInfo.setPassword("dragon7910");// 您的邮箱密码
+		mailInfo.setFromAddress("churenceo@foxmail.com");
 		mailInfo.setToAddress("churenceo@foxmail.com");
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
 		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email);
