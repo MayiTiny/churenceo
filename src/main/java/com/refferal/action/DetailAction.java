@@ -116,7 +116,7 @@ public class DetailAction {
 			// 这个类主要来发送邮件
 			mailService.sendHtmlMail(info);// 发送文体格式
 		} catch (Exception e) {
-			LOGGER.error("发送回复右键失败！", e);
+			LOGGER.error("发送回复邮件失败！", e);
 		}
 		return json;
 
