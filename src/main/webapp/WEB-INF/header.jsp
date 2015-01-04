@@ -15,6 +15,7 @@
         </div>
     </div>
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101180974" data-redirecturi="churenceo.com" charset="utf-8"></script>
 	<script>
 	  $(function() {
 	    $('.banner-hover-off').hover(
