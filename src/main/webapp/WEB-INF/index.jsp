@@ -8,7 +8,6 @@
     <meta name="keywords" content="阿里内推,百度内推,内部推荐,阿里巴巴内部推荐">
     <meta property="qc:admins" content="237222766763052563576375" />
     <link rel="stylesheet" href="css/index.css"/>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -74,7 +73,7 @@
                 <li>
                     <h6>联系方式</h6>
                     <div>QQ : 273205819</div>
-                    <div>churenceo@foxmail.com</div>
+                    <div>job@churenceo.com</div>
                 </li>
             </ul>
 <!--             <div class="code2d"></div> -->

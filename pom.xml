@@ -150,6 +150,11 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>2.4</version>
 		</dependency>
+		<dependency>
+		  <groupId>com.qq.connect</groupId>
+		  <artifactId>Sdk4J</artifactId>
+		  <version>2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -162,7 +167,7 @@
 					<webApp>${basedir}/target/churenceo.war</webApp>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8080</port>
+							<port>80</port>
 						</connector>
 					</connectors>
 					<scanIntervalSeconds>0</scanIntervalSeconds>

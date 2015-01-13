@@ -10,8 +10,7 @@
     <title>搬砖网 新增职位</title>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <style type="text/css">
     </style>
     <style id="holderjs-style" type="text/css"></style>
