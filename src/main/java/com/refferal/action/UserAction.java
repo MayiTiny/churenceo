@@ -49,7 +49,8 @@ public class UserAction {
 			if (accessTokenObj.getAccessToken().equals("")) {
 //              我们的网站被CSRF攻击了或者用户取消了授权
 //              做一些数据统计工作
-				LOGGER.error("登录回调没有获取到响应参数");
+				LOGGER.error("登录回调没有获取到响应参数.QueryString:" + request.getQueryString() 
+						+ ",qq_connect_state:" + request.getSession().getAttribute("qq_connect_state"));
 			} else {
 				String accessToken = accessTokenObj.getAccessToken();
                 
