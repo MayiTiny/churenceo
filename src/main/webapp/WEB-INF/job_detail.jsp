@@ -101,7 +101,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-2"></div>
-            <div class="col-sm-8">亲也可以手动发送“搬砖网-姓名-工作年限-${jd.companyName }-职位名” 到 churenceo@foxmail.com 并附上职位链接与简历。</div>
+            <div class="col-sm-8">亲也可以手动发送“搬砖网-姓名-工作年限-${jd.companyName }-职位名” 到 job@churenceo.com 并附上职位链接与简历。</div>
           </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
