@@ -64,7 +64,7 @@
   </div>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow: initial;">
-    <div class="modal-dialog" style="top: 100px;">
+    <div class="modal-dialog" style="top: 50px;">
       <div class="modal-content">
 	    <div class="modal-header">
 	      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -83,8 +83,14 @@
 	        <div class="form-group">
 		      <label for="emailName" class="col-sm-3 control-label">邮箱</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" id="emailName" name="email" placeholder="邮箱">
+		        <input type="text" class="form-control" id="emailName" name="email" placeholder="亲确保正确哦">
 		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label for="msgName" class="col-sm-3 control-label">留言</label>
+              <div class="col-sm-6">
+                <textarea rows="3" class="form-control" id="msgName" name="msg" placeholder="任何疑问或相对搬砖君说的话^_^"></textarea>
+              </div>
 		    </div>
 		    <div class="form-group">
 		      <label for="bootstrapped-fine-uploader" class="col-sm-3 control-label">简历</label>

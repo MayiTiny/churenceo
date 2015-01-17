@@ -33,7 +33,7 @@ $(function() {
     	$("#resumePath").val(responseJSON.path);
     });
     $("#deliver-form").submit(function() {
-    	$("#deliver-submit").unbind();
+    	$("#deliver-submit").attr('disabled',true); 
         $(this).ajaxSubmit({
             type: "post",
             dataType: "json",
@@ -44,7 +44,7 @@ $(function() {
                 return false;
             },
             error: function(data) {
-            	alert("投递失败%>_<% 麻烦亲手动投递到churenceo@foxmail.com");
+            	alert("投递失败%>_<% 麻烦亲手动投递到job@churenceo.com");
             	window.location.reload();
             	return false;
             }

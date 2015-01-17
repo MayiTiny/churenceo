@@ -23,7 +23,6 @@ import com.refferal.common.Const;
 import com.refferal.entity.JobDescriptionDTO;
 import com.refferal.mail.MailSendInfo;
 import com.refferal.mail.MailService;
-import com.refferal.mail.MailServiceImpl;
 import com.refferal.service.JobDescriptionService;
 
 @Controller
@@ -81,6 +80,7 @@ public class DetailAction {
 
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
+		String msg = request.getParameter("msg");
 		String path = request.getParameter("resumePath");
 		String title = request.getParameter("title");
 
@@ -95,7 +95,7 @@ public class DetailAction {
 		mailInfo.setFromAddress("churenceo@foxmail.com");
 		mailInfo.setToAddress("churenceo@foxmail.com");
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
-		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email);
+		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email + "\r\n" + msg);
 		mailInfo.setAttachFileName(path.substring(path.lastIndexOf("/") + 1));
 		mailInfo.setAttachFilePath(path);
 
@@ -112,7 +112,7 @@ public class DetailAction {
 			info.setSubject("【搬砖网】" + title + "投递通知");
 			info.setContent(name
 					+ "，你好!</br>你选择的" + title
-					+ "职位投递成功，搬砖君评估之后会转给对应公司的内推人，</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://img1.ph.126.net/FAk9pReymxEU37HzS0Gqxw==/2445173122702928854.jpg\">");
+					+ "职位投递成功，搬砖君评估之后会转给对应公司的内推人，</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://d2.freep.cn/3tb_1501172310031yhp544533.jpg\">");
 			// 这个类主要来发送邮件
 			mailService.sendHtmlMail(info);// 发送文体格式
 		} catch (Exception e) {
