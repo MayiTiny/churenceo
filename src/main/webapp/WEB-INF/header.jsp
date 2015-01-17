@@ -7,8 +7,12 @@
         <img src="<%=request.getContextPath()%>/img/logo.png" alt="搬砖网"/>
         <nav>
             <ul class="clearfix">
-                <li class="banner-hover active"><a href="<%=request.getContextPath()%>/">首 页</a></li>
-                <li class="banner-hover-off"><a href="<%=request.getContextPath()%>/list/c0">职位中心</a></li>
+                <li class="banner-hover<c:if test="${bannerSelected=='index' }"> default active</c:if>">
+                    <a href="<%=request.getContextPath()%>/">首 页</a>
+                </li>
+                <li class="banner-hover<c:if test="${bannerSelected!='index' }"> default active</c:if>">
+                    <a href="<%=request.getContextPath()%>/list/c0">职位中心</a>
+                </li>
             </ul>
         </nav>
         <div class="hd-r">
@@ -31,12 +35,14 @@
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
     <script>
       $(function() {
-        $('.banner-hover-off').hover(
+        $('.banner-hover').hover(
           function () {
+       	    $(".banner-hover").removeClass("active");
             $(this).addClass("active");
           },
           function () {
-            $(this).removeClass("active");
+            $(".banner-hover").removeClass("active");
+            $(".default").addClass("active");
         });
         $(".logout").click(function() {
         	$.ajax({

@@ -18,6 +18,7 @@ public class IndexAction {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("latests", IndexJDCache.getLatests());
 		mv.addObject("recommends", IndexJDCache.getRecommends());
+		mv.addObject("bannerSelected", "index");
         return mv;
     }
 }

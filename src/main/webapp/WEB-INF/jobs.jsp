@@ -122,9 +122,6 @@
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(function() {
-    	$(".banner-hover").removeClass("active");
-    	$(".banner-hover-off").addClass("active");
-    	
         $(".js-search").click(function() {
             var keyword = $("#job_search").val();
             search();

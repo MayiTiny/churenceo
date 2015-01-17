@@ -44,12 +44,12 @@ ol,ul {
     height: 40px;
     line-height: 40px;
     float: left;
-    padding: 0 15px;
     margin: 0 35px 0 0;
     color: #534E4E;
 }
 .m-hd ul li a {
     color: #534E4E;
+    padding: 12px 15px;
 }
 .m-hd ul li.active {
     color: #FB5E00;
