@@ -1,6 +1,4 @@
 $(function() {
-    $(".banner-hover").removeClass("active");
-    $(".banner-hover-off").addClass("active");
     $('#myModal').modal({
     	backdrop: 'static',
     	show: false
