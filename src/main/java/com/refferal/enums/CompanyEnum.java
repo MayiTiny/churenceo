@@ -18,7 +18,9 @@ public enum CompanyEnum {
 	
 	SOHU_TV("搜狐视频",6),
 	
-	QIHU_360("360",7);
+	QIHU_360("360",7),
+	
+	VIP("唯品会",9);
 	
 	private String companyName;
 
