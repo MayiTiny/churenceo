@@ -48,6 +48,7 @@
 	<bean id="meituan" class="com.refferal.crawler.impl.MeituanCrawler"/>
 	<bean id="sogou" class="com.refferal.crawler.impl.SogouCrawler"/>
 	<bean id="tencent" class="com.refferal.crawler.impl.TencentCrawler"/>
+	<bean id="vip" class="com.refferal.crawler.impl.VipCrawler"/>
 	<bean id="scheduler"
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
