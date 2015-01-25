@@ -30,6 +30,9 @@ public class DayCircleJob {
 	
 	@Autowired
 	private JDCrawler tencent;
+	
+	@Autowired
+	private JDCrawler vip;
 
 	public void deploy() throws Exception {
 		try {
@@ -54,7 +57,7 @@ public class DayCircleJob {
 			jobDescriptionDao.updateByCompany(CompanyEnum.SOGOU.getCompanyId());
 			log.info("搜狗爬虫结束");
 		} catch (Exception e) {
-			log.error("oh my god! something was wrong with qunar", e);
+			log.error("oh my god! something was wrong with sogou", e);
 
 		}
 		try {
@@ -63,7 +66,7 @@ public class DayCircleJob {
 			jobDescriptionDao.updateByCompany(CompanyEnum.TENCENT.getCompanyId());
 			log.info("腾讯爬虫结束");
 		} catch (Exception e) {
-			log.error("oh my god! something was wrong with meituan", e);
+			log.error("oh my god! something was wrong with tencent", e);
 
 		}
 		try {
@@ -73,6 +76,15 @@ public class DayCircleJob {
 			log.info("美团爬虫结束");
 		} catch (Exception e) {
 			log.error("oh my god! something was wrong with meituan", e);
+
+		}
+		try {
+			log.info("唯品会爬虫开始");
+			vip.startCrawl();
+			jobDescriptionDao.updateByCompany(CompanyEnum.VIP.getCompanyId());
+			log.info("唯品会爬虫结束");
+		} catch (Exception e) {
+			log.error("oh my god! something was wrong with vip", e);
 
 		}
 		IndexJDCache.reload();

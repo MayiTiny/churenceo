@@ -35,13 +35,11 @@ public class VipCrawler implements JDCrawler {
 		for (int i = 1; i <= 15; i++) {
 			JobDescription jd = new JobDescription();
 			jd.setCompany(CompanyEnum.VIP.getCompanyId());
-			HttpPost post = new HttpPost(VIP_JOB_PAGE);
+			HttpPost post = new HttpPost(VIP_JOB_PAGE + "?pageIndex=" + i);
 			post.addHeader("Content-Type", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
 			post.addHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36");
 			HttpParams params = new BasicHttpParams();
-			params.setParameter("pageIndex", i);
-			params.setParameter("date", System.currentTimeMillis());
-			params.setParameter("recruiteType", "1");
+			params.setParameter("recruiteType", 1);
 			post.setParams(params);
 			HttpResponse response = httpclient.execute(post);
 			InputStream is = response.getEntity().getContent();
@@ -52,7 +50,6 @@ public class VipCrawler implements JDCrawler {
 				Elements tds = job.getElementsByTag("td");
 				String nameAndDept = tds.get(0).text();
 				jd.setName(nameAndDept.split("-")[0]);
-				System.out.println(nameAndDept);
 				if(nameAndDept.contains("-")){
 					jd.setDepartment(nameAndDept.split("-")[1]);
 				}else{
@@ -68,22 +65,28 @@ public class VipCrawler implements JDCrawler {
 				}
 				jd.setDegree("本科");
 				Element detail = job.nextElementSibling();
-				Elements ps = detail.getElementsByTag("p");
-				String content = "";
-				int count = 0;
-				for(Element p : ps){
-					if(p.hasClass("p15")){
-						content += p.text() + "\n";
-					}else if(p.hasClass("p0")){
-						if(count > 0){
-							jd.setPostDescription(content);
-							content = "";
-						}
-						count++;
+				Elements jobDesc = detail.getElementsByClass("jobcolumn");
+				String desc = "";
+				if(!jobDesc.isEmpty() && !jobDesc.get(0).getElementsByTag("p").isEmpty()){
+//					System.out.println(jobDesc.get(0).html());
+					for(Element p : jobDesc.get(0).getElementsByTag("p")){
+						desc += p.text();
 					}
+//					if(!jobDesc.get(0).getElementsByTag("span").isEmpty()){
+//						for(Element p : jobDesc.get(0).getElementsByTag("span")){
+//							desc += p.text();
+//						}
+//					}
+					
+				}else{
+					desc= jobDesc.get(0).text();
 				}
-				jd.setPostRequire(content);
+				desc = desc.replace("；","；</br>");
+				desc = desc.replace("：","：</br>");
+				desc = desc.replace("】", "】</br>");
+				desc = desc.replace("。", "。</br>");
 				jd.setYearsLimit("不限");
+				jd.setPostDescription(desc.trim());
 				int isExsit = jobDescriptionDao.selectExsit(jd);
 				if(isExsit == 0){
 					jobDescriptionDao.insert(jd);
