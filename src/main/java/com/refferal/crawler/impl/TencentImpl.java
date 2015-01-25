@@ -26,7 +26,6 @@ public class TencentImpl extends WebCrawler {
 				"http://hr.tencent.com/position.php?start=")
 				|| url.getURL().contains(
 						"http://hr.tencent.com/position_detail.php")) {
-			System.out.println(url.getURL());
 			return true;
 		}
 		return false;
@@ -62,7 +61,6 @@ public class TencentImpl extends WebCrawler {
 			jobDescroption.setDegree("本科");
 			jobDescroption.setFunctionType(TencentCategoryEnum.getCodeByName(type));
 			jobDescroption.setYearsLimit("3年");
-			jobDescroption.print();
 			int isExsit = jobDescriptionDao.selectExsit(jobDescroption);
 			if(isExsit == 0){
 				jobDescriptionDao.insert(jobDescroption);
