@@ -1,5 +1,6 @@
 package com.refferal.crawler.impl;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -69,8 +70,10 @@ public class SogouImpl extends WebCrawler {
 			jobDescroption.setYearsLimit("3年");
 			int isExsit = jobDescriptionDao.selectExsit(jobDescroption);
 			if(isExsit == 0){
+				System.out.println(jobDescroption.getName() + "职位不存在,插入！");
 				jobDescriptionDao.insert(jobDescroption);
 			}else{
+				System.out.println(jobDescroption.getName() + "职位已存在,更新！");
 				jobDescriptionDao.updateById(isExsit);
 			}
 			
