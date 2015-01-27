@@ -206,6 +206,9 @@ html, body {
 .fri li.tencent {
 	background: url("../img/tencent.png") no-repeat center;
 }
+.fri li.vip {
+	background: url("../img/vip.png") no-repeat center;
+}
 .fri h6 {
 	color: #666;
 	margin: 30px 0px 0px 0px;

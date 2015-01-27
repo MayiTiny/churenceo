@@ -46,6 +46,7 @@
                 <li class="qn"><a href="<%=request.getContextPath()%>/list/c4" target="_blank">去哪儿</a></li>
                 <li class="sogou"><a href="<%=request.getContextPath()%>/list/c5" target="_blank">搜狗</a></li>
                 <li class="qh"><a href="<%=request.getContextPath()%>/list/c7" target="_blank">360</a></li>
+                <li class="vip"><a href="<%=request.getContextPath()%>/list/c9" target="_blank">唯品会</a></li>
             </ul>
         </div>
     </div>

@@ -47,6 +47,7 @@
 	                        <a href="javascript:;" rel="北京" data-check-type="dress" class="city <c:if test="${params.city=='北京' }">current</c:if>">北京</a>
 	                        <a href="javascript:;" rel="上海" data-check-type="dress" class="city <c:if test="${params.city=='上海' }">current</c:if>">上海</a>
 	                        <a href="javascript:;" rel="深圳" data-check-type="dress" class="city <c:if test="${params.city=='深圳' }">current</c:if>">深圳</a>
+	                        <a href="javascript:;" rel="广州" data-check-type="dress" class="city <c:if test="${params.city=='广州' }">current</c:if>">广州</a>
                         </span> 
                     </span>
                 </div>
