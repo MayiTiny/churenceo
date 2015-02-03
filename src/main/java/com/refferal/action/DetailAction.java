@@ -55,7 +55,7 @@ public class DetailAction {
 		List<MultipartFile> files = fileRequest.getFiles("qqfile");
 		String localPath = null;
 		for (MultipartFile file : files) {
-			localPath = Const.FILE_PATH + System.currentTimeMillis() + "/"
+			localPath = Const.FILE_PATH + System.currentTimeMillis() + File.separator
 					+ file.getOriginalFilename();
 			File localFile = new File(localPath);
 			localFile.mkdirs();
@@ -96,7 +96,7 @@ public class DetailAction {
 		mailInfo.setToAddress("churenceo@foxmail.com");
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
 		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email + "\r\n" + msg);
-		mailInfo.setAttachFileName(path.substring(path.lastIndexOf("/") + 1));
+		mailInfo.setAttachFileName(path.substring(path.lastIndexOf(File.separator) + 1));
 		mailInfo.setAttachFilePath(path);
 
 		mailService.sendTextMail(mailInfo);
