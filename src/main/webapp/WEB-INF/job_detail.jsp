@@ -3,22 +3,18 @@
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="搬砖网,${jd.name }内推,${jd.companyName }内推 ">
-    <meta name="author" content="">
     <title>搬砖网 ${jd.companyName }-${jd.name }内推 ${jd.companyName }-${jd.name }职位详情</title>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="搬砖网,${jd.name }内推,${jd.companyName }内推 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@include file="common/header.jsp" %>
     <link href="http://cdn.bootcss.com/file-uploader/3.7.0/fineuploader.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/job_style.css" rel="stylesheet">
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <style type="text/css">
-    </style>
-    <style id="holderjs-style" type="text/css"></style>
   </head>
   <body>
 
-  <%@include file="header.jsp" %>
+  <%@include file="common/nav.jsp" %>
   <input id="contextPath" type="hidden" value="${pageContext.request.contextPath}">
   <div class="container job-info">
     <div class="panel  panel-info">
@@ -114,11 +110,10 @@
 <!--       <div class="footer"> -->
 <!--         <p>© DEMO</p> -->
 <!--       </div> -->
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <%@include file="common/footer.jsp" %>
     <script src="http://cdn.bootcss.com/bootstrap-modal/2.2.5/js/bootstrap-modalmanager.min.js"></script>
     <script src="http://cdn.bootcss.com/file-uploader/3.7.0/fineuploader-jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/detail.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/statistic.js"></script>
   </body>
 </html>

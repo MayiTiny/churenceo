@@ -8,6 +8,21 @@
     height: 0;
 }
 
+html {
+    color: #000;
+    background: #FFF;
+    font-size: 16px;
+    font-family: 'Arial', '微软雅黑'
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td
+    {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Arial', '微软雅黑'
+}
+
 a:hover,a:active,a:link,a:visited{text-decoration:none;}
 
 ol,ul {
@@ -81,12 +96,12 @@ ol,ul {
     border-radius: 0;
 }
 .so button {
-    top: 2px;
+    top: 1px;
     height: 44px;
 }
 .so input, .input-search {
     width: 600px;
-    height: 40px;
+    height: 44px;
     border: 2px solid #FA8037;
     background: white;
     text-indent: 10px;

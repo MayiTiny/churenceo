@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-cn">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>搬砖网 - 知名互联网公司内部推荐</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="高端互联网公司内部推荐平台。已开通阿里、百度、腾讯、美团等高端大厂内推直通车！收揽各互联网大厂全部职位，简历直达用人部门，互联网高级人才找工作首选！">
     <meta name="keywords" content="阿里内推,百度内推,内部推荐,阿里巴巴内部推荐">
     <meta property="qc:admins" content="237222766763052563576375" />
+    <%@include file="common/header.jsp" %>
     <link rel="stylesheet" href="css/index.css"/>
-</head>
-<body>
-<%@include file="header.jsp" %>
-<section class="m-main">
-    <div class="container">
+  </head>
+  <body>
+	<%@include file="common/nav.jsp" %>
+	<section class="m-main">
+      <div class="container">
         <div class="hint">
 <!--         已开通阿里巴巴、百度内推直通车，美团、去哪儿等即将上线... -->
         </div>
@@ -49,69 +51,69 @@
                 <li class="vip"><a href="<%=request.getContextPath()%>/list/c9" target="_blank">唯品会</a></li>
             </ul>
         </div>
-    </div>
-</section>
-<footer class="m-ft">
-    <div class="m-contact">
-        <div class="container">
-            <ul>
-                <li>
-                    <h6>最新职位</h6>
-                    <ul>
-                        <c:forEach items="${latests }" var="latest">
-                            <li><a href="<%=request.getContextPath()%>/detail/${latest.id}">${latest.name }</a></li>
-                        </c:forEach>
-                    </ul>
-                </li>
-                <li>
-                    <h6>热门职位</h6>
-                    <ul>
-                        <c:forEach items="${recommends }" var="recommend">
-                            <li><a href="<%=request.getContextPath()%>/detail/${recommend.id}">${recommend.name }</a></li>
-                        </c:forEach>
-                    </ul>
-                </li>
-                <li>
-                    <h6>联系方式</h6>
-                    <div>QQ : 273205819</div>
-                    <div>job@churenceo.com</div>
-                </li>
-            </ul>
-<!--             <div class="code2d"></div> -->
-        </div>
-    </div>
-    <div class="bei">搬砖网 Copyright © 2014 版权所有 | 京ICP备14047376</div>
-</footer>
-<script>
-  $(function() {
-	$("#keyword").focus();
-    $("#btn-search").click(function() {
-        var keyword = $("#keyword").val();
-        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
-    });
-    $('#keyword').keydown(function(event) {  
-        if(event.keyCode == "13") {
-            $("#btn-search").click();
-            if(window.event) {
-               window.event.returnValue = false;  
-            } else {
-               event.preventDefault();//for firefox
-            }
-        }
-    });
-    $('.recommend').click(function() {
-        var keyword = $(this).text();
-        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
-    });
-    $('.banner-hover-off').hover(
-      function () {
-        $(this).addClass("active");
-      },
-      function () {
-        $(this).removeClass("active");
-    });
-  });
-</script>
-<script type="text/javascript" src="js/statistic.js"></script>
-</body>
+      </div>
+    </section>
+	<footer class="m-ft">
+	    <div class="m-contact">
+	        <div class="container">
+	            <ul>
+	                <li>
+	                    <h6>最新职位</h6>
+	                    <ul>
+	                        <c:forEach items="${latests }" var="latest">
+	                            <li><a href="<%=request.getContextPath()%>/detail/${latest.id}">${latest.name }</a></li>
+	                        </c:forEach>
+	                    </ul>
+	                </li>
+	                <li>
+	                    <h6>热门职位</h6>
+	                    <ul>
+	                        <c:forEach items="${recommends }" var="recommend">
+	                            <li><a href="<%=request.getContextPath()%>/detail/${recommend.id}">${recommend.name }</a></li>
+	                        </c:forEach>
+	                    </ul>
+	                </li>
+	                <li>
+	                    <h6>联系方式</h6>
+	                    <div>QQ : 273205819</div>
+	                    <div>job@churenceo.com</div>
+	                </li>
+	            </ul>
+	<!--             <div class="code2d"></div> -->
+	        </div>
+	    </div>
+	    <div class="bei">搬砖网 Copyright © 2014 版权所有 | 京ICP备14047376</div>
+	</footer>
+	<%@include file="common/footer.jsp" %>
+	<script>
+	  $(function() {
+		$("#keyword").focus();
+	    $("#btn-search").click(function() {
+	        var keyword = $("#keyword").val();
+	        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
+	    });
+	    $('#keyword').keydown(function(event) {  
+	        if(event.keyCode == "13") {
+	            $("#btn-search").click();
+	            if(window.event) {
+	               window.event.returnValue = false;  
+	            } else {
+	               event.preventDefault();//for firefox
+	            }
+	        }
+	    });
+	    $('.recommend').click(function() {
+	        var keyword = $(this).text();
+	        window.location.href = "list/c0?keyword=" + encodeURIComponent(keyword);
+	    });
+	    $('.banner-hover-off').hover(
+	      function () {
+	        $(this).addClass("active");
+	      },
+	      function () {
+	        $(this).removeClass("active");
+	    });
+	  });
+	</script>
+  </body>
 </html>

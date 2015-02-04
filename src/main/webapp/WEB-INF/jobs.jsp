@@ -3,19 +3,17 @@
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="搬砖网,${params.keyword }内推,${comopany.companyName }内推,">
-    <meta name="author" content="">
     <title>搬砖网 ${comopany.companyName }${params.keyword }内推 ${comopany.companyName }${params.keyword }职位列表</title>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath()%>/css/job_style.css" rel="stylesheet">
-    <style type="text/css"></style><style id="holderjs-style" type="text/css"></style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="搬砖网,${params.keyword }内推,${comopany.companyName }内推,">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <%@ taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager" %>
+    <%@include file="common/header.jsp" %>
+    <link href="<%=request.getContextPath()%>/css/job_style.css" rel="stylesheet">
   </head>
   <body>
-    <%@include file="header.jsp" %>
+    <%@include file="common/nav.jsp" %>
     <div class="container job-box">
       <div>
         <div>
@@ -120,7 +118,7 @@
 <!--     <div class="footer"> -->
 <!--       <p>© DEMO</p> -->
 <!--     </div> -->
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <%@include file="common/footer.jsp" %>
     <script type="text/javascript">
     $(function() {
         $(".js-search").click(function() {
@@ -170,6 +168,5 @@
         
     }); 
     </script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/statistic.js"></script>
   </body>
 </html>

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
 
-<link href="<%=request.getContextPath()%>/css/global.css" rel="stylesheet">
 <header class="m-hd">
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="header-container">
         <img src="<%=request.getContextPath()%>/img/logo.png" alt="搬砖网"/>
         <nav>
@@ -24,35 +22,21 @@
 	        </div>
           </c:if>
           <c:if test="${!empty sessionScope.nickname }">
-	        <div style="display: inline; float: right;">
-	          <a href="javascript:void(0)"><img style="margin: 6px;max-width:28px;max-height:28px;" src="${sessionScope.avatar }"/></a>
-	          <span style="color: #666;">${sessionScope.nickname }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	          <a href="javascript:void(0)" class="logout">退出</a>
+            <div style="display: inline; float: right;">
+              <ul class="nav navbar-nav" style="width: 100%;">
+                <li style="width: 100%;">
+		          <a href="javascript:void(0)" data-toggle="dropdown" style="padding: 10px 15px;">
+		            <img style="margin: -5px 6px;max-width:28px;max-height:28px;" src="${sessionScope.avatar }"/>
+		            <span style="color: #666;">${sessionScope.nickname }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		            <b class="caret"></b>
+	              </a>
+	              <ul class="dropdown-menu" style="width: 100%;">
+	                <li style="width: 100%;"><a class="logout" href="javascript:void(0)">退出</a></li>
+	              </ul>
+                </li>
+              </ul>
 	        </div>
           </c:if>
         </div>
     </div>
-    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-      $(function() {
-        $('.banner-hover').hover(
-          function () {
-       	    $(".banner-hover").removeClass("active");
-            $(this).addClass("active");
-          },
-          function () {
-            $(".banner-hover").removeClass("active");
-            $(".default").addClass("active");
-        });
-        $(".logout").click(function() {
-        	$.ajax({
-        	  type: 'POST',
-        	  url: '<%=request.getContextPath()%>/user/logout' ,
-       	      success: function(data) {
-       	    	window.location.reload();
-        	  }
-        	});
-        });
-      });
-    </script>
 </header>

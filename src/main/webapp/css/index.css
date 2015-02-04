@@ -1,19 +1,6 @@
 /**
  * Created by Maopy on 2014/10/29.
  */
-html {
-	color: #000;
-	background: #FFF;
-	font-size: 16px;
-	font-family: 'Arial', '微软雅黑'
-}
-
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td
-	{
-	margin: 0;
-	padding: 0;
-	-webkit-tap-highlight-color: transparent;
-}
 
 table {
 	border-collapse: collapse;
@@ -72,7 +59,7 @@ legend {
 }
 
 .m-hd ul li.active {
-    height: 37px;
+    height: 40px;
     color: #FB5E00;
     border-bottom: 3px solid #FB5E00;
 }
@@ -92,7 +79,7 @@ html, body {
 	bottom: 0;
 }
 .m-ft .m-contact {
-	height: 80px;
+	height: 83px;
 	background: rgba(255, 255, 255, .3);
 }
 .m-contact h6 {
@@ -150,8 +137,8 @@ html, body {
 .m-main .hot {
 	width: 100%;
 	font-size: 14px;
-	margin: 8px 0 0 0;
-	padding: 0 0 0 190px;
+	margin: 6px 0 0 0;
+	padding: 0 0 0 181px;
 }
 .hot ul {
 	display: inline-block;
@@ -170,8 +157,7 @@ html, body {
 .fri {
 	width: 500px;
 	font-size: 14px;
-	margin: 10px 0 0 0;
-	padding: 0 0 0 190px;
+	margin: 10px 0 0 181px;
 }
 .fri li {
 	width: 120px;
