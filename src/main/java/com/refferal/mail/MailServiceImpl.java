@@ -20,6 +20,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
 import org.jsoup.helper.StringUtil;
 import org.springframework.stereotype.Service;
 
@@ -71,8 +72,8 @@ public class MailServiceImpl implements MailService {
 				bodyPart.attachFile(mailInfo
 						.getAttachFilePath());
 				bodyPart.setFileName("=?GBK?B?"
-						+ Base64.encodeBase64String(mailInfo
-								.getAttachFileName().getBytes("gbk")) + "?=");
+						+ StringUtils.newStringUtf8(Base64.encodeBase64(mailInfo.getAttachFileName().getBytes("gbk"), false))
+						+ "?=");
 				multipart.addBodyPart(bodyPart, 1);
 			}
 			mailMessage.setContent(multipart);
