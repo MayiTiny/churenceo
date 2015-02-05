@@ -32,7 +32,7 @@
 		            <span style="color: #666;">${sessionScope.nickname }&nbsp;&nbsp;&nbsp;</span>
 		            <b class="caret"></b>
 	              </a>
-	              <ul class="dropdown-menu" style="width: 100%;border: 0;border-radius: 0;margin-top: 1px;">
+	              <ul class="dropdown-menu" style="width: 100%;border: 0;border-radius: 0;margin-top: 1px;min-width: 100px;">
 	                <li><a class="" href="javascript:void(0)">我的收藏</a></li>
 	                <li><a class="logout" href="javascript:void(0)">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></li>
 	              </ul>
