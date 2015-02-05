@@ -33,6 +33,15 @@ ol,ul {
     min-width: 940px;
 }
 
+.m-hd .dropdown-menu li {
+    width: 100%;
+    height: 34px;
+}
+
+.m-hd .dropdown-menu li a {
+    padding: 7px 15px;
+}
+
 .m-hd {
     height: 40px;
     background: white;
