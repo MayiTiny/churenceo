@@ -2,7 +2,9 @@
 
 <header class="m-hd">
     <div class="header-container">
+      <a href="<%=request.getContextPath()%>">
         <img src="<%=request.getContextPath()%>/img/logo.png" alt="搬砖网"/>
+      </a>
         <nav>
             <ul class="clearfix">
                 <li class="banner-hover<c:if test="${bannerSelected=='index' }"> default active</c:if>">
@@ -24,14 +26,15 @@
           <c:if test="${!empty sessionScope.nickname }">
             <div style="display: inline; float: right;">
               <ul class="nav navbar-nav" style="width: 100%;">
-                <li style="width: 100%;">
+                <li style="width: 100%; margin: 0 15px 0 0; text-align: center;">
 		          <a href="javascript:void(0)" data-toggle="dropdown" style="padding: 10px 15px;">
 		            <img style="margin: -5px 6px;max-width:28px;max-height:28px;" src="${sessionScope.avatar }"/>
-		            <span style="color: #666;">${sessionScope.nickname }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		            <span style="color: #666;">${sessionScope.nickname }&nbsp;&nbsp;&nbsp;</span>
 		            <b class="caret"></b>
 	              </a>
 	              <ul class="dropdown-menu" style="width: 100%;">
-	                <li style="width: 100%;"><a class="logout" href="javascript:void(0)">退出</a></li>
+	                <li style="width: 100%;"><a class="" href="javascript:void(0)">我的收藏</a></li>
+	                <li style="width: 100%;"><a class="logout" href="javascript:void(0)">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></li>
 	              </ul>
                 </li>
               </ul>
