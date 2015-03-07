@@ -85,7 +85,7 @@
 		    <div class="form-group">
 		      <label for="msgName" class="col-sm-3 control-label">留言</label>
               <div class="col-sm-6">
-                <textarea rows="3" class="form-control" id="msgName" name="msg" placeholder="任何疑问或相对搬砖君说的话^_^"></textarea>
+                <textarea rows="3" class="form-control" id="msgName" name="msg" placeholder="任何疑问或想对搬砖君说的话^_^"></textarea>
               </div>
 		    </div>
 		    <div class="form-group">

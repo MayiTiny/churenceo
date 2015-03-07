@@ -33,7 +33,22 @@ $(function() {
     	$("#resumePath").val(responseJSON.path);
     });
     $("#deliver-form").submit(function() {
-    	$("#deliver-submit").attr('disabled',true); 
+    	$("#deliver-submit").attr('disabled',true);
+    	if ($("#inputName").val() == "") {
+    	    alert("姓名不能为空哦！请报上您的大名！");
+    	    return false;
+    	}
+    	var emailName = $("#emailName").val();
+    	var atIndex = emailName.indexOf("@");
+    	var dotIndex = emailName.lastIndexOf(".");
+    	if (atIndex <= 0 || dotIndex <= atIndex) {
+    	    alert("你的邮箱填错了！我读书少，你不要骗我！");
+    	    return false;
+    	}
+    	if ($("#resumePath").val() == "") {
+    	    alert("您的简历还没有上传呢呀！请上传简历后再投递哦！");
+    	    return false;
+    	}
         $(this).ajaxSubmit({
             type: "post",
             dataType: "json",
