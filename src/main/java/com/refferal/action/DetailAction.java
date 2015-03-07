@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -81,8 +82,11 @@ public class DetailAction {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String msg = request.getParameter("msg");
+		String companyName = request.getParameter("companyName");
+		String jobName = request.getParameter("jobName");
+		String title = companyName + '-' + jobName;
+		int id = ServletRequestUtils.getIntParameter(request, "jobId", 0);
 		String path = request.getParameter("resumePath");
-		String title = request.getParameter("title");
 
 		JSONObject json = new JSONObject();
 
@@ -95,7 +99,9 @@ public class DetailAction {
 		mailInfo.setFromAddress("churenceo@foxmail.com");
 		mailInfo.setToAddress("churenceo@foxmail.com");
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
-		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email + "\r\n" + msg);
+		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email
+				+ "\r\n" + "职位链接：http://www.churenceo.com/detail/" + id
+				+ "\r\n" + msg);
 		mailInfo.setAttachFileName(path.substring(path.lastIndexOf(File.separator) + 1));
 		mailInfo.setAttachFilePath(path);
 
@@ -112,7 +118,8 @@ public class DetailAction {
 			info.setSubject("【搬砖网】" + title + "投递通知");
 			info.setContent(name
 					+ "，你好!</br>你选择的" + title
-					+ "职位投递成功，搬砖君评估之后会转给对应公司的内推人，</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://d2.freep.cn/3tb_1501172310031yhp544533.jpg\">");
+					+ "职位投递成功，搬砖君评估通过之后，将会直接内部推荐到" + companyName
+					+ "。</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://www.churenceo.com/img/weixin.jpg\">");
 			// 这个类主要来发送邮件
 			mailService.sendHtmlMail(info);// 发送文体格式
 		} catch (Exception e) {

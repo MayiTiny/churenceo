@@ -33,7 +33,6 @@ $(function() {
     	$("#resumePath").val(responseJSON.path);
     });
     $("#deliver-form").submit(function() {
-    	$("#deliver-submit").attr('disabled',true);
     	if ($("#inputName").val() == "") {
     	    alert("姓名不能为空哦！请报上您的大名！");
     	    return false;
@@ -49,6 +48,7 @@ $(function() {
     	    alert("您的简历还没有上传呢呀！请上传简历后再投递哦！");
     	    return false;
     	}
+    	$("#deliver-submit").attr('disabled',true);
         $(this).ajaxSubmit({
             type: "post",
             dataType: "json",

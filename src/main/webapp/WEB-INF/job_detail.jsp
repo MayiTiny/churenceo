@@ -54,7 +54,7 @@
         </li>    
       </ul>
       <div class="panel-footer">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">我要内推</button>&nbsp;&nbsp;&nbsp;&nbsp;<--&nbsp;&nbsp;快点我 
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">我要内推</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简历由搬砖君审核通过后，直接内部推荐到${jd.companyName }，为您提供最高效的面试流程。
       </div>
     </div>
   </div>
@@ -68,8 +68,10 @@
 	    </div>
 	    <form class="form-horizontal" id="deliver-form" action="${pageContext.request.contextPath}/deliver" type="post" role="form">
 	      <div class="modal-body">
+	        <input id="companyName" name="companyName" type="hidden" value="${jd.companyName }">
+	        <input id="jobName" name="jobName" type="hidden" value="${jd.name}">
+	        <input id="jobId" name="jobId" type="hidden" value="${jd.id }">
 	        <input id="resumePath" name="resumePath" type="hidden">
-	        <input id="title" name="title" type="hidden" value="${jd.companyName }-${jd.name}">
 	        <div class="form-group">
 		      <label for="inputName" class="col-sm-3 control-label">姓名</label>
 		      <div class="col-sm-6">
