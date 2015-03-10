@@ -90,30 +90,20 @@ public class DetailAction {
 
 		JSONObject json = new JSONObject();
 
-		MailSendInfo mailInfo = new MailSendInfo();
-		mailInfo.setMailServerHost("smtp.qq.com");
-		mailInfo.setMailServerPort("25");
-		mailInfo.setValidate(true);
-		mailInfo.setUserName("churenceo@foxmail.com");
-		mailInfo.setPassword("dragon7910");// 您的邮箱密码
-		mailInfo.setFromAddress("churenceo@foxmail.com");
-		mailInfo.setToAddress("churenceo@foxmail.com");
+		// 发给搬砖君
+		MailSendInfo mailInfo = newSendInfo();
+		mailInfo.setToAddress("job@churenceo.com");
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
-		mailInfo.setContent("您好，这是我的简历，请查收。我的邮箱是：" + email
-				+ "\r\n" + "职位链接：http://www.churenceo.com/detail/" + id
+		mailInfo.setContent("您好，这是我的简历，请查收。\r\n我的邮箱是：" + email
+				+ "\r\n职位链接：http://www.churenceo.com/detail/" + id
 				+ "\r\n" + msg);
 		mailInfo.setAttachFileName(path.substring(path.lastIndexOf(File.separator) + 1));
 		mailInfo.setAttachFilePath(path);
-
 		mailService.sendTextMail(mailInfo);
+		
+		// 发给用户
 		try {
-			MailSendInfo info = new MailSendInfo();
-			info.setMailServerHost("smtp.qq.com");
-			info.setMailServerPort("25");
-			info.setValidate(true);
-			info.setUserName("churenceo@foxmail.com");
-			info.setPassword("dragon7910");// 您的邮箱密码
-			info.setFromAddress("churenceo@foxmail.com");
+			MailSendInfo info = newSendInfo();
 			info.setToAddress(email);
 			info.setSubject("【搬砖网】" + title + "投递通知");
 			info.setContent(name
@@ -125,8 +115,21 @@ public class DetailAction {
 		} catch (Exception e) {
 			LOGGER.error("发送回复邮件失败！", e);
 		}
+		
 		return json;
 
 	}
 
+	private MailSendInfo newSendInfo() {
+		MailSendInfo info = new MailSendInfo();
+		info.setMailServerHost("smtp.qq.com");
+		info.setMailServerPort("25");
+		info.setValidate(true);
+		info.setUserName("churenceo@foxmail.com");
+		info.setPassword("dragon7910");// 您的邮箱密码
+		info.setFromAddress("churenceo@foxmail.com");
+		info.setFromNickName("搬砖君");
+		return info;
+	}
+	
 }

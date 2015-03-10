@@ -11,8 +11,10 @@ public class MailSendInfo {
     private String mailServerHost;   
     private String mailServerPort = "25";   
     // 邮件发送者的地址   
-    private String fromAddress;   
-    // 邮件接收者的地址   
+    private String fromAddress;
+    // 发送者昵称
+    private String fromNickName;
+	// 邮件接收者的地址   
     private String toAddress;   
     // 登陆邮件发送服务器的用户名和密码   
     private String userName;   
@@ -61,6 +63,13 @@ public class MailSendInfo {
     public void setFromAddress(String fromAddress) {   
       this.fromAddress = fromAddress;   
     }  
+
+    public String getFromNickName() {
+		return fromNickName;
+	}
+	public void setFromNickName(String fromNickName) {
+		this.fromNickName = fromNickName;
+	}
     public String getPassword() {   
       return password;   
     }  
