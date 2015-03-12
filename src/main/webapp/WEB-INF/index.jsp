@@ -82,7 +82,7 @@
 	<!--             <div class="code2d"></div> -->
 	        </div>
 	    </div>
-	    <div class="bei">搬砖网 Copyright © 2014 版权所有 | 京ICP备14047376</div>
+	    <div class="bei">搬砖网 Copyright © 2015 版权所有 | 京ICP备14047376</div>
 	</footer>
 	<%@include file="common/footer.jsp" %>
 	<script>
