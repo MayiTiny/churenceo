@@ -100,7 +100,7 @@ ol,ul {
 }
 .so button, .btn-search {
     width: 95px;
-    height: 40px;
+    height: 44px;
     background: #FA8037;
     border: 0;
     color: white;
@@ -114,7 +114,6 @@ ol,ul {
 }
 .so button {
     top: 1px;
-    height: 44px;
 }
 .so input, .input-search {
     width: 600px;
