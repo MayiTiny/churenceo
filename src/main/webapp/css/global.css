@@ -29,8 +29,16 @@ ol,ul {
     list-style: none
 }
 
-.container, .header-container {
+.container {
     min-width: 940px;
+    min-height: 512px;
+}
+
+.header-container {
+    text-align: center;
+    width: 1024px;
+    min-width: 940px;
+    margin: 0 auto;
 }
 
 .m-hd .dropdown-menu li {
