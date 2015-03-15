@@ -8,6 +8,6 @@
 	</typeAliases>
     <mappers>
         <mapper resource="com/refferal/mapper/JobDescriptionMapper.xml"/>
-        <mapper resource="com/refferal/mapper/userMapper.xml"/>
+        <mapper resource="com/refferal/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>
