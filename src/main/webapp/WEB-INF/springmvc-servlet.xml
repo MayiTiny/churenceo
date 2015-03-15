@@ -41,6 +41,10 @@
 		<property name="mapperInterface" value="com.refferal.dao.JobDescriptionDao"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
+	<bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.refferal.dao.UserDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
 	
 	<bean id="ali" class="com.refferal.crawler.impl.AliCrawler"/>
 	<bean id="baidu" class="com.refferal.crawler.impl.BaiduCrawler"/>

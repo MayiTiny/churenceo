@@ -4,8 +4,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.refferal.entity.JobDescription" alias="JobDescription" />
+		<typeAlias type="com.refferal.entity.User" alias="User" />
 	</typeAliases>
     <mappers>
         <mapper resource="com/refferal/mapper/JobDescriptionMapper.xml"/>
+        <mapper resource="com/refferal/mapper/userMapper.xml"/>
     </mappers>
 </configuration>
