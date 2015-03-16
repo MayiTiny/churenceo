@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.refferal.common.ConfigProps;
 import com.refferal.common.Const;
 import com.refferal.entity.JobDescriptionDTO;
 import com.refferal.mail.MailSendInfo;
@@ -126,7 +127,7 @@ public class DetailAction {
 		info.setMailServerPort("25");
 		info.setValidate(true);
 		info.setUserName("churenceo@foxmail.com");
-		info.setPassword("dragon7910");// 您的邮箱密码
+		info.setPassword(ConfigProps.getProp("password"));// 您的邮箱密码
 		info.setFromAddress("churenceo@foxmail.com");
 		info.setFromNickName("搬砖君");
 		return info;

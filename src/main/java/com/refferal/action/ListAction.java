@@ -21,7 +21,7 @@ import com.refferal.service.JobDescriptionService;
 @Controller
 public class ListAction {
 
-	private static final int PAGE_SIZE = 10;
+	private static final int PAGE_SIZE = 15;
 	
 	@Autowired
 	private JobDescriptionService listService;
