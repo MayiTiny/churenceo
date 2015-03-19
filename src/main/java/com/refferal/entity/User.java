@@ -28,6 +28,8 @@ public class User {
 	
 	private String departmentName;
 
+	private Date createTime;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -132,6 +134,14 @@ public class User {
 				+ province + ", city=" + city + ", companyId=" + companyId
 				+ ", companyName=" + companyName + ", departmentName="
 				+ departmentName + "]";
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 }

@@ -14,6 +14,7 @@
 		<result property="companyId" column="company_id" />
 		<result property="companyName" column="company_name" />
 		<result property="departmentName" column="department_name" />
+		<result property="createTime" column="create_time" />
 	</resultMap>
     <insert id="insertOrUpdate" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
         insert into user (
