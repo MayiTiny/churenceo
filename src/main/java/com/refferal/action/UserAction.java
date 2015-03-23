@@ -44,6 +44,8 @@ public class UserAction {
 	public void login(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=utf-8");
         try {
+        	String referer = request.getHeader("Referer");
+        	request.getSession().setAttribute("referer", referer);
             response.sendRedirect(new Oauth().getAuthorizeURL(request));
         } catch (QQConnectException e) {
         	LOGGER.error("跳转QQ登录失败！", e);
@@ -154,6 +156,7 @@ public class UserAction {
                 user.setDepartmentName(departmentName);
                 userService.insertOrUpdate(user);
                 
+                request.getSession().setAttribute("userId", user.getId());
                 request.getSession().setAttribute("nickname", nickname);
                 request.getSession().setAttribute("avatar", avatar);
                 
@@ -161,7 +164,11 @@ public class UserAction {
 			
 //			 request.getSession().setAttribute("nickname", "tiny1231");
 //             request.getSession().setAttribute("avatar", "http://q.qlogo.cn/qqapp/101016468/E9FA4FA1E61C77871FBF3F7EAE589652/100");
-			response.sendRedirect(request.getContextPath() + "/");
+			String referer = (String) request.getSession().getAttribute("referer");
+			if (StringUtils.isBlank(referer)) {
+				referer = request.getContextPath() + "/";
+			}
+			response.sendRedirect(referer);
 		} catch (QQConnectException e) {
 			LOGGER.error("登录回调获取登录信息失败", e);
 		} catch (IOException e) {
@@ -172,6 +179,7 @@ public class UserAction {
 	@RequestMapping("/logout")
 	@ResponseBody
 	public JSONObject logout(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().removeAttribute("userId");
 		request.getSession().removeAttribute("nickname");
 		request.getSession().removeAttribute("avatar");
 		JSONObject json = new JSONObject();
