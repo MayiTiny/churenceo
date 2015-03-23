@@ -3,7 +3,7 @@
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <title>搬砖网 ${comopany.companyName }${params.keyword }内推 ${comopany.companyName }${params.keyword }职位列表</title>
+    <title>${companyName }${params.keyword }内部推荐，${companyName }${params.keyword }职位列表【搬砖网】</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="搬砖网,${params.keyword }内推,${comopany.companyName }内推,">
     <meta name="viewport" content="width=device-width, initial-scale=1">

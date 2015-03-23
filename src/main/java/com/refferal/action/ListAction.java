@@ -34,7 +34,6 @@ public class ListAction {
 		String keyword = request.getParameter("keyword");
 		int category = ServletRequestUtils.getIntParameter(request, "category", 0);
 		String city = request.getParameter("city");
-//		int company = ServletRequestUtils.getIntParameter(request, "company", 0);
 		int offset = ServletRequestUtils.getIntParameter(request, "pager.offset", 0);
 
 		PageList<JobDescriptionDTO> jds = listService.search(keyword, category, city, company, offset ,PAGE_SIZE);
@@ -49,6 +48,12 @@ public class ListAction {
 		
 		mv.addObject("categorys", AliCategoryEnum.values());
 		mv.addObject("companys", CompanyEnum.values());
+		
+		if (company > 0) {
+			mv.addObject("companyName", CompanyEnum.getNameById(company));
+		} else {
+			mv.addObject("companyName", "高端互联网公司");
+		}
 		
         return mv;
     }
