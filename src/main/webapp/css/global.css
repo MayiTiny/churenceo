@@ -24,6 +24,10 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 }
 a:hover,a:active,a:link,a:visited{text-decoration:none;}
 
+.box-clearfix {
+    padding: 60px 0 20px 0;
+}
+
 ol,ul {
     list-style: none
 }
@@ -59,6 +63,7 @@ ol,ul {
     position: fixed;
     width:100%;
     z-index: 1030;
+    top: 0;
 }
 .m-hd img {
     margin: 1px 0 0 0;

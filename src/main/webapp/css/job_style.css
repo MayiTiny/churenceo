@@ -65,7 +65,6 @@ h3,h4 {
 .job-box{
     width: 1024px;
     position: relative;
-    top: 60px;  
     border:1px solid #E4E4E4;
     background-color: white;
 }
@@ -73,9 +72,12 @@ h3,h4 {
 .job-info{
     width: 1024px;
     position: relative;
-    top: 60px;  
+    padding: 60px 0 0 0;
     margin: auto;
-    padding: 0;
+}
+
+.panel-footer {
+    background-color: white;
 }
 
 .search-tab { 
@@ -151,4 +153,18 @@ h3,h4 {
 }
 .btn-fav {
 	margin-left: 12px;
+}
+.panel ul .list-group-item {
+    margin: 0 auto;
+}
+
+.panel ul li {
+    margin: 5px 20px;
+}
+
+.panel, .panel-heading, panel-footer {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }

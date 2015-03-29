@@ -21,26 +21,26 @@
       <div class="panel-heading">
         <h3 class="panel-title">${jd.name }</h3>
       </div>
-    <div class="panel-body">
-      <table class="table table-bordered">
-        <tr class="warning">
-          <td class="col-sm-1">公&emsp;&emsp;司：</td>
-          <td class="col-sm-2">${jd.companyName }</td>
-          <td class="col-sm-1">工作地点：</td>
-          <td class="col-sm-2">${jd.cityId }</td>
-          <td>所属部门：</td>
-          <td>${jd.department }</td>
-        </tr>
-        <tr class="warning">
-	      <td>学&emsp;&emsp;历：</td>
-	      <td>${jd.degree }</td>
-	      <td>招聘人数：</td>
-	      <td><c:if test="${jd.headCount==-1 }">若干</c:if><c:if test="${jd.headCount!=-1 }">${jd.headCount }</c:if></td>
-	      <td class="col-sm-1">发布时间：</td>
-	      <td class="col-sm-2"><fmt:formatDate value="${jd.endDate }" pattern="yyyy-MM-dd" /></td>
-        </tr>
-      </table>
-    </div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+          <tr class="warning">
+            <td class="col-sm-1">公&emsp;&emsp;司：</td>
+            <td class="col-sm-2">${jd.companyName }</td>
+            <td class="col-sm-1">工作地点：</td>
+            <td class="col-sm-2">${jd.cityId }</td>
+            <td>所属部门：</td>
+            <td>${jd.department }</td>
+          </tr>
+          <tr class="warning">
+            <td>学&emsp;&emsp;历：</td>
+            <td>${jd.degree }</td>
+            <td>招聘人数：</td>
+            <td><c:if test="${jd.headCount==-1 }">若干</c:if><c:if test="${jd.headCount!=-1 }">${jd.headCount }</c:if></td>
+            <td class="col-sm-1">发布时间：</td>
+            <td class="col-sm-2"><fmt:formatDate value="${jd.endDate }" pattern="yyyy-MM-dd" /></td>
+          </tr>
+        </table>
+      </div>
       <ul class="list-group">
         <li class="list-group-item">
           <h4 class="detail-title">岗位描述</h4>

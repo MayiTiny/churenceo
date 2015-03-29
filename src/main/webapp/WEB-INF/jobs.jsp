@@ -14,9 +14,10 @@
   </head>
   <body>
     <%@include file="common/nav.jsp" %>
-    <div class="container job-box">
-      <div>
+    <div class="box-clearfix">
+      <div class="container job-box">
         <div>
+          <div>
             <div class="div-search"><b class="text-search">职位搜索</b>
               <input type="text" class="input-search" id="job_search" value="${params.keyword }" placeholder="请输入职位关键词">
               <button class="btn-search js-search">搜索</button>
@@ -59,61 +60,62 @@
                     </span>
                 </div>                  
             </div>
-        </div>
-            <div>
-                <table class="table table-hover job-list">
-                    <thead>
-                        <tr>
-                            <th class="col-sm-3"><span>职位名称</span></th>
-                            <th class="col-sm-1"><span>公司</span></th>
-                            <th class="col-sm-1"><span>职位类别</span></th>
-                            <th class="col-sm-1"><span>工作地点</span></th>
-                            <th class="col-sm-1"><span>招聘人数</span></th>
-                            <th class="col-sm-1"><span>发布时间</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="J-list-box">
-                    <c:forEach items="${jds.list }" var="item">
-                        <tr>
-	                        <td>
-	                           <span>
-	                               <a target="_blank" href="<%=request.getContextPath()%>/detail/${item.id }">${item.name }</a>
-	                            </span>
-	                         </td>
-	                        <td><span>${item.companyName }</span></td>
-	                        <td><span>${item.functionType }</span></td>
-	                        <td><span>${item.cityId }</span></td>
-	                        <td><span><c:if test="${item.headCount==-1 }">若干</c:if><c:if test="${item.headCount!=-1 }">${item.headCount }</c:if></span></td>
-	                        <td><span><fmt:formatDate value="${item.endDate }" pattern="yyyy-MM-dd" /></span></td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-                </table>
-                <div class="col-sm-offset-5">
-                <ul class="pagination">
-                <c:if test="${jds.count > 0 }">
-				  <pg:pager items="${jds.count }" url="${pageContext.request.contextPath }/list/c${params.company }" export="currentPageNumber=pageNumber" scope="request">
-					<pg:param name="category" value="${params.category }" />
-					<pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>  
-					<pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>  
-					<pg:pages>  
-						<c:choose>  
-							<c:when test="${pageNumber eq currentPageNumber }">  
-				                <li><a><font color="red">${pageNumber }</font></a></li> 
-							</c:when>  
-							<c:otherwise>  
-							    <li><a href="${pageUrl }&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl }&keyword=${params.keyword}&city=${params.city }">${pageNumber}</a></li>
-							</c:otherwise>  
-						</c:choose>  
-					</pg:pages>  
-					<pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>  
-					<pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第${pageNumber}页</a></li></pg:last>  
-				  </pg:pager>
-				</c:if>
-                </ul>
-                </div>
+          </div>
+          <div>
+            <table class="table table-hover job-list">
+              <thead>
+                <tr>
+                    <th class="col-sm-3"><span>职位名称</span></th>
+                    <th class="col-sm-1"><span>公司</span></th>
+                    <th class="col-sm-1"><span>职位类别</span></th>
+                    <th class="col-sm-1"><span>工作地点</span></th>
+                    <th class="col-sm-1"><span>招聘人数</span></th>
+                    <th class="col-sm-1"><span>发布时间</span></th>
+                </tr>
+              </thead>
+              <tbody id="J-list-box">
+                <c:forEach items="${jds.list }" var="item">
+                    <tr>
+                        <td>
+                           <span>
+                               <a target="_blank" href="<%=request.getContextPath()%>/detail/${item.id }">${item.name }</a>
+                            </span>
+                         </td>
+                        <td><span>${item.companyName }</span></td>
+                        <td><span>${item.functionType }</span></td>
+                        <td><span>${item.cityId }</span></td>
+                        <td><span><c:if test="${item.headCount==-1 }">若干</c:if><c:if test="${item.headCount!=-1 }">${item.headCount }</c:if></span></td>
+                        <td><span><fmt:formatDate value="${item.endDate }" pattern="yyyy-MM-dd" /></span></td>
+                    </tr>
+                </c:forEach>
+              </tbody>
+            </table>
+            <div class="col-sm-offset-5">
+            <ul class="pagination">
+            <c:if test="${jds.count > 0 }">
+              <pg:pager items="${jds.count }" url="${pageContext.request.contextPath }/list/c${params.company }" export="currentPageNumber=pageNumber" scope="request">
+                <pg:param name="category" value="${params.category }" />
+                <pg:first><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第1页</a></li></pg:first>
+                <pg:prev><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&laquo;</a></li></pg:prev>
+                <pg:pages>
+                    <c:choose>
+                        <c:when test="${pageNumber eq currentPageNumber }">
+                            <li><a><font color="red">${pageNumber }</font></a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageUrl }&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl }&keyword=${params.keyword}&city=${params.city }">${pageNumber}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </pg:pages>
+                <pg:next><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">&raquo;</a></li></pg:next>
+                <pg:last><li><a href="${pageUrl}&keyword=${params.keyword}&city=${params.city }" mce_href="${pageUrl}&keyword=${params.keyword}&city=${params.city }">第${pageNumber}页</a></li></pg:last>
+              </pg:pager>
+            </c:if>
+            </ul>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 <!--     <div class="footer"> -->
 <!--       <p>© DEMO</p> -->

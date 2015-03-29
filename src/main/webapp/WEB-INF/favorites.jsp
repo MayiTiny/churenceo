@@ -19,16 +19,17 @@
   <body>
     <%@include file="common/nav.jsp" %>
     <input id="contextPath" type="hidden" value="${pageContext.request.contextPath}">
-    <div class="container usr-box">
-      <div class="left">
-        <ul class="nav nav-pills nav-stacked">
-<!--           <li role="presentation"><a href="#">投递进度</a></li> -->
-<!--           <li role="presentation"><a href="#">投递记录</a></li> -->
-          <li role="presentation" class="active"><a href="#">收藏职位</a></li>
-          <li role="presentation"><a href="#">个人信息</a></li>
-        </ul>
-      </div>
-      <div class="fav-box">
+    <div class="box-clearfix">
+      <div class="container usr-box">
+        <div class="left">
+          <ul class="nav nav-pills nav-stacked">
+            <!-- <li role="presentation"><a href="#">投递进度</a></li> -->
+            <!-- <li role="presentation"><a href="#">投递记录</a></li> -->
+            <li role="presentation" class="active"><a href="#">收藏职位</a></li>
+            <li role="presentation"><a href="#">个人信息</a></li>
+          </ul>
+        </div>
+        <div class="fav-box">
 			<div class="list-group">
               <c:if test="${favorites.count == 0 }"><h4 class="fav-none">您还没有收藏的职位哦~~</h4></c:if>
 			  <c:forEach items="${favorites.list }" var="favorite">
@@ -42,6 +43,7 @@
 			  </c:forEach>
 			</div>
 		</div>
+      </div>
     </div>
     <%@include file="common/footer.jsp" %>
   </body>

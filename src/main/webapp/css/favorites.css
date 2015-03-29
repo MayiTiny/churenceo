@@ -1,3 +1,10 @@
+body {
+	background-color: #f6f7f7;
+    min-height:100%; height:auto !important; height:100%;
+    margin: 0;
+    padding: 0;
+
+}
 p {
 	color: #3c3c3c;
 }
@@ -7,7 +14,6 @@ a.list-group-item .list-group-item-heading {
 .usr-box {
 	width: 1024px;
 	position: relative;
-	top: 60px;
 	border: 1px solid #E4E4E4;
     background-color: white;
 }
