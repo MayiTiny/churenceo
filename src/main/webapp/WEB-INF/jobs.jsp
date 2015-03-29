@@ -163,7 +163,7 @@
             var category = $(".position-child.current").attr("data-child-id");
             var keyword = $("#job_search").val();
             var company = $(".company.current").attr("company-id");
-            window.location.href = "${pageContext.request.contextPath }/list/c"+ company + "?keyword=" + keyword + "&category=" + category + "&city=" + city;
+            window.location.href = "${pageContext.request.contextPath }/list/c"+ company + "?keyword=" + encodeURIComponent(keyword) + "&category=" + category + "&city=" + city;
         }
         
     }); 
