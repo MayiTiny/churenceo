@@ -22,7 +22,6 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
     -webkit-tap-highlight-color: transparent;
     font-family: 'Arial', '微软雅黑'
 }
-
 a:hover,a:active,a:link,a:visited{text-decoration:none;}
 
 ol,ul {

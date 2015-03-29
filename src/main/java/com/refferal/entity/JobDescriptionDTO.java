@@ -82,6 +82,8 @@ public class JobDescriptionDTO {
 	 */
 	private int company;
 
+	private int status;
+	
 	public int getId() {
 		return id;
 	}
@@ -205,8 +207,16 @@ public class JobDescriptionDTO {
 		this.specialDescription = specialDescription;
 	}
 	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	public String getCompanyName() {
 		return CompanyEnum.getNameById(company);
 	}
-	
+
 }

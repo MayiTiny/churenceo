@@ -54,7 +54,9 @@
         </li>    
       </ul>
       <div class="panel-footer">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">我要内推</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简历由搬砖君审核通过后，直接内部推荐到${jd.companyName }，为您提供最高效的面试流程。
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">我要内推</button>
+        <button type="button" class="btn btn-info btn-fav">收藏</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简历由搬砖君审核通过后，直接内部推荐到${jd.companyName }，为您提供最高效的面试流程。
       </div>
     </div>
   </div>

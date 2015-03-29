@@ -43,6 +43,7 @@ public class DetailAction {
 		ModelAndView mv = new ModelAndView("job_detail");
 		JobDescriptionDTO jd = jobDescriptionService.selectById(id);
 		mv.addObject("jd", jd);
+		mv.addObject("bannerSelected", "job");
 		return mv;
 	}
 

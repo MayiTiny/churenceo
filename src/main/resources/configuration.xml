@@ -5,9 +5,11 @@
 	<typeAliases>
 		<typeAlias type="com.refferal.entity.JobDescription" alias="JobDescription" />
 		<typeAlias type="com.refferal.entity.User" alias="User" />
+		<typeAlias type="com.refferal.entity.Favorites" alias="Favorites" />
 	</typeAliases>
     <mappers>
         <mapper resource="com/refferal/mapper/JobDescriptionMapper.xml"/>
         <mapper resource="com/refferal/mapper/UserMapper.xml"/>
+        <mapper resource="com/refferal/mapper/FavoritesMapper.xml"/>
     </mappers>
 </configuration>

@@ -1,7 +1,10 @@
+html {  
+  height:100%;  
+}  
 body {
-  padding-bottom: 40px;
-  color: #5a5a5a;
   font-family: Microsoft YaHei;
+  background-color: #f6f7f7;
+  min-height:100%; height:auto !important; height:100%;
 }
 
 h3,h4 {
@@ -64,6 +67,7 @@ h3,h4 {
     position: relative;
     top: 60px;  
     border:1px solid #E4E4E4;
+    background-color: white;
 }
 
 .job-info{
@@ -144,4 +148,7 @@ h3,h4 {
 }
 .div-search {
 	margin-top: 15px;
+}
+.btn-fav {
+	margin-left: 12px;
 }

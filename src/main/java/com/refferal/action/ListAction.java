@@ -54,6 +54,7 @@ public class ListAction {
 		} else {
 			mv.addObject("companyName", "高端互联网公司");
 		}
+		mv.addObject("bannerSelected", "job");
 		
         return mv;
     }

@@ -8,11 +8,14 @@
         <nav>
             <ul class="clearfix">
                 <li class="banner-hover<c:if test="${bannerSelected=='index' }"> default active</c:if>">
-                    <a href="<%=request.getContextPath()%>/">首 页</a>
+                    <a href="<%=request.getContextPath()%>/" class="header-nav-a">首 页</a>
                 </li>
-                <li class="banner-hover<c:if test="${bannerSelected!='index' }"> default active</c:if>">
-                    <a href="<%=request.getContextPath()%>/list/c0">职位中心</a>
+                <li class="banner-hover<c:if test="${bannerSelected=='job' }"> default active</c:if>">
+                    <a href="<%=request.getContextPath()%>/list/c0"class="header-nav-a">职位中心</a>
                 </li>
+<%--                 <li class="banner-hover<c:if test="${bannerSelected=='favorites' }"> default active</c:if>"> --%>
+<%--                     <a href="<%=request.getContextPath()%>/favorites"class="header-nav-a">个人中心</a> --%>
+<!--                 </li> -->
             </ul>
         </nav>
         <div class="hd-r">
@@ -33,7 +36,7 @@
 		            <b class="caret"></b>
 	              </a>
 	              <ul class="dropdown-menu" style="width: 100%;border: 0;border-radius: 0;margin-top: 1px;min-width: 100px;">
-	                <li><a class="" href="javascript:void(0)">我的收藏</a></li>
+	                <li><a class="" href="<%=request.getContextPath()%>/favorites">我的收藏</a></li>
 	                <li><a class="logout" href="javascript:void(0)">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></li>
 	              </ul>
                 </li>
