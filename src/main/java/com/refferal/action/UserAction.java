@@ -107,7 +107,7 @@ public class UserAction {
                 	
                 	Birthday birthday = weiboUserInfoBean.getBirthday();
                 	Calendar cal = Calendar.getInstance();
-                	cal.set(birthday.getYear(), birthday.getMonth(), birthday.getDay());
+                	cal.set(birthday.getYear(), birthday.getMonth(), birthday.getDay(), 0, 0, 0);
                 	birthDate = cal.getTime();
             		
                 	email = weiboUserInfoBean.getEmail();
@@ -142,24 +142,26 @@ public class UserAction {
                 	
                 }
                 
-                User user = new User();
-                user.setOpenid(openID);
-                user.setNickname(nickname);
-                user.setAvatar(avatar);
-                user.setGender(gender);
-                user.setBirthday(birthDate);
-                user.setEmail(email);
-                user.setProvince(province);
-                user.setCity(city);
-                user.setCompanyId(companyId);
-                user.setCompanyName(companyName);
-                user.setDepartmentName(departmentName);
-                userService.insertOrUpdate(user);
+                User user = userService.selectBy(openID);
+                if (user == null) {
+                	user = new User();
+                	user.setOpenid(openID);
+                	user.setNickname(nickname);
+                	user.setAvatar(avatar);
+                	user.setGender(gender);
+                	user.setBirthday(birthDate);
+                	user.setEmail(email);
+                	user.setProvince(province);
+                	user.setCity(city);
+                	user.setCompanyId(companyId);
+                	user.setCompanyName(companyName);
+                	user.setDepartmentName(departmentName);
+                	userService.insert(user);
+                }
                 
                 request.getSession().setAttribute("userId", user.getId());
                 request.getSession().setAttribute("nickname", nickname);
                 request.getSession().setAttribute("avatar", avatar);
-                
 			}
 			
 //			 request.getSession().setAttribute("nickname", "tiny1231");

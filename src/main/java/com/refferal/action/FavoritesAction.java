@@ -1,14 +1,14 @@
 package com.refferal.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.refferal.common.PageList;
 import com.refferal.entity.Favorites;
 import com.refferal.entity.JobDescriptionDTO;
 import com.refferal.service.FavoritesService;
@@ -16,8 +16,6 @@ import com.refferal.service.JobDescriptionService;
 
 @Controller
 public class FavoritesAction {
-
-	private static final int PAGE_SIZE = 15;
 
 	@Autowired
 	private FavoritesService favoritesService;
@@ -34,12 +32,9 @@ public class FavoritesAction {
 			return mv;
 		}
 		
-		int pageNo = ServletRequestUtils.getIntParameter(request, "pageNo", 1);
-		int startRecord = (pageNo - 1) * PAGE_SIZE;
-		
-		PageList<Favorites> favorites = favoritesService.search(userId, startRecord, PAGE_SIZE);
-		if (favorites.getCount() > 0) {
-			for (Favorites favorite : favorites.getList()) {
+		List<Favorites> favorites = favoritesService.search(userId);
+		if (favorites != null) {
+			for (Favorites favorite : favorites) {
 				JobDescriptionDTO jd = jobDescriptionService.selectById(favorite.getJdId());
 				if (jd != null) {
 					favorite.setJdName(jd.getName());
@@ -49,7 +44,8 @@ public class FavoritesAction {
 				}
 			}
 		}
-		
+
+		mv.addObject("login", true);
 		mv.addObject("favorites", favorites);
 		mv.addObject("bannerSelected", "favorites");
 		return mv;

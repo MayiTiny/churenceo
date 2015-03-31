@@ -35,5 +35,11 @@ public class FavoritesService {
 		}
 		return pageList;
 	}
+
+	public List<Favorites> search(Integer userId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		return favoritesDao.getFavorites(params);
+	}
 	
 }

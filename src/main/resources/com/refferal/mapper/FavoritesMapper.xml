@@ -24,6 +24,8 @@
             </if>
         </trim>
         order by id desc
-        limit #{start}, #{pageSize};
+        <if test="start != null">
+            limit #{start}, #{pageSize};
+        </if>
     </select>
 </mapper>

@@ -1,3 +1,6 @@
+html {
+	height: 100%;
+}
 body {
 	background-color: #f6f7f7;
     min-height:100%; height:auto !important; height:100%;
@@ -34,7 +37,7 @@ a.list-group-item .list-group-item-heading {
     margin: 30px 70px 0 0;
 	float: right;
 	width: 600px;
-	height: 450px;
+	min-height: 450px;
 	#border: 1px solid #E4E4E4;
 }
 .fav-item {

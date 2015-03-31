@@ -126,4 +126,82 @@
             </if>
         </trim>
     </insert>
+    <select id="selectByOpenID" resultMap="userMap">
+        select * from user where openid = #{openID}
+    </select>
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
+        insert into user (
+        <trim suffixOverrides=",">
+            <if test="openid != null">
+              openid, 
+            </if>
+            <if test="nickname != null">
+              nickname, 
+            </if>
+            <if test="avatar != null">
+              avatar, 
+            </if>
+            <if test="gender != null">
+              gender, 
+            </if>
+            <if test="birthday != null">
+              birthday, 
+            </if>
+            <if test="email != null">
+              email, 
+            </if>
+            <if test="province != null">
+              province, 
+            </if>
+            <if test="city != null">
+              city, 
+            </if>
+            <if test="companyId != null">
+              company_id, 
+            </if>
+            <if test="companyName != null">
+              company_name, 
+            </if>
+            <if test="departmentName != null">
+              department_name, 
+            </if>
+        </trim>
+        ) values (
+        <trim suffixOverrides=",">
+            <if test="openid != null">
+              #{openid}, 
+            </if>
+            <if test="nickname != null">
+              #{nickname}, 
+            </if>
+            <if test="avatar != null">
+              #{avatar}, 
+            </if>
+            <if test="gender != null">
+              #{gender}, 
+            </if>
+            <if test="birthday != null">
+              #{birthday}, 
+            </if>
+            <if test="email != null">
+              #{email}, 
+            </if>
+            <if test="province != null">
+              #{province}, 
+            </if>
+            <if test="city != null">
+              #{city}, 
+            </if>
+            <if test="companyId != null">
+              #{companyId}, 
+            </if>
+            <if test="companyName != null">
+              #{companyName}, 
+            </if>
+            <if test="departmentName != null">
+              #{departmentName}, 
+            </if>
+        </trim>
+        )
+    </insert>
 </mapper>

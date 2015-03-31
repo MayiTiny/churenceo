@@ -10,7 +10,7 @@
     <%@include file="common/header.jsp" %>
     <link href="<%=request.getContextPath()%>/css/favorites.css" rel="stylesheet">
     <script type="text/javascript">
-      if (${empty favorites}) {
+      if (${login != true}) {
         alert("想查看收藏职位，请先登录哦~~");
         location.href = "<%=request.getContextPath()%>/";
       }
@@ -31,8 +31,8 @@
         </div>
         <div class="fav-box">
 			<div class="list-group">
-              <c:if test="${favorites.count == 0 }"><h4 class="fav-none">您还没有收藏的职位哦~~</h4></c:if>
-			  <c:forEach items="${favorites.list }" var="favorite">
+              <c:if test="${empty favorites }"><h4 class="fav-none">您还没有收藏的职位哦~~</h4></c:if>
+			  <c:forEach items="${favorites }" var="favorite">
 				<a href="<%=request.getContextPath()%>/detail/${favorite.jdId }" 
 		              class="list-group-item fav-item" target="_blank">
 			      <c:if test="${!status }"></c:if>
