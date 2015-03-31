@@ -113,7 +113,8 @@ public class DetailAction {
 		mailInfo.setSubject("搬砖网-" + name + "-" + title);
 		mailInfo.setContent("您好，这是我的简历，请查收。\r\n我的邮箱是：" + email
 				+ "\r\n职位链接：http://www.churenceo.com/detail/" + id
-				+ "\r\n" + msg);
+				+ "\r\n" + msg
+				+ "\r\n My IP is " + request.getRemoteAddr());
 		mailInfo.setAttachFileName(path.substring(path.lastIndexOf(File.separator) + 1));
 		mailInfo.setAttachFilePath(path);
 		mailService.sendTextMail(mailInfo);
