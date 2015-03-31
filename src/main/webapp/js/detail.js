@@ -65,5 +65,51 @@ $(function() {
             }
         });  
         return false;
-    });  
+    });
+    $(".js-fav").click(function() {
+    	if (userId <= 0) {
+    		alert("请先登录再收藏职位~~");
+    		return;
+    	}
+    	$(this).attr('disabled',true);
+    	$.ajax({
+            type: "GET",
+            url: context + "/favorites/add",
+            data: {"jdId": $("#jobId").val(), "userId": userId, "companyId": $("#companyId").val() },
+            dataType: "json",
+            success: function(data) {
+            	if (data.succeed == false) {
+            		alert(data.msg);
+            	} else {
+            		$(".js-fav").hide();
+            		$(".js-fav-cancel").removeAttr("disabled");
+            		$(".js-fav-cancel").show();
+            		alert("收藏职位成功，您可到个人中心查看。亲，别忘了稍后投递简历哦~~");
+            	}
+	        }
+        });
+    });
+    $(".js-fav-cancel").click(function() {
+    	if (userId <= 0) {
+    		alert("请先登录再取消收藏~~");
+    		return;
+    	}
+    	$(this).attr('disabled',true);
+    	$.ajax({
+            type: "GET",
+            url: context + "/favorites/cancel",
+            data: {"jdId": $("#jobId").val(), "userId": userId },
+            dataType: "json",
+            success: function(data) {
+            	if (data.succeed == false) {
+            		alert(data.msg);
+            	} else {
+            		$(".js-fav-cancel").hide();
+            		$(".js-fav").removeAttr("disabled");
+            		$(".js-fav").show();
+            		alert("取消收藏成功，在看看其他职位吧~~");
+            	}
+	        }
+        });
+    });
 });

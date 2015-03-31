@@ -42,4 +42,28 @@ public class FavoritesService {
 		return favoritesDao.getFavorites(params);
 	}
 	
+	public int getCount(Integer userId, Integer jdId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("jdId", jdId);
+		return favoritesDao.getFavoritesCount(params);
+	}
+
+	public int getCount(int userId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		return favoritesDao.getFavoritesCount(params);
+	}
+
+	public void insert(Favorites fav) {
+		favoritesDao.insert(fav);
+	}
+
+	public void delete(int userId, int jdId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		params.put("jdId", jdId);
+		favoritesDao.delete(params);
+	}
+	
 }

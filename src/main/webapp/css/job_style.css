@@ -152,7 +152,7 @@ h3,h4 {
 .div-search {
 	margin-top: 15px;
 }
-.btn-fav {
+.btn-fav, .btn-fav-cancel {
 	margin-left: 12px;
 }
 .panel ul .list-group-item {

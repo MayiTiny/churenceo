@@ -55,7 +55,8 @@
       </ul>
       <div class="panel-footer">
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">我要内推</button>
-        <button type="button" class="btn btn-info btn-fav">收藏</button>
+        <button type="button" class="btn btn-info btn-fav js-fav"<c:if test="${favorited }"> style="display: none;"</c:if>>收藏</button>
+        <button type="button" class="btn btn-info btn-fav-cancel js-fav-cancel"<c:if test="${!favorited }"> style="display: none;"</c:if>>取消收藏</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简历由搬砖君审核通过后，直接内部推荐到${jd.companyName }，为您提供最高效的面试流程。
       </div>
     </div>
@@ -73,6 +74,7 @@
 	        <input id="companyName" name="companyName" type="hidden" value="${jd.companyName }">
 	        <input id="jobName" name="jobName" type="hidden" value="${jd.name}">
 	        <input id="jobId" name="jobId" type="hidden" value="${jd.id }">
+	        <input id="companyId" name="companyId" type="hidden" value="${jd.company }">
 	        <input id="resumePath" name="resumePath" type="hidden">
 	        <div class="form-group">
 		      <label for="inputName" class="col-sm-3 control-label">姓名</label>

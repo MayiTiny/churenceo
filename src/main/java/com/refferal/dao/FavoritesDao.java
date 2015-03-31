@@ -9,8 +9,10 @@ public interface FavoritesDao {
 
 	List<Favorites> getFavorites(Map<String, Object> params);
 
-	int insert(Favorites jd);
+	int insert(Favorites fav);
 	
 	int getFavoritesCount(Map<String, Object> params);
+
+	void delete(Map<String, Object> params);
 	
 }

@@ -25,6 +25,7 @@ import com.refferal.common.Const;
 import com.refferal.entity.JobDescriptionDTO;
 import com.refferal.mail.MailSendInfo;
 import com.refferal.mail.MailService;
+import com.refferal.service.FavoritesService;
 import com.refferal.service.JobDescriptionService;
 
 @Controller
@@ -36,13 +37,27 @@ public class DetailAction {
 	private JobDescriptionService jobDescriptionService;
 
 	@Autowired
+	private FavoritesService favoritesService;
+	
+	@Autowired
 	private MailService mailService;
 
 	@RequestMapping("/detail/{id:\\d+}")
-	public ModelAndView detail(@PathVariable(value = "id") Integer id) {
+	public ModelAndView detail(HttpServletRequest request, @PathVariable(value = "id") Integer id) {
 		ModelAndView mv = new ModelAndView("job_detail");
 		JobDescriptionDTO jd = jobDescriptionService.selectById(id);
 		mv.addObject("jd", jd);
+		
+		boolean favorited = false;
+		Integer userId = (Integer) request.getSession().getAttribute("userId");
+		if (userId != null && userId > 0) {
+			int favoriteCount = favoritesService.getCount(userId, id);
+			if (favoriteCount > 0) {
+				favorited = true;
+			}
+		}
+		mv.addObject("favorited", favorited);
+		
 		mv.addObject("bannerSelected", "job");
 		return mv;
 	}

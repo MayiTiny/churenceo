@@ -14,6 +14,9 @@
 	        <if test="userId != null">
 	            and user_id = #{userId}
 	        </if>
+	        <if test="jdId != null">
+	            and jd_id = #{jdId}
+	        </if>
         </trim>
     </select>
     <select id="getFavorites" parameterType="hashmap" resultMap="favoritesMap">
@@ -28,4 +31,13 @@
             limit #{start}, #{pageSize};
         </if>
     </select>
+    <insert id="insert" parameterType="Favorites">
+        insert into favorites 
+            (user_id, jd_id, create_time, company_id) 
+        values 
+            (#{userId }, #{jdId}, #{createTime }, #{companyId })
+    </insert>
+    <delete id="delete"  parameterType="hashmap">
+        delete from favorites where user_id = #{userId } and jd_id = #{jdId }
+    </delete>
 </mapper>
