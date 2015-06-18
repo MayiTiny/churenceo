@@ -27,7 +27,7 @@ public class AliCrawler implements JDCrawler {
 	@Autowired
 	private JobDescriptionDao jobDescriptionDao;
 
-	private static final String ALI_URL = "http://job.alibaba.com/zhaopin/socialPositionList/doList.json?pageSize=10&pageIndex=";
+	private static final String ALI_URL = "https://job.alibaba.com/zhaopin/socialPositionList/doList.json?pageSize=10&pageIndex=";
 
 	/**
 	 * @param args
