@@ -3,13 +3,15 @@ package com.refferal.crawler.impl;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Date;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,24 +26,31 @@ import com.refferal.enums.CompanyEnum;
 @Service
 public class AliCrawler implements JDCrawler {
 
+	private static final Log LOGGER = LogFactory.getLog("AliCrawler");
+	
 	@Autowired
 	private JobDescriptionDao jobDescriptionDao;
 
 	private static final String ALI_URL = "https://job.alibaba.com/zhaopin/socialPositionList/doList.json?pageSize=10&pageIndex=";
-
+	
 	/**
 	 * @param args
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
-		HttpClient httpclient = new DefaultHttpClient();
-		int index = 1;
+		int index = 0;
 		while (true) {
-			HttpGet httpget = new HttpGet(ALI_URL + index);
 			index++;
-			httpget.addHeader("Content-Type", "text/html;charset=UTF-8");
-			HttpResponse response = httpclient.execute(httpget);
-			InputStream is = response.getEntity().getContent();
+			// 阿里已经更新成高端的https
+			URL myURL = new URL(ALI_URL + index);
+			HttpsURLConnection httpsConn = (HttpsURLConnection) myURL.openConnection();
+			httpsConn.setHostnameVerifier(new HostnameVerifier() {
+				public boolean verify(String s, SSLSession sslsession) {
+					return true;
+				}
+			});
+			InputStream is = httpsConn.getInputStream();
+			
 			String result = inStream2String(is);
 			try {
 				JSONObject totalJson = (JSONObject) JSONObject.parse(result);
@@ -83,10 +92,10 @@ public class AliCrawler implements JDCrawler {
 					return;
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				LOGGER.error("AliCrawler exception", e);
 				break;
 			}
-			EntityUtils.consume(response.getEntity());
+//			EntityUtils.consume(response.getEntity());
 			Thread.sleep(1000L);
 		}
 	}
