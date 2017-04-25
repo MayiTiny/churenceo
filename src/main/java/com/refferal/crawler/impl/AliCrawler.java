@@ -92,7 +92,7 @@ public class AliCrawler implements JDCrawler {
 					return;
 				}
 			} catch (Exception e) {
-				LOGGER.error("AliCrawler exception", e);
+				LOGGER.error("AliCrawler exception,url:" + myURL, e);
 				break;
 			}
 //			EntityUtils.consume(response.getEntity());
