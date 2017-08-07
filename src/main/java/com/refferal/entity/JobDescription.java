@@ -211,16 +211,26 @@ public class JobDescription {
 	public void setSpecialDescription(String specialDescription) {
 		this.specialDescription = specialDescription;
 	}
-	
-	public void print(){
-		System.out.println(name);
-		System.out.println(cityId);
-		System.out.println(degree);
-		System.out.println(department);
-		System.out.println(headCount);
-		System.out.println(postDescription);
-		System.out.println(postRequire);
-		
+
+	@Override
+	public String toString() {
+		return "JobDescription{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", headCount=" + headCount +
+				", department='" + department + '\'' +
+				", cityId='" + cityId + '\'' +
+				", beginDate=" + beginDate +
+				", recruitType=" + recruitType +
+				", functionType=" + functionType +
+				", endDate=" + endDate +
+				", yearsLimit='" + yearsLimit + '\'' +
+				", degree='" + degree + '\'' +
+				", postRequire='" + postRequire + '\'' +
+				", postDescription='" + postDescription + '\'' +
+				", specialDescription='" + specialDescription + '\'' +
+				", status=" + status +
+				", company=" + company +
+				'}';
 	}
-	
 }

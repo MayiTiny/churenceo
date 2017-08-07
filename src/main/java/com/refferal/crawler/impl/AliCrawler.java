@@ -34,7 +34,6 @@ public class AliCrawler implements JDCrawler {
 	private static final String ALI_URL = "https://job.alibaba.com/zhaopin/socialPositionList/doList.json?pageSize=10&pageIndex=";
 	
 	/**
-	 * @param args
 	 * @throws Exception
 	 */
 	public void startCrawl() throws Exception {
@@ -50,16 +49,15 @@ public class AliCrawler implements JDCrawler {
 				}
 			});
 			InputStream is = httpsConn.getInputStream();
-			
+
 			String result = inStream2String(is);
-			try {
-				JSONObject totalJson = (JSONObject) JSONObject.parse(result);
-				JSONObject returnValue = (JSONObject) totalJson
-						.get("returnValue");
-				JSONArray jobs = (JSONArray) returnValue.get("datas");
-				for (int i = 0; i < jobs.size(); i++) {
+			JSONObject totalJson = (JSONObject) JSONObject.parse(result);
+			JSONObject returnValue = (JSONObject) totalJson.get("returnValue");
+			JSONArray jobs = (JSONArray) returnValue.get("datas");
+			for (int i = 0; i < jobs.size(); i++) {
+				JobDescription jobDesc = new JobDescription();
+				try {
 					JSONObject job = jobs.getJSONObject(i);
-					JobDescription jobDesc = new JobDescription();
 					jobDesc.setCompany(CompanyEnum.ALIBABA.getCompanyId());
 					jobDesc.setDegree(job.getString("degree"));
 					jobDesc.setName(job.getString("name"));
@@ -79,23 +77,20 @@ public class AliCrawler implements JDCrawler {
 							.getString("firstCategory")));
 					jobDesc.setCityId(job.getString("workLocation"));
 					int isExsit = jobDescriptionDao.selectExsit(jobDesc);
-					if(0 == isExsit){
+					if (0 == isExsit) {
 						jobDescriptionDao.insert(jobDesc);
-					}else{
+					} else {
 						jobDescriptionDao.updateById(isExsit);
 					}
-					// TODO 插入数据库
+				} catch (Exception e) {
+					LOGGER.error("AliCrawler exception,url:" + myURL + ",jd:" + jobDesc, e);
 				}
-				int totalPage = Integer.valueOf(returnValue.get("totalPage")
-						.toString());
-				if (index > totalPage || index >350) {
-					return;
-				}
-			} catch (Exception e) {
-				LOGGER.error("AliCrawler exception,url:" + myURL, e);
-				break;
 			}
-//			EntityUtils.consume(response.getEntity());
+			int totalPage = Integer.valueOf(returnValue.get("totalPage")
+					.toString());
+			if (index > totalPage || index > 350) {
+				return;
+			}
 			Thread.sleep(1000L);
 		}
 	}
