@@ -66,9 +66,11 @@
             company, 
             name, 
             head_count, 
-            department, 
-            city_id, 
-            begin_date, 
+            department,
+            <if test="cityId != null">
+                city_id,
+            </if>
+            begin_date,
             recruit_type, 
             function_type, 
             end_date,
@@ -82,8 +84,10 @@
             #{company}, 
             #{name}, 
             #{headCount}, 
-            #{department}, 
-            #{cityId}, 
+            #{department},
+            <if test="cityId != null">
+              #{cityId},
+            </if>
             #{beginDate}, 
             #{recruitType}, 
             #{functionType}, 
