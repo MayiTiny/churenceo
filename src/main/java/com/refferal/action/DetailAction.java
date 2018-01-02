@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.refferal.mail.MailServiceImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,5 +150,23 @@ public class DetailAction {
 		info.setFromNickName("搬砖君");
 		return info;
 	}
-	
+
+	public static void main(String[] args) {
+		MailSendInfo info = new MailSendInfo();
+		info.setMailServerHost("smtp.qq.com");
+		info.setMailServerPort("25");
+		info.setValidate(true);
+		info.setUserName("churenceo@foxmail.com");
+		info.setPassword("gnivoniszhvhdgbh");// 您的邮箱密码
+		info.setFromAddress("churenceo@foxmail.com");
+		info.setFromNickName("搬砖君");
+
+		info.setToAddress("dragon7910@163.com");
+		info.setSubject("【搬砖网】投递通知");
+		info.setContent( "，你好!</br>你选择的职位投递成功，搬砖君评估通过之后，将会直接内部推荐到</br>更多信息请关注我们的微信：churenceo。</br><img src=\"http://www.churenceo.com/img/weixin.jpg\">");
+		// 这个类主要来发送邮件
+		new MailServiceImpl().sendHtmlMail(info);
+
+	}
+
 }
